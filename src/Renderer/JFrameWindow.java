@@ -20,7 +20,7 @@ public class JFrameWindow extends JFrame {
 			public void run() {
 				try {
 					JFrameWindow frame = new JFrameWindow();
-					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
 					frame.setVisible(true);
 				} catch (Exception e) {
