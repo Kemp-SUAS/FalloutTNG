@@ -47,6 +47,7 @@ public class PlayerStats {
 	public void setHealthStat(int hp){
 		this.health = hp;
 		this.getToxinLevel();
+		
 			
 	}
 	public void setAbilityPoints(int ap){
