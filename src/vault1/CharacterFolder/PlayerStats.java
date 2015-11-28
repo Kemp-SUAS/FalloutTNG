@@ -17,13 +17,16 @@ public class PlayerStats {
 		this.ammo = ammoP;
 		this.toxinLevels = toxP;
 		this.relations = relations;
+		this.toxinResist = toxR;
 	}
 
 	public PlayerStats() {
 
 	}
 
-	public int getHealthStat() {
+	public int getHealthStat(){
+		if(this.toxinLevels != 0){
+		}
 		return health;
 	}
 
