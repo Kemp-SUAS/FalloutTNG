@@ -43,7 +43,7 @@ public class PlayerStats {
 		return toxinLevels;
 	}
 	public int getToxinResist() {
-		return toxinLevels;
+		return toxinResist;
 	}
 
 
