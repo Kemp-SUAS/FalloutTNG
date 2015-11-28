@@ -6,9 +6,11 @@ public class PlayerStats {
 	private int armor;
 	private int ammo;
 	private int toxinLevels;
+	private int toxinResist;
 	private int relations;
 
-	public PlayerStats(int hp, int ap, int armP, int ammoP, int toxP, int relations) {
+
+	public PlayerStats(int hp, int ap, int armP, int ammoP, int toxP, int toxR, int relations) {
 		this.health = hp;
 		this.abilityPoints = ap;
 		this.armor = armP;
@@ -40,6 +42,10 @@ public class PlayerStats {
 	public int getToxinLevel() {
 		return toxinLevels;
 	}
+	public int getToxinResist() {
+		return toxinLevels;
+	}
+
 
 	public int getRelationsLevel() {
 		return relations;
@@ -47,8 +53,6 @@ public class PlayerStats {
 
 	public void setHealthStat(int hp) {
 		this.health = hp;
-		this.getToxinLevel();
-		
 	}
 
 	public void setAbilityPoints(int ap) {
@@ -66,6 +70,11 @@ public class PlayerStats {
 	public void setToxinLevel(int toxP) {
 		this.toxinLevels = toxP;
 	}
+	
+	public void setToxinResist(int toxR) {
+		this.toxinLevels = toxR;
+	}
+
 
 	public void setRelationsLevel(int relations) {
 		this.relations = relations;
