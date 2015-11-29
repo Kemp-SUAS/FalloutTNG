@@ -48,7 +48,7 @@ public class characterBuildingDemo extends JFrame {
 		JButton continueButton = new JButton("");
 		continueButton.setBounds(840, 291, 182, 47);
 		contentPane.add(continueButton);
-		Image continueIdle = new ImageIcon("E:\\Downloads\\continue_Idle.png").getImage().getScaledInstance(continueButton.getWidth(),continueButton.getHeight(),java.awt.Image.SCALE_SMOOTH);
+		Image continueIdle = new ImageIcon("/FalloutTNG/Assest/Pictures/MainScreen/continue_Idle.png").getImage().getScaledInstance(continueButton.getWidth(),continueButton.getHeight(),java.awt.Image.SCALE_SMOOTH);
 		continueButton.setIcon(new ImageIcon(continueIdle));
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
