@@ -172,7 +172,7 @@ public class MainScreen extends JFrame {
 				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
 			}
 		});
-		setContentPane(new ImagePanel(new ImageIcon(ImageChanger.mainScreenBackground())));
+	
 		
 
 	}
