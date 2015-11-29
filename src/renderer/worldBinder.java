@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Renderer;
+package renderer;
 
 /**
  * @author simarpal
