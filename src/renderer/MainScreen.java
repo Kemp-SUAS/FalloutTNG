@@ -77,7 +77,11 @@ public class MainScreen extends JFrame {
 				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("idle", continueButton)));
 			}
 		});
-		
+		/**
+		 * Create the frame.
+		 * 
+		 * @throws IOException
+		 */
 		JButton loadButton = new JButton("");
 		loadButton.setBounds(840, 291, 182, 47);
 		contentPane.add(loadButton);
@@ -104,7 +108,11 @@ public class MainScreen extends JFrame {
 				loadButton.setIcon(new ImageIcon(ImageChanger.mainMenuLoad("idle", loadButton)));
 			}
 		});
-
+		/**
+		 * Create the frame.
+		 * 
+		 * @throws IOException
+		 */
 		JButton newGameButton = new JButton("");
 		newGameButton.setBounds(840, 391, 182, 47);
 		contentPane.add(newGameButton);
@@ -131,7 +139,11 @@ public class MainScreen extends JFrame {
 				newGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuNewGame("idle", newGameButton)));
 			}
 		});
-		
+		/**
+		 * Create the frame.
+		 * 
+		 * @throws IOException
+		 */
 		JButton exitGameButton = new JButton("");
 		exitGameButton.setBounds(840, 491, 182, 47);
 		contentPane.add(exitGameButton);

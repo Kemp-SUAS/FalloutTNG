@@ -6,7 +6,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class ImageChanger {
-
+/**
+ * Changes the button image for click, hover and idle on the continue button
+ * @param s
+ * @param button
+ * @return Image
+ */
 	public static Image mainMenuContinue(String s, JButton button){
 		if(s.equals("click")){
 			Image Click = new ImageIcon("Assest/Pictures/MainScreen/continue_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
@@ -21,6 +26,12 @@ public class ImageChanger {
 			return continueIdle;
 		}
 	}
+	/**
+	 * Changes the button image for click, hover and idle on the load button
+	 * @param s
+	 * @param button
+	 * @return Image
+	 */
 	public static Image mainMenuLoad(String s, JButton button){
 		if(s.equals("click")){
 			Image Click = new ImageIcon("Assest/Pictures/MainScreen/load_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
@@ -35,6 +46,12 @@ public class ImageChanger {
 			return Idle;
 		}
 	}
+	/**
+	 * Changes the button image for click, hover and idle on the newGame button
+	 * @param s
+	 * @param button
+	 * @return Image
+	 */
 	public static Image mainMenuNewGame(String s, JButton button){
 		if(s.equals("click")){
 			Image Click = new ImageIcon("Assest/Pictures/MainScreen/newGame_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
@@ -49,6 +66,12 @@ public class ImageChanger {
 			return Idle;
 		}
 	}
+	/**
+	 * Changes the button image for click, hover and idle on the exit button
+	 * @param s
+	 * @param button
+	 * @return Image
+	 */
 	public static Image mainMenuExitGame(String s, JButton button){
 		if(s.equals("click")){
 			Image Click = new ImageIcon("Assest/Pictures/MainScreen/exit_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
