@@ -53,26 +53,24 @@ public class characterBuildingDemo extends JFrame {
 		JButton continueButton = new JButton("");
 		continueButton.setBounds(840, 291, 182, 47);
 		contentPane.add(continueButton);
-		Image continueIdle = new ImageIcon(AssetLocations.mainMenuContinue("idle")).getImage().getScaledInstance(continueButton.getWidth(),continueButton.getHeight(),java.awt.Image.SCALE_SMOOTH);
-		continueButton.setIcon(new ImageIcon(continueIdle));
+		
+		continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("idle", continueButton)));
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				Image continueClick = new ImageIcon(AssetLocations.mainMenuContinue("click")).getImage().getScaledInstance(continueButton.getWidth(),continueButton.getHeight(),java.awt.Image.SCALE_SMOOTH);
-				continueButton.setIcon(new ImageIcon(continueClick));
+				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("click", continueButton)));
 			}
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				continueButton.setIcon(new ImageIcon(continueIdle));
+				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("idle", continueButton)));
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				Image continueHover = new ImageIcon(AssetLocations.mainMenuContinue("hover")).getImage().getScaledInstance(continueButton.getWidth(),continueButton.getHeight(),java.awt.Image.SCALE_SMOOTH);
-				continueButton.setIcon(new ImageIcon(continueHover));
+				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("hover", continueButton)));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				continueButton.setIcon(new ImageIcon(continueIdle));
+				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("idle", continueButton)));
 			}
 		});
 	}
