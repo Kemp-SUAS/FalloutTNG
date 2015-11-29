@@ -32,6 +32,7 @@ public class MainScreen extends JFrame {
 				try {
 					MainScreen frame = new MainScreen();
 					frame.setVisible(true);
+	
 					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -151,6 +152,11 @@ public class MainScreen extends JFrame {
 
 		exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
 		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(ImageChanger.mainScreenBackground());
+		lblNewLabel.setBounds(10, 11, 1012, 539);
+		contentPane.add(lblNewLabel);
+		
 		exitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -172,9 +178,7 @@ public class MainScreen extends JFrame {
 				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
 			}
 		});
-		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(ImageChanger.mainScreenBackground()));
-		contentPane.add(background);
+		
 		
 
 	}

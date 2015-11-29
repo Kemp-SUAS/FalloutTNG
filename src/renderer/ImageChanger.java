@@ -5,6 +5,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class ImageChanger {
 /**
@@ -87,8 +88,8 @@ public class ImageChanger {
 			return Idle;
 		}
 	}
-	public static Image mainScreenBackground(){
-		Image Click = new ImageIcon("Assest/Pictures/MainScreen/mianScreen_Background.png").getImage();
+	public static ImageIcon mainScreenBackground(){
+		ImageIcon Click = new ImageIcon("Assest/Pictures/MainScreen/mianScreen_Background.png");
 		return Click;
 	}
 }
