@@ -60,11 +60,20 @@ public class MoveCircle {
             im.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "pressed.right");
             im.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "released.left");
             im.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true), "released.right");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false), "pressed.up");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, false), "pressed.down");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true), "released.up");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, true), "released.down");
 
-            am.put("pressed.left", new MoveAction(-2, true));
-            am.put("pressed.right", new MoveAction(2, true));
-            am.put("released.left", new MoveAction(0, false));
-            am.put("released.right", new MoveAction(0, false));
+
+            am.put("pressed.left", new MoveAction(-2,0, true));
+            am.put("pressed.right", new MoveAction(2,0, true));
+            am.put("released.left", new MoveAction(0,0, false));
+            am.put("released.right", new MoveAction(0,0, false));
+            am.put("pressed.down", new MoveAction(0,-2, true));
+            am.put("pressed.up", new MoveAction(0,2, true));
+            am.put("released.down", new MoveAction(0,0, false));
+            am.put("released.up", new MoveAction(0,0, false));
 
             repaintTimer = new Timer(40, new ActionListener() {
                 @Override
@@ -103,9 +112,15 @@ public class MoveCircle {
             private int direction;
             private boolean keyDown;
 
-            public MoveAction(int direction, boolean down) {
-                this.direction = direction;
+            public MoveAction(int directionX,int directionY, boolean down) {
+            	if(directionX >=1){
+                this.direction = directionX;
                 keyDown = down;
+            	}
+            	if(directionY >= 1){
+            	this.direction = directionY;
+                keyDown = down;
+            	}
             }
 
             @Override
