@@ -1,5 +1,6 @@
 package renderer;
 
+import java.awt.Container;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
