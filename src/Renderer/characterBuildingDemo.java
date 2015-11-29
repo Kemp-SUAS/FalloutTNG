@@ -26,7 +26,6 @@ public class characterBuildingDemo extends JFrame {
 			public void run() {
 				try {
 					characterBuildingDemo frame = new characterBuildingDemo();
-					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
