@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.imageio.ImageIO;
@@ -31,6 +32,7 @@ public class MainScreen extends JFrame {
 				try {
 					MainScreen frame = new MainScreen();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,7 +52,6 @@ public class MainScreen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
 		JButton continueButton = new JButton("");
 		continueButton.setBounds(840, 191, 182, 47);
 		contentPane.add(continueButton);
@@ -137,6 +138,7 @@ public class MainScreen extends JFrame {
 		contentPane.add(exitGameButton);
 
 		exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
+		
 		exitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -158,6 +160,8 @@ public class MainScreen extends JFrame {
 				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
 			}
 		});
+		setContentPane(new JLabel(new ImageIcon(ImageChanger.mainScreenBackground())));
+		
 
 	}
 }
