@@ -131,7 +131,33 @@ public class MainScreen extends JFrame {
 				newGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuNewGame("idle", newGameButton)));
 			}
 		});
+		
+		JButton exitGameButton = new JButton("");
+		exitGameButton.setBounds(840, 491, 182, 47);
+		contentPane.add(exitGameButton);
 
+		exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
+		exitGameButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("click", exitGameButton)));
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("hover", exitGameButton)));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
+			}
+		});
 
 	}
 }
