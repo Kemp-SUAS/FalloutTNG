@@ -86,4 +86,8 @@ public class ImageChanger {
 			return Idle;
 		}
 	}
+	public static Image mainScreenBackground(){
+		Image Click = new ImageIcon("Assest/Pictures/MainScreen/mianScreen_Background.png").getImage();
+		return Click;
+	}
 }
