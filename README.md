@@ -27,9 +27,9 @@ https://drive.google.com/file/d/0B4WktV7Sh1-bWmRBeWZjVEZEeV9hUmtBeW55dkZfdXVreGl
 
 And also here are the credits
 
-Simar Pal Kalsi
-Kieran Wilson
-Faduma Ahmed
+Simar Pal Kalsi,
+Kieran Wilson,
+Faduma Ahmed,
 
 Mohid Aslam
 
