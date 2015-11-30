@@ -12,6 +12,9 @@ public class PlayerSkillPoints {
 	private int intelligence;
 	private int dexterity;
 	private int luck;
+	int carryWeightMultiplier;
+	final int CARRY_WEIGHT_CONST = 100;
+		
 
 	/**
 	 * Defult constructor
@@ -29,7 +32,7 @@ public class PlayerSkillPoints {
 	 * @param dex
 	 * @param luck
 	 */
-	public PlayerSkillPoints(int str, int aware, int end, int wit, int intel, int dex, int luck) {
+	public PlayerSkillPoints(int str, int aware, int end, int wit, int intel, int dex, int luck, int carryWeightMultiplier) {
 		this.strength = str;
 		this.awareness = aware;
 		this.endurance = end;
@@ -87,6 +90,9 @@ public class PlayerSkillPoints {
 	public int getLuckStat(){
 		return luck;
 	}
+	public int getCarryWeightMultiplier(){
+		return carryWeightMultiplier * CARRY_WEIGHT_CONST;
+	}
 	
 	/**
 	 * Sets the players Strength stat
@@ -137,9 +143,10 @@ public class PlayerSkillPoints {
 	public void setLuckStat(int luck){
 		this.strength = luck;
 	}
-	
-	
-	
+	public void setCarryWeightMultiplier(int carryWeightMultiplier){
+		this.carryWeightMultiplier = carryWeightMultiplier;
+	}
+		
 	
 
 }

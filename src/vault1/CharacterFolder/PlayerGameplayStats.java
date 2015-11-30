@@ -74,8 +74,9 @@ public class PlayerGameplayStats {
 	public int getAmmo() {
 		return ammo;
 	}
-/*8
+/**
  * Method gets Toxin Levels
+ * @return
  */
 	public int getToxinLevel() {
 		return toxinLevels;
