@@ -8,7 +8,8 @@ come back for more becasue of the heavy lore content.This game will feature your
 Please dont sue us as we are doing this for a school assignment. Thanks bethesda todd howard is god. all hail todd howard. Without
 further notice here is our uml diagram and design document.
 
-------------To-Do list-------------------
+-----To-Do list-----
+
 -Keep on updating the wiki website and regularly update the information
 -create a fuild flow between rendered and character packages
 -work on art need a lot of art. 
