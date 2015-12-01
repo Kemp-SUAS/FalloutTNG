@@ -10,7 +10,9 @@ This school project hopes encourages us to follow in the path of a very unique a
 -----To-Do list-----
 
 -Keep an updated and well kept Wiki web site. 
+
 -Create a fluid flow between rendered and character packages.
+
 -Create dynamic and unique art. 
 
 UML DOCUMENT {
