@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.awt.event.ActionEvent;
 
 public class characterBuilder extends JFrame {
-	
+
 	ArrayList<Image> images = new ArrayList<Image>();
 
 	private JPanel contentPane;
@@ -41,53 +41,51 @@ public class characterBuilder extends JFrame {
 	 * Create the frame.
 	 */
 	public characterBuilder() {
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 902, 666);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JButton btnNewButton = new JButton("Change Face");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("Face Changed");
-			}
-		});
-		btnNewButton.setBounds(24, 205, 145, 58);
-		contentPane.add(btnNewButton);
-		
 
-		
-		JLabel lblNewLabel = new JLabel("Hair");
-		lblNewLabel.setBounds(624, 64, 58, 88);
-		contentPane.add(lblNewLabel);
-		
+		JLabel lblHair = new JLabel("Hair");
+		lblHair.setBounds(624, 64, 58, 88);
+		contentPane.add(lblHair);
+
 		JLabel lblBody = new JLabel("Body");
 		lblBody.setBounds(624, 291, 58, 88);
 		contentPane.add(lblBody);
-		
+
+		JLabel lblFace = new JLabel("Face");
+		lblFace.setBounds(624, 181, 65, 70);
+		contentPane.add(lblFace);
+
 		JButton btnChangeBody = new JButton("Change Body");
 		btnChangeBody.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Body Changed");
+				lblBody.setIcon(ImageChanger.mainScreenBackground());
 			}
 		});
 		btnChangeBody.setBounds(24, 356, 145, 53);
 		contentPane.add(btnChangeBody);
-		
-		JLabel lblFace = new JLabel("Face");
-		lblFace.setBounds(624, 181, 65, 70);
-		contentPane.add(lblFace);
-		
-		JButton btnNewButton_1 = new JButton("Change Hair");
-		btnNewButton_1.addActionListener(new ActionListener() {
+
+		JButton btnChangeHair = new JButton("Change Hair");
+		btnChangeHair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblNewLabel.setIcon(ImageChanger.mainScreenBackground());
+				lblHair.setIcon(ImageChanger.mainScreenBackground());
 			}
 		});
-		btnNewButton_1.setBounds(24, 83, 139, 58);
-		contentPane.add(btnNewButton_1);
+		btnChangeHair.setBounds(24, 83, 139, 58);
+		contentPane.add(btnChangeHair);
+
+		JButton btnChangeFace = new JButton("Change Face");
+		btnChangeFace.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblFace.setIcon(ImageChanger.mainScreenBackground());
+			}
+		});
+		btnChangeFace.setBounds(24, 205, 145, 58);
+		contentPane.add(btnChangeFace);
 	}
 }

@@ -90,6 +90,10 @@ public class PlayerSkillPoints {
 	public int getLuckStat(){
 		return luck;
 	}
+	/**
+	 * Gets the plays Maximum carry weight
+	 * @return
+	 */
 	public int getCarryWeightMultiplier(){
 		return carryWeightMultiplier * CARRY_WEIGHT_CONST;
 	}
@@ -143,6 +147,10 @@ public class PlayerSkillPoints {
 	public void setLuckStat(int luck){
 		this.strength = luck;
 	}
+	/**
+	 * Sets the players maximum carry weight
+	 * @param carryWeightMultiplier
+	 */
 	public void setCarryWeightMultiplier(int carryWeightMultiplier){
 		this.carryWeightMultiplier = carryWeightMultiplier;
 	}
