@@ -9,21 +9,13 @@ This school project encourages us to follow in the path of a very unique and wel
 
 -----To-Do list-----
 
--Complete the DGEDS(Dynamic game engine database structure). The DGEDS will dynamically load and create levels based on pre made constants stored in a database.
+-Complete the DGEDS(Dynamic game engine database structure). The DGEDS will dynamically load and create levels based on pre-made constants stored in a database.
 
--Complete dynamic asset handling. This is going to be a complete overhaull of the asset handling classes. All teh string constants will be stored a 
-database which we can put information of off quite eesily and dynamically.
+-Complete dynamic asset handling. This is going to be a complete overhaul of the asset handling classes. All the string constants will be stored a database which we can put information of off quite easily and dynamically.
 
--Get some sleep?
+-Finish the wiki web site and blog made using the bootstrap framework and the trusty sublime text. 
 
--Finish the wiki wesite and blog made using the bootstrap framework and the trusty sublime text. 
-
--Start working on the website being controlled using JSP and create a servelet application that will dynamically change the blog and wiki of 
-the wesite. Well try to this ig going to be my thirld attemp at using servelt applications. the first two were succeses but to smallin scale.
-
--ge gome sleep
-
--kieran please fix this for me im tyerd af.
+-Start working on the web site being controlled using JSP and create a servelet application that will dynamically change the blog and wiki of the web site.
 
 -Keep an updated and well kept Wiki web site. 
 
