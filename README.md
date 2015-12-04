@@ -23,8 +23,12 @@ This school project encourages us to follow in the path of a very unique and wel
 
 -Create dynamic and unique art. 
 
-UML DOCUMENT {
+UML Overview {
 https://drive.google.com/file/d/0B4WktV7Sh1-bRktHM3R3NFMzQmM/view?usp=sharing 
+}
+
+UML with Classes and Variables{
+https://drive.google.com/file/d/0B749ABRDKtb9V1JPSDRGOTY5Qms/view?usp=sharing
 }
 
 Design documents{
