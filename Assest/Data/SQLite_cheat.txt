@@ -1,0 +1,117 @@
+qlite3 test.db // open sqlite and provide a database name
+002	 
+003	// Creates a table in the database
+004	// Primary Key automatically generates values that start at 1 and increase by 1
+005	// name is a text field that will hold employee names
+006	 
+007	create table employees (id integer primary key, name text);
+008	 
+009	// Insert some employees
+010	 
+011	insert into employees (id, name) values(1, 'Max Eisenhardt');
+012	insert into employees (name) values('Pietro Maximoff');
+013	insert into employees (name) values('Wanda Maximoff');
+014	insert into employees (name) values('Mortimer Toynbee');
+015	insert into employees (name) values('Jason Wyngarde');
+016	 
+017	// In column mode, each record is shown on a separate line with the data aligned in columns
+018	 
+019	// headers on shows the column names, if off they wouldn't show
+020	 
+021	.mode column
+022	.headers on
+023	select * from employees; // Show all employees
+024	 
+025	// Changes the width of the columns
+026	 
+027	.width 15 20
+028	 
+029	.exit // Closes the database
+030	 
+031	sqlite3 test.db // Reopen database
+032	 
+033	.tables // Displays the tables
+034	 
+035	// Displays every value on its own line
+036	 
+037	.mode line
+038	select * from employees;
+039	 
+040	// Shows the statements used to create the database. You could also provide a table name to see how that single table was made
+041	 
+042	.schema OR .schema employees
+043	 
+044	// You can get a more detailed database view
+045	 
+046	.mode column
+047	.headers on
+048	select type, name, tbl_name, sql from sqlite_master order by type;
+049	 
+050	// Used to show the current settings
+051	 
+052	.show
+053	 
+054	// Set NULL to 'NULL'
+055	 
+056	.nullvalue 'NULL'
+057	.show
+058	 
+059	// Change the prompt for SQLite
+060	 
+061	.prompt 'sqlite3> '
+062	.show
+063	 
+064	// Used to export database into SQL format on the screen
+065	 
+066	.dump
+067	 
+068	// Used to output to a file
+069	 
+070	.output ./Documents/sqlite3Files/employees.sql
+071	.dump
+072	.output stdout // Restores output to the screen
+073	 
+074	// You don't delete a database with any command. You have to delete the file itself
+075	 
+076	// You can delete a table however
+077	 
+078	drop table employees;
+079	 
+080	// You can import the table then with
+081	 
+082	.read ./Documents/sqlite3Files/employees.sql
+083	 
+084	// .mode is used to change the formatting of the output
+085	// OPTIONS FOR MODE : column, csv
+086	// html: html table
+087	// insert: insert commands used
+088	// list: List without commas
+089	// tabs: Tab separated list
+090	 
+091	// How to output a CSV list to a file
+092	 
+093	.mode csv // You could define the output should be csv
+094	.separator ,  // OR define the separator for the columns
+095	.output ./Documents/sqlite3Files/employees.csv
+096	.separator ,
+097	select * from employees;
+098	.output stdout
+099	 
+100	// Output html table
+101	 
+102	.mode html
+103	select * from employees;
+104	.output stdout
+105	 
+106	// line outputs column name and value
+107	 
+108	.mode line
+109	select * from employees;
+110	.output stdout
+111	 
+112	// Items with double quotes
+113	 
+114	.mode tcl
+115	select * from employees;
+116	.output stdout
+- See more at: http://www.newthinktank.com/2013/05/sqlite3-tutorial/#sthash.HkQEZja3.dpuf
