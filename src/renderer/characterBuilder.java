@@ -7,6 +7,9 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import AssetHandling.ImageChanger;
+
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
