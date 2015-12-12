@@ -1,6 +1,7 @@
 package AssetHandling;
 
 import java.sql.*;
+import java.util.ArrayList;
 /**
  * 
  * @author Simar Pal Kalsi
@@ -12,27 +13,32 @@ public class AssetManager {
  * @param args
  */
 	 static Statement stat;
-	public static void main(String[] args) throws SQLException {
-		 Connection c = null;
-		    try {
-		      Class.forName("org.sqlite.JDBC");
-		      c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/string.db");
-		       stat = c.createStatement();
-		    } catch ( Exception e ) {
-		      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-		      System.exit(0);
-		    }
-		    System.out.println("Opened database successfully");
-			ResultSet rs = stat.executeQuery("select * from image_strings;");
-			while(rs.next()) {
-				System.out.println("id = " + rs.getInt("id"));
-				System.out.println("String = " + rs.getString("path"));
+		public static void main(String[] args) throws SQLException, ClassNotFoundException {
+			 
+			System.out.println(dataBaseGet("image_strings", 3, "path"));
+		}
+		public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
+			 Class.forName("org.sqlite.JDBC");
+		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
+		     stat = c.createStatement();
+			ResultSet rs = stat.executeQuery("select * from "+ tableName+ " where id =" + id);
+			String indexInformation = rs.getString(id);
+			return indexInformation;
+		}
+		public static ArrayList<String> dataBaseGet(String tableName, String column) throws ClassNotFoundException, SQLException{
+			Class.forName("org.sqlite.JDBC");
+		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
+		     stat = c.createStatement();
+			ResultSet rs = stat.executeQuery("select * from "+ tableName+ ";");
+			ArrayList<String> data = new ArrayList<String>();
+			while(rs.next())
+			{
+				data.add(rs.getString(column));
 			}
-		  }
-	// Note no information in .db file yet
-	// Please use the sqlite3 shell for inserting data. 
+			return data;
 
-
+		}
+		
 	}
 
 
