@@ -19,7 +19,7 @@ public class AssetManager {
 		}
 		public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
 			 Class.forName("org.sqlite.JDBC");
-		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
+		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
 		     stat = c.createStatement();
 			ResultSet rs = stat.executeQuery("select * from "+ tableName+ " where id =" + id);
 			String indexInformation = rs.getString(id);
