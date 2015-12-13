@@ -15,14 +15,14 @@ public class AssetManager {
 	 static Statement stat;
 		public static void main(String[] args) throws SQLException, ClassNotFoundException {
 			 
-			System.out.println(dataBaseGet("image_strings", 3, "path"));
+			System.out.println(dataBaseGet("image_strings", 5, "path"));
 		}
 		public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
 			 Class.forName("org.sqlite.JDBC");
 		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
 		     stat = c.createStatement();
 			ResultSet rs = stat.executeQuery("select * from "+ tableName+ " where id =" + id);
-			String indexInformation = rs.getString(id);
+			String indexInformation = rs.getString(column);
 			return indexInformation;
 		}
 		public static ArrayList<String> dataBaseGet(String tableName, String column) throws ClassNotFoundException, SQLException{
