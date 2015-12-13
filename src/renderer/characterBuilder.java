@@ -95,11 +95,7 @@ public class characterBuilder extends JFrame {
 		contentPane.add(btnChangeFace);
 		
 		// THis is a test to add a line on to the screen
-		Line line;
 		
-		line= new Line (2,3,7,100,"BLACK");
-		
-		line.addLine(g);
 		
 	}
 }
