@@ -36,7 +36,6 @@ public class AssetManager {
 				data.add(rs.getString(column));
 			}
 			return data;
-
 		}
 		
 	}
