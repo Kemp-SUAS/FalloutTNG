@@ -17,7 +17,7 @@ import java.util.ArrayList;
 		public Image image;
     //X,Y cordinates for the origin
 	
-		private Graphics g= image.getGraphics() ;
+		private Graphics g;
 	
 	
 	/**
