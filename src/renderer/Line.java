@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
  * @author Simar Pal Kalsi
  *Time -- 10:47:33 AM Date Dec 13, 2015
  */
-public class Line implements Runnable {
+public abstract class Line implements Runnable {
 
     //X,Y cordinates for the origin
     int startX;
@@ -35,10 +35,6 @@ public class Line implements Runnable {
 	g2.setStroke(new BasicStroke(width));
 	g2.drawLine(startX, startY, endX, endY);
 	g2.setColor(colour);
-	
-    }
-    @Override
-    public void run() {
 	
     }
     

@@ -1,7 +1,6 @@
 package renderer;
 
-
-import java.awt.Color;
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
 
@@ -11,24 +10,19 @@ import javax.swing.border.EmptyBorder;
 
 import AssetHandling.ImageChanger;
 
+import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.awt.event.ActionEvent;
-
 
 public class characterBuilder extends JFrame {
 
-	/**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
-
 	ArrayList<Image> images = new ArrayList<Image>();
-	   
+
 	private JPanel contentPane;
-	
 
 	/**
 	 * Launch the application.
@@ -50,9 +44,6 @@ public class characterBuilder extends JFrame {
 	 * Create the frame.
 	 */
 	public characterBuilder() {
-	    Line line = new Line(1,1,50,50,10,Color.black);
-	  
-	    
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 902, 666);
