@@ -19,7 +19,7 @@ public class worldBinder {
  * Test world binder
  */
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
-		wallStringParser("2");
+		wallStringParser("1");
 		
 	}
 	public static void wallStringParser(String level) throws SQLException, ClassNotFoundException{
