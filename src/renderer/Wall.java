@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Simar Pal Kalsi, Faduma Ahmed, Kieran Wilson, Mohid Aslam
  *Time -- 10:47:33 AM Date Dec 13, 2015
  */
-	public  class Line   {
+	public  class Wall   {
 
 		public Image image;
     //X,Y cordinates for the origin
@@ -51,10 +51,10 @@ import java.util.ArrayList;
 	  */
      private String colour;
     
-    public Line() {
+    public Wall() {
 	
     }
-    public Line( int xValue, int yValue,  int width ,int height, String colour){
+    public Wall( int xValue, int yValue,  int width ,int height, String colour){
 	this.xValue = xValue;
 	this.yValue = yValue;
 	this.height = height;

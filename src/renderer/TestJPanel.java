@@ -50,7 +50,7 @@ public class TestJPanel extends JPanel implements Runnable {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Line line= new Line ();
+		Wall line= new Wall ();
 		
 		line.addLine(g);
 		}

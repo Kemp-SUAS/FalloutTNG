@@ -4,6 +4,9 @@
 package renderer;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import renderer.Wall;
 
 /**
  * @author simarpal, Faduma Ahmed, Mohid Aslam, Kieran Wilson
@@ -16,19 +19,16 @@ public class worldBinder {
  * Test world binder
  */
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
-		 
-		//System.out.println(dataBaseGet("image_strings", 5, "path"));
-		wallStringParser("walls", 1, "wallDimensions");
-		for(int i = 0; int i < wallDimensions, i++){
-			System.out.println(wallDimensions[i]);
-			System.out.println(wallStringParser("walls", 1, "wallDimensions"));
-		}
+		wallStringParser("level_1" ,2 ,"wall");
+		
 	}
-	public static String[] wallStringParser(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
+	public static void wallStringParser(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
 		String wallInfo = AssetHandling.AssetManager.dataBaseGet(tableName, id, column);
 		String delims = "[/,]+";
 		String[] wallDimensions = wallInfo.split(delims);
-		
-		return wallDimensions;
+		for(int i = 0; i < wallDimensions.length;i++){
+		  System.out.println(wallDimensions[i]);
+		}
+	
 	}
 }
