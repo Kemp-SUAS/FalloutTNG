@@ -22,8 +22,9 @@ public class worldBinder {
 		wallStringParser("level_1" ,2 ,"wall");
 		
 	}
-	public static void wallStringParser(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
-		String wallInfo = AssetHandling.AssetManager.dataBaseGet(tableName, id, column);
+	public static void wallStringParser(String level) throws SQLException, ClassNotFoundException{
+		String table = "level_"+level;
+		String wallString = AssetHandling.AssetManager.dataBaseGet(table, 1, "wall");
 		String delims = "[/,]+";
 		String[] wallDimensions = wallInfo.split(delims);
 		for(int i = 0; i < wallDimensions.length;i++){
