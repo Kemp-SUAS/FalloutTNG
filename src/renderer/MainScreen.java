@@ -1,6 +1,7 @@
 package renderer;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.Image;
 
@@ -21,6 +22,9 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
+
+import AssetHandling.AssetManager;
 
 public class MainScreen extends JFrame {
 
@@ -60,26 +64,56 @@ public class MainScreen extends JFrame {
 		continueButton.setBounds(840, 191, 182, 47);
 		contentPane.add(continueButton);
 
-		continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("idle", continueButton)));
+		try {
+			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("click", continueButton)));
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("idle", continueButton)));
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("hover", continueButton)));
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 2, continueButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				continueButton.setIcon(new ImageIcon(ImageChanger.mainMenuContinue("idle", continueButton)));
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 		});
 		/**
@@ -185,4 +219,10 @@ public class MainScreen extends JFrame {
 		
 
 	}
+	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
+		String path = AssetManager.dataBaseGet(table, id, column);
+		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
+		return image;
+	}
+	
 }
