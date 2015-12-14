@@ -67,6 +67,7 @@ public class MainScreen extends JFrame {
 		try {
 			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
 		} catch (ClassNotFoundException e1) {
+			
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
