@@ -16,15 +16,15 @@ public class ImageChanger {
  */
 	public static Image mainMenuContinue(String s, JButton button){
 		if(s.equals("click")){
-			Image Click = new ImageIcon("Assest/Pictures/MainScreen/continue_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Click = new ImageIcon("Asset/Pictures/MainScreen/continue_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Click;
 		}
 		if(s.equals("hover")){
-			Image Hover = new ImageIcon("Assest/Pictures/MainScreen/continue_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Hover = new ImageIcon("Asset/Pictures/MainScreen/continue_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Hover;
 		}
 		else {
-			Image continueIdle = new ImageIcon("Assest/Pictures/MainScreen/continue_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image continueIdle = new ImageIcon("Asset/Pictures/MainScreen/continue_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return continueIdle;
 		}
 	}
@@ -36,15 +36,15 @@ public class ImageChanger {
 	 */
 	public static Image mainMenuLoad(String s, JButton button){
 		if(s.equals("click")){
-			Image Click = new ImageIcon("Assest/Pictures/MainScreen/load_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Click = new ImageIcon("Asset/Pictures/MainScreen/load_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Click;
 		}
 		if(s.equals("hover")){
-			Image Hover = new ImageIcon("Assest/Pictures/MainScreen/load_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Hover = new ImageIcon("Asset/Pictures/MainScreen/load_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Hover;
 		}
 		else {
-			Image Idle = new ImageIcon("Assest/Pictures/MainScreen/load_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Idle = new ImageIcon("Asset/Pictures/MainScreen/load_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Idle;
 		}
 	}
@@ -56,15 +56,15 @@ public class ImageChanger {
 	 */
 	public static Image mainMenuNewGame(String s, JButton button){
 		if(s.equals("click")){
-			Image Click = new ImageIcon("Assest/Pictures/MainScreen/newGame_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Click = new ImageIcon("Asset/Pictures/MainScreen/newGame_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Click;
 		}
 		if(s.equals("hover")){
-			Image Hover = new ImageIcon("Assest/Pictures/MainScreen/newGame_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Hover = new ImageIcon("Asset/Pictures/MainScreen/newGame_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Hover;
 		}
 		else {
-			Image Idle = new ImageIcon("Assest/Pictures/MainScreen/newGame_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Idle = new ImageIcon("Asset/Pictures/MainScreen/newGame_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Idle;
 		}
 	}
@@ -76,20 +76,20 @@ public class ImageChanger {
 	 */
 	public static Image mainMenuExitGame(String s, JButton button){
 		if(s.equals("click")){
-			Image Click = new ImageIcon("Assest/Pictures/MainScreen/exit_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Click = new ImageIcon("Asset/Pictures/MainScreen/exit_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Click;
 		}
 		if(s.equals("hover")){
-			Image Hover = new ImageIcon("Assest/Pictures/MainScreen/exit_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Hover = new ImageIcon("Asset/Pictures/MainScreen/exit_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Hover;
 		}
 		else {
-			Image Idle = new ImageIcon("Assest/Pictures/MainScreen/exit_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			Image Idle = new ImageIcon("Asset/Pictures/MainScreen/exit_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Idle;
 		}
 	}
 	public static ImageIcon mainScreenBackground(){
-		ImageIcon Click = new ImageIcon("Assest/Pictures/MainScreen/mianScreen_Background.png");
+		ImageIcon Click = new ImageIcon("Asset/Pictures/MainScreen/mianScreen_Background.png");
 		return Click;
 	}
 }
