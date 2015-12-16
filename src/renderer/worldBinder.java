@@ -14,6 +14,7 @@ public class worldBinder {
 	
 	
 /**
+ * This class is an access way from the sqLITE data on to the code.It allows other classes to accces the information
  * Test world binder
  */
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
