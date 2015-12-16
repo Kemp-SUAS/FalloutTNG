@@ -45,16 +45,5 @@ protected void paintComponent(Graphics g) {
     
 }
 
-public static void main(String[] args) {
-    JFrame testFrame = new JFrame();
-    testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    final Wall comp = new Wall(50, 50,90, 100, Color.BLACK);
-    comp.setPreferredSize(new Dimension(320, 200));
-    testFrame.getContentPane().add(comp, BorderLayout.CENTER);
-    JPanel buttonsPanel = new JPanel();
-      
-    testFrame.pack();
-    testFrame.setVisible(true);
-}
 
 }
