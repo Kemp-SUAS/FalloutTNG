@@ -23,15 +23,24 @@ public class WallTest  extends JComponent {
 
 	
 	public static void main(String[] args) {
-	    JFrame testFrame = new JFrame();
-	    testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-	    final Wall comp = new Wall(50, 50,90, 100);
+	  // Creates a new JFrame
+	JFrame testFrame = new JFrame();
+	  // the programs stops running when the panel is exited
+	testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	   
+	// CREATES A NEW WALL OBJECT
+	final Wall comp = new Wall(50, 50,90, 100);
+	
+	// sets the dimension of the screen
 	    comp.setPreferredSize(new Dimension(320, 200));
+	    // sets the layout of the screen
 	    testFrame.getContentPane().add(comp, BorderLayout.CENTER);
 	    @SuppressWarnings("unused")
+	    // creates a new JPanel
 		JPanel buttonsPanel = new JPanel();
-	      
+	      // resizes the frame to the determined presets
 	    testFrame.pack();
+	    // sets the visibility of the frame
 	    testFrame.setVisible(true);
 	}
 
