@@ -13,10 +13,7 @@ public class AssetManager {
  * @param args
  */
 	 static Statement stat;
-		public static void main(String[] args) throws SQLException, ClassNotFoundException {
-			 
-			System.out.println(dataBaseGet("image_strings", 5, "path"));
-		}
+	
 		public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
 			 Class.forName("org.sqlite.JDBC");
 		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");

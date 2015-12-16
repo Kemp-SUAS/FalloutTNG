@@ -1,103 +1,60 @@
 package renderer;
 
-import java.awt.BasicStroke;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
-/**
- * @author Simar Pal Kalsi, Faduma Ahmed, Kieran Wilson, Mohid Aslam
- *Time -- 10:47:33 AM Date Dec 13, 2015
- */
-	public  class Wall   {
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-		public Image image;
-    //X,Y cordinates for the origin
-	
-		private Graphics g= image.getGraphics() ;
-	
-	
-	/**
-	 * Array List to Store Columns 
-	 */
-	public Rectangle columns;
+import com.sun.javafx.geom.Rectangle;
 
-	/**
-	 * start x co-ordinate
-	 */
-	 private int xValue;
-	/**
-	 * start y co-ordinate
-	 */
-	 private int yValue;
-	/**
-	 * height
-	 */
+public class Wall extends JComponent{
 	
-	 private int height;
-	/**
-	 * end x co-ordinate
-	 */
+    final int x1; 
+    final int y1;
+    final int x2;
+    final int y2;   
+    final Color color = Color.BLACK;
+    public ArrayList<Rectangle> lines = new ArrayList<Rectangle>();
+
+    public Wall(int x1, int y1, int x2, int y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        
+    }               
+
+
+@SuppressWarnings("static-access")
+@Override
+protected void paintComponent(Graphics g) {
+    		
+	 	super.paintComponent(g);
+   
+        g.setColor(color.BLACK);
+        g.drawRect(x1,x2,y1,y2);
     
-	/**
-	 * width
-	 */
-	 private int width;
-	 /**
-	  * width
-	  */
-     private String colour;
-    
-    public Wall() {
-	
-    }
-    public Wall( int xValue, int yValue,  int width ,int height, String colour){
-	this.xValue = xValue;
-	this.yValue = yValue;
-	this.height = height;
-	this.width = width;
-	this.colour = colour;
-    }
-  
-    public void addLine(Graphics g)
-	{
-    	
-    	
-    	columns = (new Rectangle(xValue,yValue,width,height));
-		paintColumn(g, columns);
-			
-	}
-    public void paintColumn(Graphics g, Rectangle columns)
-	{
-		
-    	
-    	g.setColor(Color.RED);
-		g.fillRect(columns.x, columns.y, columns.width, columns.height);
-	}
-    
-    
-    
-    
-    
-    
-    /*public void draw(Graphics g)
-    
-    {
-	Graphics2D g2 = (Graphics2D) g;
-	g2.setStroke(new BasicStroke(width));
-	g2.drawLine(startX, startY, endX, endY);
-	g2.setColor(colour);
-	
-    }
-    
-    public void run()
-    {
-    	Graphics g= new Graphics();
-    	
-    }*/
-    
-    
+}
+
+public static void main(String[] args) {
+    JFrame testFrame = new JFrame();
+    testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    final Wall comp = new Wall(50, 50,90, 100, Color.BLACK);
+    comp.setPreferredSize(new Dimension(320, 200));
+    testFrame.getContentPane().add(comp, BorderLayout.CENTER);
+    JPanel buttonsPanel = new JPanel();
+      
+    testFrame.pack();
+    testFrame.setVisible(true);
+}
+
 }

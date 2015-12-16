@@ -1,6 +1,7 @@
 package renderer;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -8,6 +9,8 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.sun.prism.paint.Color;
 
 import AssetHandling.ImageChanger;
 
@@ -32,9 +35,20 @@ public class characterBuilder extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@SuppressWarnings("null")
 			public void run() {
 				try {
 					characterBuilder frame = new characterBuilder();
+					 JFrame testFrame = new JFrame();
+					    testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					    final Wall comp = new Wall(50, 50,90, 100);
+					    comp.setPreferredSize(new Dimension(320, 200));
+					    testFrame.getContentPane().add(comp, BorderLayout.CENTER);
+					    testFrame.pack();
+					    testFrame.setVisible(true);
+					
+					//Wall wall = null ;
+					//wall.setVisible(true);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,6 +62,7 @@ public class characterBuilder extends JFrame {
 	 */
 	public characterBuilder() {
 
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 902, 666);
 		contentPane = new JPanel();
@@ -94,7 +109,6 @@ public class characterBuilder extends JFrame {
 		btnChangeFace.setBounds(24, 205, 145, 58);
 		contentPane.add(btnChangeFace);
 		
-		// THis is a test to add a line on to the screen
 		
 		
 	}

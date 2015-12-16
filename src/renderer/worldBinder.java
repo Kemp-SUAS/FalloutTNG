@@ -6,8 +6,6 @@ package renderer;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import renderer.Wall;
-
 /**
  * @author simarpal, Faduma Ahmed, Mohid Aslam, Kieran Wilson
  *
