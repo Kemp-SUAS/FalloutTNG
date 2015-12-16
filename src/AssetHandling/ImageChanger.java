@@ -14,7 +14,7 @@ public class ImageChanger {
  * @param button
  * @return Image
  */
-	public static Image mainMenuContinue(String s, JButton button){
+	/*public static Image mainMenuContinue(String s, JButton button){
 		if(s.equals("click")){
 			Image Click = new ImageIcon("Assets/Pictures/MainScreen/continue_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
 			return Click;
@@ -28,6 +28,7 @@ public class ImageChanger {
 			return continueIdle;
 		}
 	}
+	*/
 	/**
 	 * Changes the button image for click, hover and idle on the load button
 	 * @param s
