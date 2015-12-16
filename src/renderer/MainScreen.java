@@ -67,7 +67,6 @@ public class MainScreen extends JFrame {
 		try {
 			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
 		} catch (ClassNotFoundException e1) {
-			
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
@@ -76,7 +75,8 @@ public class MainScreen extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton)));
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton))); 
+			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -126,26 +126,56 @@ public class MainScreen extends JFrame {
 		loadButton.setBounds(840, 291, 182, 47);
 		contentPane.add(loadButton);
 
-		loadButton.setIcon(new ImageIcon(ImageChanger.mainMenuLoad("idle", loadButton)));
-		loadButton.addMouseListener(new MouseAdapter() {
+		try {
+			loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
+		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				loadButton.setIcon(new ImageIcon(ImageChanger.mainMenuLoad("click", loadButton)));
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				loadButton.setIcon(new ImageIcon(ImageChanger.mainMenuLoad("idle", loadButton)));
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				loadButton.setIcon(new ImageIcon(ImageChanger.mainMenuLoad("hover", loadButton)));
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 5, loadButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				loadButton.setIcon(new ImageIcon(ImageChanger.mainMenuLoad("idle", loadButton)));
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 		});
 		/**
@@ -157,26 +187,57 @@ public class MainScreen extends JFrame {
 		newGameButton.setBounds(840, 391, 182, 47);
 		contentPane.add(newGameButton);
 
-		newGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuNewGame("idle", newGameButton)));
-		newGameButton.addMouseListener(new MouseAdapter() {
+		try {
+			newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
+		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				newGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuNewGame("click", newGameButton)));
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
+		
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				newGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuNewGame("idle", newGameButton)));
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				newGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuNewGame("hover", newGameButton)));
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 8, newGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				newGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuNewGame("idle", newGameButton)));
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 		});
 		/**
@@ -188,40 +249,70 @@ public class MainScreen extends JFrame {
 		exitGameButton.setBounds(840, 491, 182, 47);
 		contentPane.add(exitGameButton);
 
-		exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
+		try {
+			exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
+		continueButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 10, exitGameButton))); 
+			
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 11, exitGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+		});
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(ImageChanger.mainScreenBackground());
 		lblNewLabel.setBounds(10, 11, 1012, 539);
 		contentPane.add(lblNewLabel);
 		
-		exitGameButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("click", exitGameButton)));
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("hover", exitGameButton)));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				exitGameButton.setIcon(new ImageIcon(ImageChanger.mainMenuExitGame("idle", exitGameButton)));
-			}
-		});
-		
-		
 
 	}
 	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
 		String path = AssetManager.dataBaseGet(table, id, column);
+		System.out.println(path);
 		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
 		return image;
 	}
