@@ -1,3 +1,4 @@
+//start
 package AssetHandling;
 
 import java.awt.Container;
@@ -95,3 +96,4 @@ public class ImageChanger {
 		return Click;
 	}
 }
+//end
