@@ -9,14 +9,23 @@ import java.util.ArrayList;
  *Time -- 8:11:16 PM Date Dec 8, 2015
  */
 public class AssetManager {
-/**
- * 
- * @param args
- */
-	 static Statement stat;
+
+	// The object used for excecuting the static SQLite object
+	static Statement stat;
 	
+		/**
+		 *  This static method helps to get the external raw data from SQLite
+		 * @param tableName, String of the table name found in SQLite
+		 * @param id , the counter of each row
+		 * @param column ,The name of the column in the table
+		 * @return String, of the all the data that the method s specifically looking for
+		 * @throws SQLException , an exception that provides information on a database access error or other errors.
+		 * @throws ClassNotFoundException Thrown when an application tries to load in a class through its string name using: The forName method in class Class.  The findSystemClass method in class ClassLoader . The loadClass method in class ClassLoader.
+		 */
 		public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
-			 Class.forName("org.sqlite.JDBC");
+			 
+			
+			Class.forName("org.sqlite.JDBC");
 		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
 		     stat = c.createStatement();
 			ResultSet rs = stat.executeQuery("select * from "+ tableName+ " where id =" + id);
