@@ -1,10 +1,12 @@
-/**
- * 
- */
+
 package vault1.CharacterFolder;
 
 /**
- * @author simarpal
+ * This class is an exception that gets called when the player dies due to
+ * insufficient health point or has low short term gameplay stats resulting in
+ * debugs.
+ *
+ * @author Faduma Ahmed Mohid Aslam Kieran Wilson Simar Pal Kalsi
  *
  */
 public class CharacterException extends Exception {
