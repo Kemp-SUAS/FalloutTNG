@@ -242,12 +242,15 @@ public class MainScreen extends JFrame {
 			//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
 			loadButton . setIcon (new  ImageIcon ( imageMaker ( "image_strings" , "path", 6, loadButton)));
 		} 
-		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+		// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 		
 		catch (ClassNotFoundException classNotFound) {
 			// traces the root cause of the error
 			classNotFound.printStackTrace();
-		} catch (SQLException sQLError) {
+		}
+		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+		
+		catch (SQLException sQLError) {
 			// traces the root cause of the error
 			sQLError .printStackTrace();
 			
@@ -260,54 +263,97 @@ public class MainScreen extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					
-					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
-				} catch (ClassNotFoundException classNotFound) {
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					loadButton. setIcon (new ImageIcon ( imageMaker ( "image_strings" ,  "path" ,  4 ,  loadButton ))); 
+				} 
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch ( ClassNotFoundException  classNotFound ) {
 					// traces the root cause of the error
-					classNotFound.printStackTrace();
+					classNotFound. printStackTrace();
+				} 
+				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+				
+				catch ( SQLException  sQLError ) {
+					// traces the root cause of the error
+					sQLError . printStackTrace ( );
+					
+				}
+			}
+
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+			 */
+			@Override
+			public void  mouseReleased( MouseEvent e ) {
+				try {
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					loadButton. setIcon( new ImageIcon ( imageMaker ( "image_strings" ,  "path" , 6 , loadButton) ) ) ;
+				}
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch  ( ClassNotFoundException  classNotFound ) {
+					// traces the root cause of the error
+					classNotFound. printStackTrace( );
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
 				catch (SQLException sQLError) {
+					
 					// traces the root cause of the error
-					sQLError.printStackTrace();
-				}
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				try {
-					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (SQLException sQLError) {
-					sQLError .printStackTrace();
+					sQLError .printStackTrace ( );
 				
 				};
 			}
 
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
+			 */
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 5, loadButton)));
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (SQLException sQLError) {
-					sQLError.printStackTrace();
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					loadButton . setIcon (new  ImageIcon( imageMaker ( "image_strings" ,  "path" ,  5,  loadButton)));
+				}  
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch ( ClassNotFoundException  classNotFound ) {
+					// traces the root cause of the error
+					classNotFound . printStackTrace ( ) ;
+				} // thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+				
+				catch ( SQLException  sQLError )  {
+					// traces the root cause of the error
+					sQLError . printStackTrace ( );
+				
 				};
 			}
 
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+			 */
 			@Override
 			public void mouseExited(MouseEvent e) {
 				try {
-					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (SQLException sQLError) {
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					loadButton . setIcon ( new ImageIcon ( imageMaker ( "image_strings" ,  "path",  6,  loadButton)));
+				}
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch (ClassNotFoundException classNotFound) {
+					
+					// traces the root cause of the error
+					classNotFound.printStackTrace();
+				}
+				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+				catch (SQLException sQLError) {
+					// traces the root cause of the error
 					sQLError.printStackTrace();
 				};
 			}
+			
 		});
+		
 		/**
 		 * Create the frame.
 		 * 
