@@ -39,13 +39,17 @@ public class ImageChanger {
 */
 	/**
 	 *  THis static method will Change the button for click hover and idle on the load button 
-	 * @param s
-	 * @param button
-	 * @return Image
+	 * @param s, String
+	 * @param button, the button from the JFrame
+	 * @return Image, the image when the user clicks the button
 	 */
 	public static Image mainMenuLoad(String s, JButton button){
+		
+		// If the user clicks the button
 		if(s.equals("click")){
+			// Creates an ImageIcon from the specified file. The image will be preloaded by using MediaTracker to monitor the loading state of the image. 
 			Image Click = new ImageIcon("Assets/Pictures/MainScreen/load_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			// returns the image 
 			return Click;
 		}
 		if(s.equals("hover")){
