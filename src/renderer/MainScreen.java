@@ -70,7 +70,7 @@ public class MainScreen extends JFrame {
 	} 
 
 	/**
-	 * THis constructors creates the frame and sets all required settings
+	 * THis constructors creates the frame , buttons mouse actions and all the other required presets
 	 * 
 	 * 
 	 * @throws IOException
@@ -369,184 +369,270 @@ public class MainScreen extends JFrame {
 
 		try {
 			
-			
-			newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+			//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+			newGameButton. setIcon (new ImageIcon(imageMaker ( "image_strings" , "path" , 9 , newGameButton)));
 		}
 		// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 		
 		catch (ClassNotFoundException  classNotFound) {
-			 classNotFound.printStackTrace();
+			// traces the root cause of the error
+			classNotFound . printStackTrace ( );
 		} 
 		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 		
 		catch (SQLException sQLError) {
-			sQLError.printStackTrace();
+			// traces the root cause of the error
+			sQLError . printStackTrace ( ) ;
 		};
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					
+					newGameButton .setIcon (new ImageIcon (imageMaker ( "image_strings" ,  "path",  7,  newGameButton))); 
 		
 				} 
 				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 				
-				catch (ClassNotFoundException classNotFound) {
-					classNotFound.printStackTrace();
+				catch ( ClassNotFoundException  classNotFound ) {
+					// traces the root cause of the error
+					classNotFound . printStackTrace ( );
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
 				catch (SQLException sQLError) {
-					sQLError.printStackTrace();
+					// traces the root cause of the error
+					sQLError . printStackTrace ( );
 				}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					
+					newGameButton . setIcon ( new ImageIcon ( imageMaker ("image_strings", "path", 9, newGameButton) )) ;
 				} 
 				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 				
 				catch (ClassNotFoundException classNotFound) {
-					classNotFound.printStackTrace();
+					// traces the root cause of the error
+					classNotFound .printStackTrace ( ) ;
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch (SQLException sQLError) {
-					sQLError.printStackTrace();
+				catch ( SQLException sQLError ) {
+					// traces the root cause of the error
+					sQLError . printStackTrace ( );
 				};
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 8, newGameButton)));
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					
+					newGameButton . setIcon (new ImageIcon ( imageMaker ( "image_strings" ,  "path" ,  8, newGameButton ) )) ;
 				}
 				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 				
-				catch (ClassNotFoundException classNotFound) {
-					classNotFound.printStackTrace();
+				catch ( ClassNotFoundException  classNotFound ) {
+					// traces the root cause of the error
+					classNotFound. printStackTrace( );
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch (SQLException sQLError) {
-					sQLError.printStackTrace();
+				catch ( SQLException sQLError ) {
+					// traces the root cause of the error
+					sQLError. printStackTrace ( ) ;
 				};
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					
+					newGameButton .setIcon ( new ImageIcon( imageMaker ("image_strings", "path" , 9 , newGameButton )));
 				} 
 				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 				
 				catch (ClassNotFoundException classNotFound) {
+					// traces the root cause of the error
 					classNotFound.printStackTrace();
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
 				catch (SQLException sQLError) {
+					// traces the root cause of the error
 					sQLError.printStackTrace();
+				
 				};
+			
 			}
-		});
+		} 
+		);
 		
 		
 		/**
-		 * Create the frame.
+		 * Create  and sets the frame with all the mouse related actions and button.
 		 * 
 		 * @throws IOException
 		 */
-		JButton exitGameButton = new JButton("");
-		exitGameButton.setBounds(840, 491, 182, 47);
-		contentPane.add(exitGameButton);
+		
+		// creates a new button
+		JButton  exitGameButton  =  new JButton( "" ) ;
+	
+		//Moves and resizes this component.
+		exitGameButton. setBounds(840 , 491 , 182 , 47 ) ;
+		//Appends the specified component to the end of this container. 
+		contentPane. add (exitGameButton ) ;
 
 		try {
-			exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
+			
+			//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+			exitGameButton . setIcon ( new ImageIcon (imageMaker( "image_strings" , "path" , 12 , exitGameButton ) ) ) ; 
+		}// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+		
+		
+		catch ( ClassNotFoundException classNotFound ) 
+		{
+			// traces the root cause of the error
+			classNotFound.printStackTrace();
 		} 
 		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 		
-		catch (SQLException sQLError) {
+		catch ( SQLException sQLError )
+		{
+			// traces the root cause of the error
 			sQLError.printStackTrace();
-		};
-		continueButton.addMouseListener(new MouseAdapter() {
+		}
+		;
+		continueButton . addMouseListener( new MouseAdapter ( ) {
 			@Override
-			public void mousePressed(MouseEvent e) {
+			public void mousePressed ( MouseEvent e ) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 10, exitGameButton))); 
+					
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					exitGameButton . setIcon( new ImageIcon (imageMaker ("image_strings" , "path" , 10,  exitGameButton) ) ) ; 
 			
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
+				} 
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch (ClassNotFoundException classNotFound) {
+					// traces the root cause of the error
+					classNotFound. printStackTrace () ;
 				} // thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
 				
-				catch (SQLException sQLError) {
-					sQLError.printStackTrace();
+				catch (SQLException  sQLError ) {
+					// traces the root cause of the error
+					sQLError. printStackTrace() ;
 				}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
+					
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					exitGameButton. setIcon (new ImageIcon (imageMaker ("image_strings" , "path" , 12 ,  exitGameButton ) ) );
+				}
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch ( ClassNotFoundException classNotFound ) {
+					// traces the root cause of the error
+					classNotFound . printStackTrace ( ) ;
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch (SQLException sQLError) {
-					sQLError.printStackTrace();
-				};
+				catch ( SQLException sQLError ) {
+					// traces the root cause of the error
+					sQLError . printStackTrace ( );
+				}
+				
+				;
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 11, exitGameButton)));
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					exitGameButton. setIcon ( new ImageIcon ( imageMaker ( "image_strings" , "path" , 11 , exitGameButton ) ) ) ;
+				} 
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch ( ClassNotFoundException classNotFound ) {
+					// traces the root cause of the error
+					classNotFound . printStackTrace ( );
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch (SQLException sQLError) {
-					sQLError.printStackTrace();
+				catch ( SQLException sQLError ) 
+				{
+					// traces the root cause of the error
+					sQLError . printStackTrace () ;
 				};
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
+					//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+					exitGameButton . setIcon ( new ImageIcon (imageMaker( "image_strings" , "path" , 12 , exitGameButton )));
+				}
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch ( ClassNotFoundException classNotFound)
+				{
+					// traces the root cause of the error
+					classNotFound . printStackTrace () ;
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch (SQLException sQLError) {
-					sQLError.printStackTrace();
+				catch ( SQLException sQLError)
+				{
+					// traces the root cause of the error
+					sQLError . printStackTrace ( ) ;
 				};
 			}
 		});
-		
+		// Creates a new JLabel which is a display area for a short text string or an image, or both. 
 		JLabel lblNewLabel = new JLabel("New label");
+		
+		// Defines the icon this Label will display.
 		lblNewLabel.setIcon(ImageChanger.mainScreenBackground());
+		// Moves and resizes this Label. 
 		lblNewLabel.setBounds(10, 11, 1012, 539);
+		//Appends the specified component to the end of this container. 
 		contentPane.add(lblNewLabel);
 		
 
 	}
+
 	/**
-	 * @param table
-	 * @param column
+	 * 
+	 * This method gets the image from SQLite, the external raw database and
+	 * allows the images to be used in the main screen
+	 * 
+	 * @param tableName,
+	 *            String of the table name found in SQLite
 	 * @param id
-	 * @param b
-	 * @return
-	 * @throws ClassNotFoundException
+	 *            , the counter of each row
+	 * @param column
+	 *            ,The name of the column in the table
+	 * @param b,
+	 *            the button on the Main Screen
+	 * @return the image from the raw data base
 	 * @throws SQLException
+	 *             , an exception that provides information on a database access
+	 *             error or other errors.
+	 * @throws ClassNotFoundException
+	 *             Thrown when an application tries to load in a class through
+	 *             its string name using: The forName method in class Class. The
+	 *             findSystemClass method in class ClassLoader . The loadClass
+	 *             method in class ClassLoader.
 	 */
 	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
 		String path = AssetManager.dataBaseGet(table, id, column);
