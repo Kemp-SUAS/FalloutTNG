@@ -108,9 +108,9 @@ public class MainScreen extends JFrame {
 			continueButton. setIcon( new ImageIcon ( imageMaker ( "image_strings" ,  "path" ,   3, continueButton  )) );
 		} 
 		// thrown when an application tries to load in a class through its string name using: The forName method in class Class. The findSystemClass method in class ClassLoader .The loadClass method in class ClassLoader.
-		catch (ClassNotFoundException e1) {
+		catch (ClassNotFoundException classNotFound) {
 			// Traces the root cause of the error
-			e1.printStackTrace();
+			classNotFound.printStackTrace();
 		}
 		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 		catch (SQLException e1) {
@@ -131,10 +131,10 @@ public class MainScreen extends JFrame {
 					//Sets the button's default icon.
 					continueButton . setIcon (new  ImageIcon( imageMaker( "image_strings" , "path" , 1 , continueButton ) ) ); 
 					// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-				} catch (ClassNotFoundException e1) {
+				} catch (ClassNotFoundException classNotFound) {
 					
 					//traces the root cause of the error
-					e1 . printStackTrace( );
+					classNotFound. printStackTrace( );
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
@@ -161,9 +161,9 @@ public class MainScreen extends JFrame {
 				} 
 				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 				
-				catch ( ClassNotFoundException  e1 ) {
+				catch ( ClassNotFoundException  classNotFound ) {
 					// traces the root cause of the error
-					e1 . printStackTrace();
+					classNotFound . printStackTrace();
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
@@ -184,10 +184,10 @@ public class MainScreen extends JFrame {
 				} 
 				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
 				
-				catch  ( ClassNotFoundException e1) {
+				catch  ( ClassNotFoundException classNotFound) {
 					
 					// traces the root cause of the error
-					e1. printStackTrace( );
+					classNotFound. printStackTrace( );
 				}
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
@@ -199,41 +199,75 @@ public class MainScreen extends JFrame {
 			
 			}
 
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+			 */
 			@Override
-			public void mouseExited(MouseEvent e) {
+			public void  mouseExited ( MouseEvent  e) {
 				try {
-					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+					//Sets the button's default icon.
+					continueButton . setIcon (new  ImageIcon (imageMaker ("image_strings" , "path" ,  3 ,  continueButton) ));
+				} 
+				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+				
+				catch ( ClassNotFoundException  classNotFound ) {
+					
+					// traces the root cause of the error
+					classNotFound.printStackTrace();
+				} 
+				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+				
+				
+				catch ( SQLException  e1 ) {
+					
+					// traces the root cause of the error
+					e1. printStackTrace( );
 				};
 			}
 		});
 		/**
-		 * Create the frame.
+		 * Creates and sets the Frame
 		 * 
 		 * @throws IOException
 		 */
+		//Creates a new button
 		JButton loadButton = new JButton("");
-		loadButton.setBounds(840, 291, 182, 47);
-		contentPane.add(loadButton);
+		// Moves and resizes this component. 
+		loadButton. setBounds( 840 , 291 , 182, 47);
+		//Appends the specified component to the end of this container.
+		contentPane.add( loadButton );
 
 		try {
-			loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
+			//Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon
+			loadButton . setIcon (new  ImageIcon ( imageMaker ( "image_strings" , "path", 6, loadButton)));
+		} 
+		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+		
+		catch (ClassNotFoundException classNotFound) {
+			// traces the root cause of the error
+			classNotFound.printStackTrace();
 		} catch (SQLException e1) {
+			// traces the root cause of the error
 			e1.printStackTrace();
 		};
+		//Adds the specified mouse listener to receive mouse events from this component.
 		continueButton.addMouseListener(new MouseAdapter() {
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
+					
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (SQLException e1) {
+				} catch (ClassNotFoundException classNotFound) {
+					// traces the root cause of the error
+					classNotFound.printStackTrace();
+				} 
+				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+				
+				catch (SQLException e1) {
+					// traces the root cause of the error
 					e1.printStackTrace();
 				}
 			}
