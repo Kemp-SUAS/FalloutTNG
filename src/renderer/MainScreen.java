@@ -104,11 +104,17 @@ public class MainScreen extends JFrame {
 		contentPane.add(continueButton);
 
 		try {
-			//
-			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
-		} catch (ClassNotFoundException e1) {
+			// Sets the button's default icon. This icon is also used as the "pressed" and "disabled" icon if there is no explicitly set pressed icon.
+			continueButton. setIcon( new ImageIcon ( imageMaker ( "image_strings" ,  "path" ,   3, continueButton  )) );
+		} 
+		// thrown when an application tries to load in a class through its string name using: The forName method in class Class. The findSystemClass method in class ClassLoader .The loadClass method in class ClassLoader.
+		catch (ClassNotFoundException e1) {
+			// Traces the root cause of the error
 			e1.printStackTrace();
-		} catch (SQLException e1) {
+		}
+		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
+		catch (SQLException e1) {
+			// Traces the root cause of the error
 			e1.printStackTrace();
 		};
 		continueButton.addMouseListener(new MouseAdapter() {
