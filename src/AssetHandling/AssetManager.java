@@ -3,8 +3,9 @@ package AssetHandling;
 import java.sql.*;
 import java.util.ArrayList;
 /**
- * 
- * @author Simar Pal Kalsi
+ *  This class connects contains  external raw data from sqlite
+ *  and allows you to open and read raw files that have been bundled with the application. 
+ * @author Faduma Ahmed, Kieran Wilson, Mohid Aslam, Simar Pal Kalsi
  *Time -- 8:11:16 PM Date Dec 8, 2015
  */
 public class AssetManager {
