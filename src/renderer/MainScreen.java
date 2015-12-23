@@ -113,9 +113,9 @@ public class MainScreen extends JFrame {
 			classNotFound.printStackTrace();
 		}
 		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-		catch (SQLException e1) {
+		catch (SQLException sQLError) {
 			// Traces the root cause of the error
-			e1.printStackTrace();
+			sQLError.printStackTrace();
 		};
 		
 		// Adds the specified mouse listener to receive mouse events
@@ -138,10 +138,10 @@ public class MainScreen extends JFrame {
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch ( SQLException  e1 ) {
+				catch ( SQLException  sQLError ) {
 					// traces the root cause of the error
 					
-					e1 . printStackTrace( );
+					sQLError . printStackTrace( );
 				}
 			}
 			
@@ -167,9 +167,9 @@ public class MainScreen extends JFrame {
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch (SQLException e1 ) {
+				catch (SQLException sQLError) {
 					// traces the root cause of the error
-					e1.printStackTrace ();
+					sQLError.printStackTrace ();
 				};
 			}
 
@@ -191,10 +191,10 @@ public class MainScreen extends JFrame {
 				}
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch ( SQLException  e1) {
+				catch ( SQLException  sQLError) {
 					
 					// traces the root cause of the error
-					e1 .printStackTrace( );
+					sQLError.printStackTrace( );
 				} ;
 			
 			}
@@ -218,12 +218,13 @@ public class MainScreen extends JFrame {
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
 				
-				catch ( SQLException  e1 ) {
+				catch ( SQLException  sQLError ) {
 					
 					// traces the root cause of the error
-					e1. printStackTrace( );
+					sQLError . printStackTrace( );
 				};
 			}
+			
 		});
 		/**
 		 * Creates and sets the Frame
@@ -246,9 +247,10 @@ public class MainScreen extends JFrame {
 		catch (ClassNotFoundException classNotFound) {
 			// traces the root cause of the error
 			classNotFound.printStackTrace();
-		} catch (SQLException e1) {
+		} catch (SQLException sQLError) {
 			// traces the root cause of the error
-			e1.printStackTrace();
+			sQLError .printStackTrace();
+			
 		};
 		//Adds the specified mouse listener to receive mouse events from this component.
 		continueButton.addMouseListener(new MouseAdapter() {
@@ -266,9 +268,9 @@ public class MainScreen extends JFrame {
 				} 
 				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
 				
-				catch (SQLException e1) {
+				catch (SQLException sQLError) {
 					// traces the root cause of the error
-					e1.printStackTrace();
+					sQLError.printStackTrace();
 				}
 			}
 
@@ -278,8 +280,9 @@ public class MainScreen extends JFrame {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError .printStackTrace();
+				
 				};
 			}
 
@@ -289,8 +292,8 @@ public class MainScreen extends JFrame {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 5, loadButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 
@@ -300,8 +303,8 @@ public class MainScreen extends JFrame {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 		});
@@ -318,8 +321,8 @@ public class MainScreen extends JFrame {
 			newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
+		} catch (SQLException sQLError) {
+			sQLError.printStackTrace();
 		};
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -329,8 +332,8 @@ public class MainScreen extends JFrame {
 		
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				}
 			}
 
@@ -340,8 +343,8 @@ public class MainScreen extends JFrame {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 
@@ -351,8 +354,8 @@ public class MainScreen extends JFrame {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 8, newGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 
@@ -362,8 +365,8 @@ public class MainScreen extends JFrame {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 		});
@@ -380,8 +383,8 @@ public class MainScreen extends JFrame {
 			exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
+		} catch (SQLException sQLError) {
+			sQLError.printStackTrace();
 		};
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -391,8 +394,8 @@ public class MainScreen extends JFrame {
 			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				}
 			}
 
@@ -402,8 +405,8 @@ public class MainScreen extends JFrame {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 
@@ -413,8 +416,8 @@ public class MainScreen extends JFrame {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 11, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 
@@ -424,8 +427,8 @@ public class MainScreen extends JFrame {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} catch (SQLException sQLError) {
+					sQLError.printStackTrace();
 				};
 			}
 		});
@@ -437,6 +440,15 @@ public class MainScreen extends JFrame {
 		
 
 	}
+	/**
+	 * @param table
+	 * @param column
+	 * @param id
+	 * @param b
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
 		String path = AssetManager.dataBaseGet(table, id, column);
 		System.out.println(path);
