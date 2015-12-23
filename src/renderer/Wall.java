@@ -15,33 +15,73 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.sun.javafx.geom.Rectangle;
-
+/**
+  
+ * 
+ * THis method helps to creates wall on they screen. These walls will essentially be areas in the game map that will prohibit the user from walking through.
+ * THe intention of this class is that will be dynamic and easily applicable to other classes
+ *  @author Faduma Ahmed, Mohid Aslam, Kieran Wilson Simarpal Kalsi
+ */
+/**
+ * @author fadumaahmed
+ *
+ */
 public class Wall extends JComponent{
 	
-    final int x1; 
-    final int y1;
-    final int x2;
-    final int y2;   
+    /**
+     * The x-coordinate of the rectangle
+     */
+    final int x; 
+    /**
+     * The y-coordinate of the rectangle
+     */
+    final int y;
+    /**
+     * The width of the rectangle
+     */
+    final int width;
+    /**
+     * The height of the rectangle
+     */
+    final int height;   
+    /**
+     * The color of the rectangle
+     */
     final Color color = Color.BLACK;
+    /**
+     * Creates an ArrayList to store  the rectangle
+     */
+    
     public ArrayList<Rectangle> lines = new ArrayList<Rectangle>();
 
-    public Wall(int x1, int y1, int x2, int y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+    /**
+     *  THis constructor sets all the dimensions of the rectangle
+     * @param x, The x-coordinate of the rectangle
+     * @param y , The y-coordinate of the rectangle
+     * @param width The width of the rectangle
+     * @param height, The height of the rectangle
+     */
+    public Wall(int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
         
     }               
 
 
+/* (non-Javadoc)
+ * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+ */
 @SuppressWarnings("static-access")
 @Override
 protected void paintComponent(Graphics g) {
-    		
+    	// Calls the UI delegate's paint method,	
 	 	super.paintComponent(g);
-   
+	 	// sets the color of the rectangle
         g.setColor(color.BLACK);
-        g.drawRect(x1,x2,y1,y2);
+        //draws the rectangle
+        g.drawRect(x,width,y,height);
     
 }
 
