@@ -38,12 +38,12 @@ public class PlayerGameplayStats {
 
 /**
  * Constructor has all the fields
- * @param hp
- * @param ap
- * @param armP
- * @param ammoP
- * @param toxP
- * @param toxR
+ * @param hp, the players health points 
+ * @param ap , the players ability points 
+ * @param armP , the players armor points 
+ * @param ammoP ,the players ammo points 
+ * @param toxP , the players toxin points 
+ * @param toxR , the players toxin resisting points 
  * @param relations
  */
 	public PlayerGameplayStats(int hp, int ap, int armP, int ammoP, int toxP, int toxR) {
@@ -66,10 +66,13 @@ public class PlayerGameplayStats {
  * @throws CharacterException
  */
 	public int getHealthStat() throws CharacterException{
+		// if they dont have any toxin levels
 		if(this.toxinLevels != 0){
 			return (health - (health*(this.toxinLevels/(100*this.toxinResist))));
 		}
+		// if they no longer have health points
 		if(this.health <= 0){
+			
 			throw new CharacterException("DEAD");
 		}
 		return health;
@@ -79,6 +82,7 @@ public class PlayerGameplayStats {
  * @return
  */
 	public int getAbilityPoints() throws CharacterException{
+		// if they no longer have ability points
 		if(this.abilityPoints <= 0){
 			throw new CharacterException("NO_AP");
 		}
@@ -86,70 +90,70 @@ public class PlayerGameplayStats {
 	}
 /**
  * Method gets armour rating
- * @return
+ * @return armor
  */
 	public int getArmor() {
 		return armor;
 	}
 /**
  * Method gets ammoun count
- * @return
+ * @return ammo
  */
 	public int getAmmo() {
 		return ammo;
 	}
 /**
  * Method gets Toxin Levels
- * @return
+ * @return toxinLevels
  */
 	public int getToxinLevel() {
 		return toxinLevels;
 	}
 	/**
 	 * Method gets toxin resist
-	 * @return
+	 * @return toxinResist
 	 */
 	public int getToxinResist() {
 		return toxinResist;
 	}
 /**
  * method sets health stat
- * @param hp
+ * @param hp , the players health points
  */
 	public void setHealthStat(int hp) {
 		this.health = hp;
 	}
 /**
  * Method sets Ability Points
- * @param ap
+ * @param ap , the players ability points
  */
 	public void setAbilityPoints(int ap) {
 		this.ammo = ap;
 	}
 /**
  * method sets Armour rating
- * @param armP
+ * @param armP , the players armor points
  */
 	public void setArmor(int armP) {
 		this.armor = armP;
 	}
 /**
  * Method sets ammo count
- * @param ammoP
+ * @param ammoP , the players ammo points
  */
 	public void setAmmo(int ammoP) {
 		this.ammo = ammoP;
 	}
 /**
  * Method sets toxin levels
- * @param toxP
+ * @param toxP , the players toxin points
  */
 	public void setToxinLevel(int toxP) {
 		this.toxinLevels = toxP;
 	}
 /**
  * Method sets Toxin Resist
- * @param toxR
+ * @param toxR , the players toxin resisting points
  */
 	public void setToxinResist(int toxR) {
 		this.toxinLevels = toxR;
