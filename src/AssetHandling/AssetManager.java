@@ -24,12 +24,17 @@ public class AssetManager {
 		 */
 		public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
 			 
-			
+			// Returns the Class object associated with the class or interface with the given string name.
 			Class.forName("org.sqlite.JDBC");
+			// SQL statements are executed and results are returned within the context of a connection.
 		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
+		     // Creates a Statement object for sending SQL statements to the database. 
 		     stat = c.createStatement();
+		     // object maintains a cursor pointing to its current row of data
 			ResultSet rs = stat.executeQuery("select * from "+ tableName+ " where id =" + id);
+			//Retrieves the value of the designated column in the current row of this ResultSet object
 			String indexInformation = rs.getString(column);
+			
 			return indexInformation;
 		}
 		public static ArrayList<String> dataBaseGet(String tableName, String column) throws ClassNotFoundException, SQLException{
