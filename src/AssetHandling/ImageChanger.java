@@ -1,4 +1,4 @@
-/
+
 package AssetHandling;
 
 import java.awt.Container;

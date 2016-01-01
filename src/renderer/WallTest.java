@@ -22,7 +22,7 @@ public class WallTest  extends JComponent {
 	}
 
 	
-	public static void main(String[] args) {
+	/**public static void main(String[] args) {
 	  // Creates a new JFrame
 	JFrame testFrame = new JFrame();
 	  // the programs stops running when the panel is exited
@@ -42,6 +42,6 @@ public class WallTest  extends JComponent {
 	    testFrame.pack();
 	    // sets the visibility of the frame
 	    testFrame.setVisible(true);
-	}
+	}*/
 
 }
