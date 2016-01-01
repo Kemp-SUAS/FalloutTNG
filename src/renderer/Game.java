@@ -20,11 +20,13 @@ public class Game extends Canvas implements Runnable {
 	private boolean running;
 	private Texture texture;
 	private Texture texture2;
+	private Texture texture3;
 	
 	public Game()
 	{
 		texture= new Texture("Test");
 		texture2= new Texture("Test");
+		texture3= new Texture("Test");
 	}
 	
 	
@@ -48,6 +50,7 @@ public class Game extends Canvas implements Runnable {
 		
 		texture.render(g, 100,100);
 		texture2.render(g, 200,150);
+		texture3.render(g, 300,150);
 		
 		g.dispose();
 		bS.show();
