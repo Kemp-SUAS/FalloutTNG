@@ -29,49 +29,34 @@ import AssetHandling.AssetManager;
  * 
  * @author Faduma Ahmed, Mohid Aslam, Kieran Wilson Simarpal Kalsi
  * 
- * This class shows the main screen to the user. This will be the the initial interaction the player will have with the game. This class sets the frame an all mouse related actions
+ * This class shows the main screen to the user. This will be the the initial interaction the player will have with the game
  *
  */
 
 public class MainScreen extends JFrame {
 
-	// create a generic lightweight container.
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.It sets the screen and the frame size settings
-	 * 
-	 * 
+	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		//that queues events, an implements the runnable interface
 		EventQueue.invokeLater(new Runnable() {
-			
-			/**
-			 * inherited method from Runnable interface
-			 * @see java.lang.Runnable#run()
-			 */
 			public void run() {
-				
 				try {
-					// creates a new object from this class
-					MainScreen  frame =  new MainScreen ();
-					// sets the visibility of the frame
-					frame . setVisible  (true );
-					// Prohibts the user from changing the size of the frame
-					frame . setResizable (false );
-				} 
-				// indicates conditions that a reasonable application might want to catch.
-				catch ( Exception  e ) {
-					e. printStackTrace( );
+					MainScreen frame = new MainScreen();
+					frame.setVisible(true);
+	
+					frame.setResizable(false);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		});
-	} 
+	}
 
 	/**
-	 * THis constructors creates the frame and sets all required settings
-	 * 
+	 * Create the frame.
 	 * 
 	 * @throws IOException
 	 */
@@ -84,27 +69,18 @@ public class MainScreen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		*/
-		// Sets the operation that will happen by default when the user initiates a "close" on this frame
-		setDefaultCloseOperation( JFrame . EXIT_ON_CLOSE );
-		// Moves and resizes this component.
-		setBounds ( 100 , 100 , 1048 , 600);
-		// Creates a new JPanel with a double buffer and a flow layout.
-		contentPane  =  new  JPanel( );
-		// Sets the borders, object is responsible for defining the insets for the component 
-		contentPane. setBorder ( new  EmptyBorder (5, 5, 5, 5));
-		
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1048, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		// Sets the layout manager for the container.
 		contentPane.setLayout(null);
-		// Creates a new button
 		JButton continueButton = new JButton("");
-		// Moves and resizes this the button.
 		continueButton.setBounds(840, 191, 182, 47);
-		// Appends the specified component to contentPane
 		contentPane.add(continueButton);
 
 		try {
-			//
 			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
@@ -123,10 +99,6 @@ public class MainScreen extends JFrame {
 					e1.printStackTrace();
 				}
 			}
-			
-			
-			
-			
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
