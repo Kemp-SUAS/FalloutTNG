@@ -1,4 +1,4 @@
-/
+//start
 package AssetHandling;
 
 import java.awt.Container;
@@ -8,16 +8,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-/**
- * This class  will make a Frame, a GUI that will show the main menu of the game. 
- * It has the options of  load new game,continue, Exit. It is the first visual interface the player will interact with.
- * 
- * @author Faduma Ahmed, Kieran Wilson, Mohid Aslam, Simar Pal Kalsi
- *	Time -- 8:11:16 PM Date Dec 8, 2015
- *
- */
 public class ImageChanger {
-
+/**
+ * Changes the button image for click, hover and idle on the continue button
+ * @param s
+ * @param button
+ * @return Image
+ */
 	/*public static Image mainMenuContinue(String s, JButton button){
 
 	}
@@ -38,7 +35,7 @@ public class ImageChanger {
 }
 */
 	/**
-	 *  THis static method will Change the button for click hover and idle on the load button 
+	 * Changes the button image for click, hover and idle on the load button
 	 * @param s
 	 * @param button
 	 * @return Image
