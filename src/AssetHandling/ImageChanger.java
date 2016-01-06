@@ -114,45 +114,22 @@ public class ImageChanger {
 	 * @return Image
 	 */
 	public static Image mainMenuExitGame(String s, JButton button){
-		
-		// If the user clicks the button
-		if  (s.equals("click") ){
-			// Creates an ImageIcon if the user clicks the buttton. The image will be preloaded by using MediaTracker to monitor the loading state of the image. 
-			
-			Image  Click = new  ImageIcon ("Assets/Pictures/MainScreen/exit_click.png"). getImage().  getScaledInstance(button . getWidth() ,button. getHeight() ,java .awt . Image.SCALE_SMOOTH);
-			// returns the image 
-			return   Click;
+		if(s.equals("click")){
+			Image  Click = new  ImageIcon("Assets/Pictures/MainScreen/exit_click.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			return Click;
 		}
-		// If the user hovers over the button
 		if(s.equals("hover")){
-			// Creates an ImageIcon if the user hovers over the buttton. The image will be preloaded by using MediaTracker to monitor the loading state of the image. 
-			
-			
-			Image Hover = new  ImageIcon("Assets/Pictures/MainScreen/exit_hover.png"). getImage(). getScaledInstance(button .getWidth() ,button. getHeight(),java.awt.Image. SCALE_SMOOTH);
-			// returns the image 
-			return  Hover;
+			Image Hover = new  ImageIcon("Assets/Pictures/MainScreen/exit_hover.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			return Hover;
 		}
-		// If the user is idle around the button
 		else {
-			// Creates an ImageIcon if the user is idle around the button. The image will be preloaded by using MediaTracker to monitor the loading state of the image. 
-			
-			
-			Image  Idle = new  ImageIcon("Assets/Pictures/MainScreen/exit_Idle.png") .getImage() .getScaledInstance( button.getWidth(), button.getHeight(),java .awt. Image.SCALE_SMOOTH );
-			// returns the image 
-			return  Idle;
+			Image Idle = new ImageIcon("Assets/Pictures/MainScreen/exit_Idle.png").getImage().getScaledInstance(button.getWidth(),button.getHeight(),java.awt.Image.SCALE_SMOOTH);
+			return Idle;
 		}
 	}
-	
-	
-	/**
-	 * This static method sets the background of the main menu
-	 * @return the image of the main menu background method
-	 */
 	public static ImageIcon mainScreenBackground(){
-		// Creates an ImageIcon for the background image. The image will be preloaded by using MediaTracker to monitor the loading state of the image. 
-		
-		ImageIcon  Click =  new ImageIcon( "Assets/Pictures/MainScreen/mianScreen_Background.png" );
-		// returns the image 
-		return   Click;
+		ImageIcon Click = new ImageIcon("Assets/Pictures/MainScreen/mianScreen_Background.png");
+		return Click;
 	}
 }
+//end
