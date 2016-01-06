@@ -50,7 +50,7 @@ public class PlayerSkillPoints {
 	}
 	/**
 	 * Gets the players Awareness stat
-	 * @return
+	 * @return 
 	 */
 	public int getAwarenessStat(){
 		return awareness;

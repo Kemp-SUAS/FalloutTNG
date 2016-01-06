@@ -80,7 +80,7 @@ public class Texture {
 		super.finalize();
 	}
 	
-	
+
 	public void render(Graphics g, double x, double y)
 	{
 		

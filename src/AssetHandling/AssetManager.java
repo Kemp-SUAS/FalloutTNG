@@ -14,7 +14,7 @@ public class AssetManager {
 	static Statement stat;
 	
 		/**
-		 *  This static method helps to get the external raw data from SQLite
+		 *  This static method helps to get the external String data from SQLite
 		 * @param tableName, String of the table name found in SQLite
 		 * @param id , the counter of each row
 		 * @param column ,The name of the column in the table
@@ -32,6 +32,15 @@ public class AssetManager {
 			String indexInformation = rs.getString(column);
 			return indexInformation;
 		}
+		
+		/**
+		 * THis static method helps to get the external String data from SQLite and places it in a String Array
+		 * @param tableName,String of the table name found in SQLite
+		 * @param column,the counter of each row
+		 * @return ArrayList
+		 * @throws ClassNotFoundException,an exception that provides information on a database access error or other errors.
+		 * @throws SQLException, An exception that provides information on a database access error or other errors.
+		 */
 		public static ArrayList<String> dataBaseGet(String tableName, String column) throws ClassNotFoundException, SQLException{
 			Class.forName("org.sqlite.JDBC");
 		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
