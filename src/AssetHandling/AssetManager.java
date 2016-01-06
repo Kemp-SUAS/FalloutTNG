@@ -8,10 +8,6 @@ import java.util.ArrayList;
  * @author Faduma Ahmed, Kieran Wilson, Mohid Aslam, Simar Pal Kalsi
  *Time -- 8:11:16 PM Date Dec 8, 2015
  */
-/**
- * @author fadumaahmed
- *
- */
 public class AssetManager {
 
 	// The object used for excecuting the static SQLite object
@@ -41,18 +37,6 @@ public class AssetManager {
 			
 			return indexInformation;
 		}
-		
-		
-		
-		/**
-		 * THis method places all the information in the method dataBaseGet into an Array List
-		 * @param tableName, String of the table name found in SQLite
-		 * @param id , the counter of each row
-		 * @param column ,The name of the column in the table
-		 * @return String, of the all the data that the method s specifically looking for
-		 * @throws SQLException , an exception that provides information on a database access error or other errors.
-		 * @throws ClassNotFoundException Thrown when an application tries to load in a class through its string name using: The forName method in class Class.  The findSystemClass method in class ClassLoader . The loadClass method in class ClassLoader.
-		 */
 		public static ArrayList<String> dataBaseGet(String tableName, String column) throws ClassNotFoundException, SQLException{
 			Class.forName("org.sqlite.JDBC");
 		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
