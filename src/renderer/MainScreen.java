@@ -117,31 +117,16 @@ public class MainScreen extends JFrame {
 			// Traces the root cause of the error
 			e1.printStackTrace();
 		};
-		
-		// Adds the specified mouse listener to receive mouse events
 		continueButton.addMouseListener(new MouseAdapter() {
-			/* (non-Javadoc)
-			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-			 */
 			@Override
-			
 			public void mousePressed(MouseEvent e) {
 				try {
-					
-					//Sets the button's default icon.
-					continueButton . setIcon (new  ImageIcon( imageMaker( "image_strings" , "path" , 1 , continueButton ) ) ); 
-					// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton))); 
+			
 				} catch (ClassNotFoundException e1) {
-					
-					//traces the root cause of the error
-					e1 . printStackTrace( );
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch ( SQLException  e1 ) {
-					// traces the root cause of the error
-					
-					e1 . printStackTrace( );
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
 				}
 			}
 			
@@ -149,54 +134,26 @@ public class MainScreen extends JFrame {
 			
 			
 
-			/* (non-Javadoc)
-			 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
-			 */
 			@Override
-			public void mouseReleased ( MouseEvent  e) {
+			public void mouseReleased(MouseEvent e) {
 				try {
-					
-					//Sets the button's default icon.
 					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
-				} 
-				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-				
-				catch ( ClassNotFoundException  e1 ) {
-					// traces the root cause of the error
-					e1 . printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException e1 ) {
-					// traces the root cause of the error
-					e1.printStackTrace ();
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
 				};
 			}
 
-			/* (non-Javadoc)
-			 * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
-			 */
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					//Sets the button's default icon.
-					continueButton. setIcon ( new  ImageIcon ( imageMaker ( "image_strings" , "path" ,  2,  continueButton)) ) ;
-				} 
-				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-				
-				catch  ( ClassNotFoundException e1) {
-					
-					// traces the root cause of the error
-					e1. printStackTrace( );
-				}
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch ( SQLException  e1) {
-					
-					// traces the root cause of the error
-					e1 .printStackTrace( );
-				} ;
-			
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 2, continueButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
 			}
 
 			@Override
@@ -409,12 +366,5 @@ public class MainScreen extends JFrame {
 		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
 		return image;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 }
