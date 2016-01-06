@@ -54,47 +54,18 @@ public class AssetManager {
 		 * @throws ClassNotFoundException Thrown when an application tries to load in a class through its string name using: The forName method in class Class.  The findSystemClass method in class ClassLoader . The loadClass method in class ClassLoader.
 		 */
 		public static ArrayList<String> dataBaseGet(String tableName, String column) throws ClassNotFoundException, SQLException{
-			
-			//Returns the Class object associated with the class or interface 
 			Class.forName("org.sqlite.JDBC");
-			
-			// SQL statements are executed and results are returned within the context of a connection.
 		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
-		     // Creates a Statement object for sending SQL statements to the database. 
 		     stat = c.createStatement();
-		     // object maintains a cursor pointing to its current row of data
-		     ResultSet rs = stat.executeQuery("select * from "+ tableName+ ";");
-			// Create a new Array List
-		     ArrayList<String> data = new ArrayList<String>();
+			ResultSet rs = stat.executeQuery("select * from "+ tableName+ ";");
+			ArrayList<String> data = new ArrayList<String>();
 			while(rs.next())
 			{
-				//Retrieves the value of the designated column in the current row of this ResultSet object an placces it into an Array
 				data.add(rs.getString(column));
 			}
 			return data;
 		}
 		
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
