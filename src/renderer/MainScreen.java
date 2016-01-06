@@ -27,10 +27,10 @@ import java.sql.SQLException;
 import AssetHandling.AssetManager;
 /**
  * 
- * 
+ * @author Faduma Ahmed, Mohid Aslam, Kieran Wilson Simarpal Kalsi
  * 
  * This class shows the main screen to the user. This will be the the initial interaction the player will have with the game. This class sets the frame an all mouse related actions
- *  @author Faduma Ahmed, Mohid Aslam, Kieran Wilson Simarpal Kalsi
+ *
  */
 
 public class MainScreen extends JFrame {
