@@ -1,45 +1,18 @@
 package vault1.CharacterFolder;
 /**
  * Class holds all of the players skill points
- * @author Faduma Ahmed, Kieran Wilson Simar pal Kalsi Mohid Aslam
+ * @author Kieran , Simar
  *
  */
 public class PlayerSkillPoints {
-	/**
-	 *  The strength of the player
-	 */
 	private int strength;
-	/**
-	 *  The awareness of the player
-	 */
 	private int awareness;
-	/**
-	 *  The endurance of the player
-	 */
 	private int endurance;
-	/**
-	 *  The wit of the player
-	 */
 	private int wit;
-	/**
-	 *  The intelligence of the player
-	 */
 	private int intelligence;
-	/**
-	 *  The dexterity of the player
-	 */
 	private int dexterity;
-	/**
-	 *  The luck of the player
-	 */
 	private int luck;
-	/**
-	 *  The how much the points will multiply by 
-	 */
-	public int carryWeightMultiplier;
-	/**
-	 *  The the carry weight points of the player
-	 */
+	int carryWeightMultiplier;
 	final int CARRY_WEIGHT_CONST = 100;
 		
 
@@ -49,26 +22,24 @@ public class PlayerSkillPoints {
 	public PlayerSkillPoints() {
 
 	}
-	
-	/** Sets the players stats
-	 * @param strength , the strength of the player
-	 * @param awareness , the awareness of the player
-	 * @param endurance , the endurance of the player
-	 * @param wit , the wit of the player
-	 * @param intelligence , the intelligence of the player
-	 * @param dexterity , the dexterity of the player
-	 * @param luck ,the luck of the player
-	 * @param carryWeightMultiplier ,carry weight points of the player
+	/**
+	 * Constructor for all of the fields
+	 * @param str
+	 * @param aware
+	 * @param end
+	 * @param wit
+	 * @param intel
+	 * @param dex
+	 * @param luck
 	 */
-	public PlayerSkillPoints(int strength, int awareness, int endurance, int wit, int intelligence, int dexterity, int luck, int carryWeightMultiplier) {
-		this.strength = strength;
-		this.awareness = awareness;
-		this.endurance = endurance;
+	public PlayerSkillPoints(int str, int aware, int end, int wit, int intel, int dex, int luck, int carryWeightMultiplier) {
+		this.strength = str;
+		this.awareness = aware;
+		this.endurance = end;
 		this.wit = wit;
-		this.intelligence = intelligence;
-		this.dexterity = dexterity;
+		this.intelligence = intel;
+		this.dexterity = dex;
 		this.luck = luck;
-		this.carryWeightMultiplier= carryWeightMultiplier;
 	}
 	/**
 	 * Gets the players Strength stat
