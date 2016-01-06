@@ -1,39 +1,15 @@
 package vault1.CharacterFolder;
 /**
  * Class holds all the player stats get set methods
- * @author Simar Pal Kalsi , Kieran Wilson, Faduma Ahmed, Mohid Aslam
+ * @author Simar , Kieran
  *
  */
 public class PlayerGameplayStats {
-	
-	/**
-	 *  the health of the player
-	 */
 	private int health;
-
-	/**
-	 *  the abillity of the player
-	 */
 	private int abilityPoints;
-
-	/**
-	 *  the Armour of the player
-	 */
 	private int armor;
-
-	/**
-	 *  the ammunition of the player
-	 */
 	private int ammo;
-
-	/**
-	 *  the toxin levels of the player
-	 */
 	private int toxinLevels;
-
-	/**
-	 *  the toxin resiting capabilities of the player
-	 */
 	private int toxinResist;
 
 /**
