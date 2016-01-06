@@ -72,140 +72,116 @@ public class PlayerSkillPoints {
 	}
 	/**
 	 * Gets the players Strength stat
-	 * @return strength, of the player
+	 * @return
 	 */
 	public int getStrengthStat(){
-		
 		return strength;
 	}
-	
 	/**
 	 * Gets the players Awareness stat
-	 * @return  awareness , of the player
+	 * @return
 	 */
 	public int getAwarenessStat(){
-		
 		return awareness;
 	}
-	
 	/**
 	 * Gets the players Endurance stat
-	 * @return endurance , of the player
+	 * @return
 	 */
 	public int getEnduranceStat(){
-		
 		return endurance;
 	}
 	/**
 	 * Gets the players Wit stat
-	 * @return wit , of the player
+	 * @return
 	 */
 	public int getWitStat(){
-		
 		return wit;
 	}
 	/**
 	 * Gets the players Intelligence stat
-	 * @return intelligence , of the player
+	 * @return
 	 */
 	public int getIntelligenceStat(){
-		
 		return intelligence;
 	}
 	/**
 	 * Gets the players Dexterity stat
-	 * @return  dexterity, of the player
+	 * @return
 	 */
-	
 	public int getDexterityStat(){
-		
 		return dexterity;
 	}
 	/**
 	 * Gets the players Luck stat
-	 * @return luck , of the player
+	 * @return
 	 */
-	
 	public int getLuckStat(){
-		
 		return luck;
 	}
-	
 	/**
 	 * Gets the plays Maximum carry weight
-	 * @return  totalCarryWeight , the total multiplied weight points of the player
+	 * @return
 	 */
 	public int getCarryWeightMultiplier(){
-		
-		int totalCarryWeight= carryWeightMultiplier * CARRY_WEIGHT_CONST;
-		
-		return totalCarryWeight;
+		return carryWeightMultiplier * CARRY_WEIGHT_CONST;
 	}
-	
 	
 	/**
 	 * Sets the players Strength stat
-	 * 
+	 * @return
 	 */
-	
-	public void setStrengthStat(int strength){
-		
-		this.strength = strength;
+	public void setStrengthStat(int str){
+		this.strength = str;
 	}
-	
 	/**
 	 * Sets the players Awareness stat
-	 * 
+	 * @return
 	 */
-	public void setAwarenessStat(int awareness){
-		this.awareness =  awareness;
-		
+	public void setAwarenessStat(int aware){
+		this.awareness = aware;
 	}
 	/**
 	 * Sets the players Endurance stat
-	 * 
+	 * @return
 	 */
-	public void setEnduranceStat(int endurance){
-		this.endurance = endurance;
+	public void setEnduranceStat(int end){
+		this.endurance = end;
 	}
 	/**
 	 * Sets the players Wit stat
-	 *
+	 * @return
 	 */
 	public void setWitStat(int wit){
 		this.wit = wit;
 	}
 	/**
 	 * Sets the player Intelligence stat
-	 * 
+	 * @return
 	 */
-	public void setIntelligenceStat(int intelligence){
-		this.strength = intelligence;
+	public void setIntellignceStat(int intel){
+		this.strength = intel;
 	}
 	/**
-	 * Sets the  players Dexterity stat
-	 * 
+	 * Sets the players Dexterity stat
+	 * @return
 	 */
-	public void setDexterityStat(int dexterity){
-		this.strength = dexterity;
+	public void setDexterityStat(int dex){
+		this.strength = dex;
 	}
 	/**
 	 * Sets the players Luck stat
-	 * 
+	 * @return
 	 */
 	public void setLuckStat(int luck){
 		this.strength = luck;
 	}
 	/**
 	 * Sets the players maximum carry weight
-	 * 
+	 * @param carryWeightMultiplier
 	 */
 	public void setCarryWeightMultiplier(int carryWeightMultiplier){
 		this.carryWeightMultiplier = carryWeightMultiplier;
-	
-	
-	
-	
 	}
 		
 	
