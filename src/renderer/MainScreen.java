@@ -355,31 +355,19 @@ public class MainScreen extends JFrame {
 		});
 		
 		/**
-		 * Create  and sets the frame.
+		 * Create the frame.
 		 * 
-		 * @throws IOException, produced by failed or interrupted Input/Output operations.
+		 * @throws IOException
 		 */
-		// creates a new button
-		JButton newGameButton  =  new JButton( "" );
-		//Moves and resizes this component
-		newGameButton.setBounds(840 , 391 , 182 , 47 ) ;
-		
-		//Appends the specified component to the end of this container.
-		contentPane . add ( newGameButton ) ;
+		JButton newGameButton = new JButton("");
+		newGameButton.setBounds(840, 391, 182, 47);
+		contentPane.add(newGameButton);
 
 		try {
-			
-			
 			newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
-		}
-		// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-		
-		catch (ClassNotFoundException  classNotFound) {
-			 classNotFound.printStackTrace();
-		} 
-		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-		
-		catch (SQLException sQLError) {
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException sQLError) {
 			sQLError.printStackTrace();
 		};
 		continueButton.addMouseListener(new MouseAdapter() {
@@ -388,15 +376,9 @@ public class MainScreen extends JFrame {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
 		
-				} 
-				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-				
-				catch (ClassNotFoundException classNotFound) {
-					classNotFound.printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException sQLError) {
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				}
 			}
@@ -405,15 +387,9 @@ public class MainScreen extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
-				} 
-				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-				
-				catch (ClassNotFoundException classNotFound) {
-					classNotFound.printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException sQLError) {
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				};
 			}
@@ -422,15 +398,9 @@ public class MainScreen extends JFrame {
 			public void mouseEntered(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 8, newGameButton)));
-				}
-				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-				
-				catch (ClassNotFoundException classNotFound) {
-					classNotFound.printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException sQLError) {
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				};
 			}
@@ -439,21 +409,13 @@ public class MainScreen extends JFrame {
 			public void mouseExited(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
-				} 
-				// Thrown when an application tries to load in a class through its string name but no definition for the class with the specified name could be found.
-				
-				catch (ClassNotFoundException classNotFound) {
-					classNotFound.printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException sQLError) {
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				};
 			}
 		});
-		
-		
 		/**
 		 * Create the frame.
 		 * 
@@ -467,10 +429,7 @@ public class MainScreen extends JFrame {
 			exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
-		} 
-		// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-		
-		catch (SQLException sQLError) {
+		} catch (SQLException sQLError) {
 			sQLError.printStackTrace();
 		};
 		continueButton.addMouseListener(new MouseAdapter() {
@@ -481,10 +440,7 @@ public class MainScreen extends JFrame {
 			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} // thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				
-				catch (SQLException sQLError) {
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				}
 			}
@@ -495,10 +451,7 @@ public class MainScreen extends JFrame {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException sQLError) {
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				};
 			}
@@ -509,10 +462,7 @@ public class MainScreen extends JFrame {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 11, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException sQLError) {
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				};
 			}
@@ -523,10 +473,7 @@ public class MainScreen extends JFrame {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
-				} 
-				// thrown when the SQLite hasn't been called properly,follows either the XOPEN SQLstate conventions, an integer error code that is specific to each vendor.
-				
-				catch (SQLException sQLError) {
+				} catch (SQLException sQLError) {
 					sQLError.printStackTrace();
 				};
 			}
