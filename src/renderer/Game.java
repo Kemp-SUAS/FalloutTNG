@@ -26,9 +26,9 @@ public class Game extends Canvas implements Runnable {
 	
 	public Game()
 	{
-		texture= new Texture("Test");
-		texture2= new Texture("Test");
-		texture3= new Texture("Test");
+		texture= new Texture("Test.png");
+		texture2= new Texture("Test.png");
+		texture3= new Texture("Test.png");
 	}
 	
 	
