@@ -10,8 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import AssetHandling.ImageChanger;
-
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -59,8 +57,10 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 * 
 	 * @throws IOException
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public MainScreen() throws IOException {
+	public MainScreen() throws IOException, ClassNotFoundException, SQLException {
 		/*
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1048, 600);
@@ -149,11 +149,12 @@ public class MainScreen extends JFrame {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		};
-		continueButton.addMouseListener(new MouseAdapter() {
+		loadButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
+			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -210,12 +211,12 @@ public class MainScreen extends JFrame {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		};
-		continueButton.addMouseListener(new MouseAdapter() {
+		newGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
-		
+			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -272,7 +273,7 @@ public class MainScreen extends JFrame {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		};
-		continueButton.addMouseListener(new MouseAdapter() {
+		exitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
@@ -320,7 +321,7 @@ public class MainScreen extends JFrame {
 		});
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(ImageChanger.mainScreenBackground());
+		lblNewLabel.setIcon(new ImageIcon(AssetManager.dataBaseGet("image_strings", 13, "path" )));
 		lblNewLabel.setBounds(10, 11, 1012, 539);
 		contentPane.add(lblNewLabel);
 		
@@ -328,7 +329,7 @@ public class MainScreen extends JFrame {
 	}
 	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
 		String path = AssetManager.dataBaseGet(table, id, column);
-		System.out.println(path);
+
 		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
 		return image;
 	}
