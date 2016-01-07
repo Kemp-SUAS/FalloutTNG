@@ -1,6 +1,7 @@
 package renderer;
 
 import java.awt.Canvas;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
@@ -21,6 +22,7 @@ public class Game extends Canvas implements Runnable {
 	private Texture texture;
 	private Texture texture2;
 	private Texture texture3;
+	private GameStates gsm;
 	
 	public Game()
 	{
@@ -78,6 +80,7 @@ public class Game extends Canvas implements Runnable {
 	
 	@Override
 	public void run() {
+		gsm = new GameStates();
 		double target = 60.0;
 		double secondsPerTarget=1000000000.0/target;
 		long last= System.nanoTime();

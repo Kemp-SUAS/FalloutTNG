@@ -51,7 +51,7 @@ public class Texture {
 			try{
 				// it don't support file or input stream, adding that could cause error
 				
-				manager=  new TextureManager(ImageIO.read(new File("/FalloutTNG/Assets/Pictures/Textures/"+ fileName+ ".png")));
+				manager=  new TextureManager(ImageIO.read(new File("Assets/Pictures/Textures/"+ fileName+ ".png")));
 				//((HashMap<String, Texture>) textureMap).put(fileName,this);
 				
 			
