@@ -1,4 +1,4 @@
- package renderer;
+package renderer;
 
 import java.awt.Canvas;
 
