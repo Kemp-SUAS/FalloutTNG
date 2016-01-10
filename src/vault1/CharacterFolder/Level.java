@@ -1,5 +1,8 @@
 package vault1.CharacterFolder;
 
+import java.sql.SQLException;
+
+import AssetHandling.AssetManager;
 
 public class Level {
 	
@@ -9,15 +12,12 @@ public class Level {
 	private String playerPosition;
 	private String playerData;
 	private String npcData;
+	private int id;
 	
 	
-	public Level(String levelName, String imageData, String wallData, String playerPosition, String playerData, String npcData) {
-		this.levelName = levelName;
-		this.imageData = imageData;
-		this.wallData = wallData;
-		this.playerPosition = playerPosition;
-		this.playerData = playerData;
-		this.npcData = npcData;	
+	public Level(int id) {
+		this.id = id;
+		
 	}
 	
 	public Level(){
@@ -39,26 +39,27 @@ public class Level {
 		return playerData;
 	}
 	public String getNpcData(){
-		return npcData;	}
-	
-	public void setLevelName(String levelName){
-		 this.levelName = levelName;
-	}
-	public void setImageData(String imageData){
-		 this.imageData = imageData;
-	}
-	public void setWallData(String wallData){
-		 this.wallData = wallData;
-	}
-	public void setPlayerPosition(String playerPosition){
-		 this.playerPosition = playerPosition;
-	}
-	public void setPlayerData(String playerData){
-		 this.playerData = playerData;
-	}
-	public void npcData(String npcData){
-		 this.npcData = npcData;
+		return npcData;	
 	}
 	
-}
+	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException{
+		 this.levelName = AssetManager.dataBaseGet("Level", id , "levelName");
+	}
+	public void setImageData(String imageData) throws ClassNotFoundException, SQLException{
+		 this.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
+	}
+	public void setWallData(String wallData) throws ClassNotFoundException, SQLException{
+		 this.wallData = AssetManager.dataBaseGet("Level", id, "wallData");
+	}
+	public void setPlayerPosition(String playerPosition) throws ClassNotFoundException, SQLException{
+		 this.playerPosition = AssetManager.dataBaseGet("Level", id, "playerPos");
+	}
+	public void setPlayerData(String playerData) throws ClassNotFoundException, SQLException{
+		 this.playerData = AssetManager.dataBaseGet("Level", id, "playerData");
+	}
+	public void npcData(String npcData) throws ClassNotFoundException, SQLException{
+		 this.npcData = AssetManager.dataBaseGet("Level", id, "npcData");
+	}
+	
+} 
 
