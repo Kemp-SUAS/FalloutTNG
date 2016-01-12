@@ -85,7 +85,7 @@ public class WorldLayout extends Canvas implements Runnable{
 	}
 
 	private void init() {
-		background = new Background(0,0,world,"Assets/Pictures/Textures/Grass Texture.png");
+		background = new Background(0,0,world,"Assets/Pictures/Textures/Character/Female/female_blank.png");
 	}
 
 	private void tick() {	

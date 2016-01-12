@@ -23,7 +23,7 @@ public class Player {
 	}
 	public void render(Graphics g)
 	{
-		g.setColor(Color.GREEN.darker());
+		g.setColor(Color.PINK.darker());
 		
 		g.fillRect(x, y, 32, 32);
 	}
