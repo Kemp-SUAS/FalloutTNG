@@ -34,15 +34,28 @@ public class WorldLayout extends Canvas implements Runnable{
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 	public static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
-
+	long lastTime;
+	long timer = 1000/60;
+	double fps;
 
 	// Key Controlls
 	
 	public static boolean left, right,up,down; 
 	@Override
 	public void run() {
-
+		
+		
+		
 		while (running) {
+			lastTime = System.nanoTime();
+			try{
+				Thread.sleep(timer);
+			}
+			catch(InterruptedException e){
+				
+			}
+			fps = 1000000000.0 / (System.nanoTime()-lastTime);
+			lastTime = System.nanoTime();
 			tick();
 			render();
 
