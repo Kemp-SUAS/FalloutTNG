@@ -43,7 +43,7 @@ public class WorldLayout extends Canvas implements Runnable{
 	public static boolean left, right,up,down; 
 	@Override
 	public void run() {
-		
+		long timer = 1000/60;
 		
 		
 		while (running) {
@@ -98,19 +98,19 @@ public class WorldLayout extends Canvas implements Runnable{
 	{
 		if(left)
 		{
-			xOffset++;
+			xOffset+=4;
 		}
 		if(right)
 		{
-			xOffset--;
+			xOffset-=4;
 		}
 		if(up)
 		{
-			yOffset++;
+			yOffset+=4;
 		}
 		if(down)
 		{
-			yOffset--;
+			yOffset-=4;
 		}
 	}
 	private void render() {
