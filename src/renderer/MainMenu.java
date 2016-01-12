@@ -3,16 +3,23 @@ package renderer;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import AssetHandling.AssetManager;
 
 @SuppressWarnings("serial")
-public class MainMenu extends Canvas implements Runnable {
+public class MainMenu extends Canvas implements Runnable{	
 	
-	
-	public static final MainMenu menu = new MainMenu();
 
 	private static final long serialVersionUID = 1L;
 	
@@ -31,7 +38,7 @@ public class MainMenu extends Canvas implements Runnable {
 		// TODO Auto-generated method stub
 		
 	}
-	public MainMenu(){
+	public MainMenu() throws ClassNotFoundException, SQLException{
 		setMinimumSize(dimension);
 		setMaximumSize(dimension);
 		setPreferredSize(dimension);
@@ -46,9 +53,261 @@ public class MainMenu extends Canvas implements Runnable {
 		this.addKeyListener(input);
 		init();
 		requestFocus();
+		
+	
 	}
 	
-	private void init() {
+	private void init() throws ClassNotFoundException, SQLException {
+		JButton continueButton = new JButton("");
+		continueButton.setBounds(840, 191, 182, 47);
+		frame.add(continueButton);
+
+		try {
+			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
+		continueButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton))); 
+			
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
+					game.continueButton = true;
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 2, continueButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				try {
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+		});
+		/**
+		 * Create the frame.
+		 * 
+		 * @throws IOException
+		 */
+		JButton loadButton = new JButton("");
+		loadButton.setBounds(840, 291, 182, 47);
+		frame.add(loadButton);
+
+		try {
+			loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
+		loadButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
+			
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 5, loadButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				try {
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+		});
+		/**
+		 * Create the frame.
+		 * 
+		 * @throws IOException
+		 */
+		JButton newGameButton = new JButton("");
+		newGameButton.setBounds(840, 391, 182, 47);
+		frame.add(newGameButton);
+
+		try {
+			newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
+		newGameButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
+			
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 8, newGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				try {
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+		});
+		/**
+		 * Create the frame.
+		 * 
+		 * @throws IOException
+		 */
+		JButton exitGameButton = new JButton("");
+		exitGameButton.setBounds(840, 491, 182, 47);
+		frame.add(exitGameButton);
+
+		try {
+			exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		};
+		exitGameButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 10, exitGameButton))); 
+			
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 11, exitGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				try {
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				};
+			}
+		});
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(AssetManager.dataBaseGet("image_strings", 13, "path" )));
+		lblNewLabel.setBounds(10, 11, 1012, 539);
+		frame.add(lblNewLabel);
+		
 		
 	}
 	
@@ -78,5 +337,11 @@ public class MainMenu extends Canvas implements Runnable {
 		running = false;
 		System.exit(0);
 
+	}
+	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
+		String path = AssetManager.dataBaseGet(table, id, column);
+
+		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
+		return image;
 	}
 }
