@@ -29,13 +29,31 @@ public class MainMenu extends Canvas implements Runnable{
 	JFrame frame;
 	public static Boolean running = false;
 	public static String Tittle = "Main Menu";
-	public static final int WIDTH = 800;
+	public static final int WIDTH = 1048;
 	public static final int HEIGHT = 600;
 	public static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
-	
+	long lastTime;
+	long timer = 1000/60;
+	double fps;
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+long timer = 1000/60;
+		
+		
+		while (running) {
+			lastTime = System.nanoTime();
+			try{
+				Thread.sleep(timer);
+			}
+			catch(InterruptedException e){
+				
+			}
+			fps = 1000000000.0 / (System.nanoTime()-lastTime);
+			lastTime = System.nanoTime();
+			tick();
+			render();
+
+		}
 		
 	}
 	public MainMenu() throws ClassNotFoundException, SQLException{
@@ -46,11 +64,12 @@ public class MainMenu extends Canvas implements Runnable{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.add(this, BorderLayout.CENTER);
-		frame.pack();
-		frame.setResizable(false);
+		
+		frame.setResizable(true);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		this.addKeyListener(input);
+		
+		frame.pack();
 		init();
 		requestFocus();
 		
@@ -331,7 +350,9 @@ public class MainMenu extends Canvas implements Runnable{
 		thread.start();
 
 	}
-
+	private void tick() {	
+	
+	}
 	synchronized void stop() {
 
 		running = false;
