@@ -6,12 +6,12 @@ import AssetHandling.AssetManager;
 
 public class Level {
 	
-	private String levelName;
-	private String imageData;
-	private String wallData;
-	private String playerPosition;
-	private String playerData;
-	private String npcData;
+	private static String levelName;
+	private static String imageData;
+	private static String wallData;
+	private static String playerPosition;
+	private static String playerData;
+	private static String npcData;
 	private int id;
 	
 	
@@ -23,27 +23,27 @@ public class Level {
 	public Level(){
 
 	}
-	public String getLevelName(){
+	public static String getLevelName(){
 		return levelName;		
 	}
-	public String getImageData(){
+	public static String getImageData(){
 		return imageData;
 	}
-	public String getWallData(){
+	public static String getWallData(){
 		return wallData;
 	}
-	public String getPlayerPosition(){
+	public static String getPlayerPosition(){
 		return playerPosition;
 	}
-	public String getPlayerData(){
+	public static String getPlayerData(){
 		return playerData;
 	}
-	public String getNpcData(){
+	public static String getNpcData(){
 		return npcData;	
 	}
 	
 	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException{
-		 this.levelName = AssetManager.dataBaseGet("Level", id , "levelName");
+		 Level.levelName = AssetManager.dataBaseGet("Level", id , "levelName");
 	}
 	public void setImageData(String imageData) throws ClassNotFoundException, SQLException{
 		 this.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
