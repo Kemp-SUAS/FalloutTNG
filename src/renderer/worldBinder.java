@@ -18,11 +18,11 @@ public class worldBinder {
  * Test world binder
  */
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
-		wallStringParser("1");	
+		//wallStringParser("1");	
 	}
 	//Gets wall dimensions from database and stores it into an arraylist. Method of doing so can be improved upon,
 	//however this seems to be the simplest, working way for now
-	public static void wallStringParser(String level) throws SQLException, ClassNotFoundException{
+	/**public static void wallStringParser(String level) throws SQLException, ClassNotFoundException{
 		String table = "level_"+level;
 		String wallString = AssetHandling.AssetManager.dataBaseGet(table, 1, "wall");
 		String delims = "[\\/\\,]+";
@@ -33,4 +33,5 @@ public class worldBinder {
 		}
 		wallDimensions.remove(0);
 	}
+	**/
 }
