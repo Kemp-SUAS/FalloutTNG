@@ -14,18 +14,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import AssetHandling.AssetManager;
 
 @SuppressWarnings("serial")
-public class MainMenu extends Canvas implements Runnable{	
-	
+public class MainMenu extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	InputHandler input = new InputHandler();
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-	
+
 	JFrame frame;
 	public static Boolean running = false;
 	public static String Tittle = "Main Menu";
@@ -33,30 +33,29 @@ public class MainMenu extends Canvas implements Runnable{
 	public static final int HEIGHT = 600;
 	public static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 	long lastTime;
-	long timer = 1000/60;
+	JPanel panel;
 	double fps;
+
 	@Override
 	public void run() {
-long timer = 1000/60;
-		
-		
+		long timer = 1000 / 60;
+
 		while (running) {
 			lastTime = System.nanoTime();
-			try{
+			try {
 				Thread.sleep(timer);
+			} catch (InterruptedException e) {
+
 			}
-			catch(InterruptedException e){
-				
-			}
-			fps = 1000000000.0 / (System.nanoTime()-lastTime);
+			fps = 1000000000.0 / (System.nanoTime() - lastTime);
 			lastTime = System.nanoTime();
 			tick();
 			render();
-
 		}
-		
+
 	}
-	public MainMenu() throws ClassNotFoundException, SQLException{
+
+	public MainMenu() throws ClassNotFoundException, SQLException {
 		setMinimumSize(dimension);
 		setMaximumSize(dimension);
 		setPreferredSize(dimension);
@@ -64,22 +63,37 @@ long timer = 1000/60;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.add(this, BorderLayout.CENTER);
-		
-		frame.setResizable(true);
+		panel = new JPanel();
+		panel.setSize(dimension);
+		frame.add(panel, null);
+		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		
+
 		frame.pack();
 		init();
 		requestFocus();
-		
-	
+
 	}
-	
+
 	private void init() throws ClassNotFoundException, SQLException {
+
+	}
+
+	private void render() {
+		BufferStrategy bs = getBufferStrategy();
+		if (bs == null) {
+			createBufferStrategy(3);
+			return;
+		}
+		java.awt.Graphics g = bs.getDrawGraphics();
+
+		((java.awt.Graphics) g).drawImage(bufferedImage, 0, 0, getWidth(), getHeight(), null);
+		g.dispose();
+		bs.show();
 		JButton continueButton = new JButton("");
 		continueButton.setBounds(840, 191, 182, 47);
-		frame.add(continueButton);
+		panel.add(continueButton);
 
 		try {
 			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
@@ -87,13 +101,14 @@ long timer = 1000/60;
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
-		};
+		}
+		;
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton))); 
-			
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton)));
+
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -110,7 +125,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -121,7 +137,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -132,7 +149,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 		});
 		/**
@@ -150,13 +168,14 @@ long timer = 1000/60;
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
-		};
+		}
+		;
 		loadButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
-			
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton)));
+
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -172,7 +191,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -183,7 +203,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -194,7 +215,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 		});
 		/**
@@ -212,13 +234,14 @@ long timer = 1000/60;
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
-		};
+		}
+		;
 		newGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
-			
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton)));
+
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -234,7 +257,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -245,7 +269,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -256,7 +281,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 		});
 		/**
@@ -274,13 +300,14 @@ long timer = 1000/60;
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
-		};
+		}
+		;
 		exitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 10, exitGameButton))); 
-			
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 10, exitGameButton)));
+
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -296,7 +323,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -307,7 +335,8 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 
 			@Override
@@ -318,30 +347,11 @@ long timer = 1000/60;
 					e1.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				};
+				}
+				;
 			}
 		});
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(AssetManager.dataBaseGet("image_strings", 13, "path" )));
-		lblNewLabel.setBounds(10, 11, 1012, 539);
-		frame.add(lblNewLabel);
-		
-		
-	}
-	
-	private void render(){
-		BufferStrategy bs = getBufferStrategy();
-		if (bs == null) {
-			createBufferStrategy(3);
-			return;
-		}
-		java.awt.Graphics g = bs.getDrawGraphics();
 
-		((java.awt.Graphics) g).drawImage(bufferedImage, 0, 0, getWidth(), getHeight(), null);
-		g.dispose();
-		bs.show();
-	
 	}
 
 	synchronized void start() {
@@ -350,19 +360,24 @@ long timer = 1000/60;
 		thread.start();
 
 	}
-	private void tick() {	
-	
+
+	private void tick() {
+
 	}
+
 	synchronized void stop() {
 
 		running = false;
 		System.exit(0);
 
 	}
-	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
+
+	private static Image imageMaker(String table, String column, int id, JButton b)
+			throws ClassNotFoundException, SQLException {
 		String path = AssetManager.dataBaseGet(table, id, column);
 
-		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
+		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(), b.getHeight(),
+				java.awt.Image.SCALE_SMOOTH);
 		return image;
 	}
 }
