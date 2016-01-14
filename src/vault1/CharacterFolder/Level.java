@@ -15,6 +15,12 @@ public class Level {
 	private static String npcData;
 	private static int id;
 
+	ArrayList<String> npcDataInfo = new ArrayList<String>();
+	ArrayList<String> playerDataInfo = new ArrayList<String>();
+	ArrayList<String> playerPos = new ArrayList<String>();
+	ArrayList<String> wallDimensions = new ArrayList<String>();
+	ArrayList<String> imageInfo = new ArrayList<String>();
+	
 	public Level(int id) {
 		this.id = id;
 
@@ -58,7 +64,6 @@ public class Level {
 		this.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
 		String delims = "[\\/\\]+";
 		String[] transfer = this.imageData.split(delims);
-		ArrayList<String> imageInfo = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
 			imageInfo.add(transfer[i]);
 		}
@@ -69,7 +74,6 @@ public class Level {
 		this.wallData = AssetManager.dataBaseGet("Level", id, "wallData");
 		String delims = "[\\/\\,]+";
 		String[] transfer = this.wallData.split(delims);
-		ArrayList<String> wallDimensions = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
 			wallDimensions.add(transfer[i]);
 		}
@@ -80,7 +84,6 @@ public class Level {
 		this.playerPosition = AssetManager.dataBaseGet("Level", id, "playerPos");
 		String delims = "[\\/\\]+";
 		String[] transfer = this.playerPosition.split(delims);
-		ArrayList<String> playerPos = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
 			playerPos.add(transfer[i]);
 		}
@@ -91,7 +94,6 @@ public class Level {
 		this.playerData = AssetManager.dataBaseGet("Level", id, "playerData");
 		String delims = "[\\/\\]+";
 		String[] transfer = this.playerData.split(delims);
-		ArrayList<String> playerDataInfo = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
 			playerDataInfo.add(transfer[i]);
 		}
@@ -102,22 +104,10 @@ public class Level {
 		this.npcData = AssetManager.dataBaseGet("Level", id, "npcData");
 		String delims = "[\\/\\]+";
 		String[] transfer = this.npcData.split(delims);
-		ArrayList<String> npcDataInfo = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
 			npcDataInfo.add(transfer[i]);
 		}
 		npcDataInfo.remove(0);
 	}
 
-	public static void npcDataStringParser(String level) throws ClassNotFoundException, SQLException {
-		String table = level;
-		String npcDataString = AssetHandling.AssetManager.dataBaseGet(table, id, "npcData");
-		String delims = "[\\/\\]+";
-		String[] transfer = npcDataString.split(delims);
-		ArrayList<String> npcData = new ArrayList<String>();
-		for (int i = 0; i < transfer.length; i++) {
-			npcData.add(transfer[i]);
-		}
-		npcData.remove(0);
-	}
 }
