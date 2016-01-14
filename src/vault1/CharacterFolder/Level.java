@@ -52,43 +52,23 @@ public class Level {
 		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
 	}
 
+	// setters consist of string parsers each with their unique delims if
+	// necessary.
 	public void setImageData(String imageData) throws ClassNotFoundException, SQLException {
 		this.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
+		String delims = "[\\/\\]+";
+		String[] transfer = this.imageData.split(delims);
+		ArrayList<String> imageInfo = new ArrayList<String>();
+		for (int i = 0; i < transfer.length; i++) {
+			imageInfo.add(transfer[i]);
+		}
+		imageInfo.remove(0);
 	}
 
 	public void setWallData(String wallData) throws ClassNotFoundException, SQLException {
 		this.wallData = AssetManager.dataBaseGet("Level", id, "wallData");
-	}
-
-	public void setPlayerPosition(String playerPosition) throws ClassNotFoundException, SQLException {
-		this.playerPosition = AssetManager.dataBaseGet("Level", id, "playerPos");
-	}
-
-	public void setPlayerData(String playerData) throws ClassNotFoundException, SQLException {
-		this.playerData = AssetManager.dataBaseGet("Level", id, "playerData");
-	}
-
-	public void npcData(String npcData) throws ClassNotFoundException, SQLException {
-		this.npcData = AssetManager.dataBaseGet("Level", id, "npcData");
-	}
-
-	public static void imageDataStringParser(String level) throws ClassNotFoundException, SQLException {
-		String table = "level_" + level;
-		String imageDataString = AssetHandling.AssetManager.dataBaseGet(table, id, "imageData");
-		String delims = "[\\/\\]+";
-		String[] transfer = imageDataString.split(delims);
-		ArrayList<String> imageData = new ArrayList<String>();
-		for (int i = 0; i < transfer.length; i++) {
-			imageData.add(transfer[i]);
-		}
-		imageData.remove(0);
-	}
-
-	public static void wallDataStringParser(String level) throws SQLException, ClassNotFoundException {
-		String table = "level_" + level;
-		String wallString = AssetHandling.AssetManager.dataBaseGet(table, id, "wall");
 		String delims = "[\\/\\,]+";
-		String[] transfer = wallString.split(delims);
+		String[] transfer = this.wallData.split(delims);
 		ArrayList<String> wallDimensions = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
 			wallDimensions.add(transfer[i]);
@@ -96,32 +76,41 @@ public class Level {
 		wallDimensions.remove(0);
 	}
 
-	public static void playerPositionStringParser(String level) throws ClassNotFoundException, SQLException {
-		String table = "level_" + level;
-		String playerPositionString = AssetHandling.AssetManager.dataBaseGet(table, id, "playerPos");
+	public void setPlayerPosition(String playerPosition) throws ClassNotFoundException, SQLException {
+		this.playerPosition = AssetManager.dataBaseGet("Level", id, "playerPos");
 		String delims = "[\\/\\]+";
-		String[] transfer = playerPositionString.split(delims);
-		ArrayList<String> playerPosition = new ArrayList<String>();
+		String[] transfer = this.playerPosition.split(delims);
+		ArrayList<String> playerPos = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
-			playerPosition.add(transfer[i]);
+			playerPos.add(transfer[i]);
 		}
-		playerPosition.remove(0);
+		playerPos.remove(0);
 	}
 
-	public static void playerDataStringParser(String level) throws ClassNotFoundException, SQLException {
-		String table = "level_" + level;
-		String playerDataString = AssetHandling.AssetManager.dataBaseGet(table, id, "playerData");
+	public void setPlayerData(String playerData) throws ClassNotFoundException, SQLException {
+		this.playerData = AssetManager.dataBaseGet("Level", id, "playerData");
 		String delims = "[\\/\\]+";
-		String[] transfer = playerDataString.split(delims);
-		ArrayList<String> playerData = new ArrayList<String>();
+		String[] transfer = this.playerData.split(delims);
+		ArrayList<String> playerDataInfo = new ArrayList<String>();
 		for (int i = 0; i < transfer.length; i++) {
-			playerData.add(transfer[i]);
+			playerDataInfo.add(transfer[i]);
 		}
-		playerData.remove(0);
+		playerDataInfo.remove(0);
+	}
+
+	public void npcData(String npcData) throws ClassNotFoundException, SQLException {
+		this.npcData = AssetManager.dataBaseGet("Level", id, "npcData");
+		String delims = "[\\/\\]+";
+		String[] transfer = this.npcData.split(delims);
+		ArrayList<String> npcDataInfo = new ArrayList<String>();
+		for (int i = 0; i < transfer.length; i++) {
+			npcDataInfo.add(transfer[i]);
+		}
+		npcDataInfo.remove(0);
 	}
 
 	public static void npcDataStringParser(String level) throws ClassNotFoundException, SQLException {
-		String table = "level_" + level;
+		String table = level;
 		String npcDataString = AssetHandling.AssetManager.dataBaseGet(table, id, "npcData");
 		String delims = "[\\/\\]+";
 		String[] transfer = npcDataString.split(delims);
