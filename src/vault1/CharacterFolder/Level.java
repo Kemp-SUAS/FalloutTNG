@@ -22,8 +22,8 @@ public class Level {
 	static ArrayList<String> imageInfo = new ArrayList<String>();
 	
 	public Level(int id) {
-		this.id = id;
-
+		Level.id = id;
+		
 	}
 
 	public Level() {
@@ -60,10 +60,18 @@ public class Level {
 
 	// setters consist of string parsers each with their unique delims if
 	// necessary.
-	public void setImageData(String imageData) throws ClassNotFoundException, SQLException {
-		this.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
+	public void setImageData() {
+		try {
+			Level.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String delims = "[\\/\\]+";
-		String[] transfer = this.imageData.split(delims);
+		String[] transfer = Level.imageData.split(delims);
 		for (int i = 0; i < transfer.length; i++) {
 			imageInfo.add(transfer[i]);
 		}

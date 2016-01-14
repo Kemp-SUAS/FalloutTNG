@@ -2,11 +2,13 @@ package renderer;
 
 import java.awt.BorderLayout;
 
+
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
@@ -28,7 +30,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	Player player = new Player(world);
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
-	Level level1 = new Level(1);
+	
 	
 	JFrame frame;
 	public static Boolean running = false;
@@ -85,6 +87,14 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
+		Level level1 = null;
+		try {
+			level1 = new Level(1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		level1.setImageData();
 		background = new Background(0, 0, world, level1.getIndexInfo(level1.getImageData(), 0));
 	}
 
