@@ -86,8 +86,7 @@ public class WorldLayout extends Canvas implements Runnable{
 	}
 
 	private void init() {
-		background = new Background(0,0,world,"Assets/Pictures/Textures/Character/Female/female_blank.png");
-		image = new Texture("Assets/Pictures/Textures/Character/Male/male_blank.png");
+		background = new Background(0,0,world,"Assets/Pictures/Textures/Hallway_v1.png");
 		
 	}
 
@@ -134,12 +133,13 @@ public class WorldLayout extends Canvas implements Runnable{
 			e.printStackTrace();
 		}
 		
-		if(xOffset >= 100){
-			image.render(g, 100 + xOffset, 100 + yOffset);
-		}
+		
 		player.render(g);
 		g.dispose();
 		bs.show();
+		
+		
+		
 
 	}
 

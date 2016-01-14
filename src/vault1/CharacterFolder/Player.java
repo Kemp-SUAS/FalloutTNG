@@ -25,6 +25,6 @@ public class Player {
 	{
 		g.setColor(Color.PINK.darker());
 		
-		g.fillRect(x, y, 32, 32);
+		g.fillRect(x, y, 64, 64);
 	}
 }
