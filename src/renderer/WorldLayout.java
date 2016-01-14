@@ -11,19 +11,17 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import vault1.CharacterFolder.Player;
 
-
-public class WorldLayout extends Canvas implements Runnable{
+public class WorldLayout extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 
 	private static final WorldLayout world = new WorldLayout();
 	public Background background;
-	
-	
-	//displays object
-	int xOffset=0;
-	int yOffset=0;
-	
+
+	// displays object
+	int xOffset = 0;
+	int yOffset = 0;
+
 	InputHandler input = new InputHandler();
 	Player player = new Player(world);
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -35,27 +33,26 @@ public class WorldLayout extends Canvas implements Runnable{
 	public static final int HEIGHT = 600;
 	public static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 	long lastTime;
-	long timer = 1000/60;
+	long timer = 1000 / 60;
 	double fps;
 	Texture image;
 
 	// Key Controlls
-	
-	public static boolean left, right,up,down; 
+
+	public static boolean left, right, up, down;
+
 	@Override
 	public void run() {
-		long timer = 1000/60;
-		
-		
+		long timer = 1000 / 60;
+
 		while (running) {
 			lastTime = System.nanoTime();
-			try{
+			try {
 				Thread.sleep(timer);
+			} catch (InterruptedException e) {
+
 			}
-			catch(InterruptedException e){
-				
-			}
-			fps = 1000000000.0 / (System.nanoTime()-lastTime);
+			fps = 1000000000.0 / (System.nanoTime() - lastTime);
 			lastTime = System.nanoTime();
 			tick();
 			render();
@@ -64,7 +61,6 @@ public class WorldLayout extends Canvas implements Runnable{
 
 	}
 
-	
 	public WorldLayout() {
 
 		setMinimumSize(dimension);
@@ -81,40 +77,35 @@ public class WorldLayout extends Canvas implements Runnable{
 		this.addKeyListener(input);
 		init();
 		requestFocus();
-		
 
 	}
 
 	private void init() {
-		background = new Background(0,0,world,"Assets/Pictures/Textures/Hallway_v1.png");
-		
+		background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v1.png");
 	}
 
-	private void tick() {	
+	private void tick() {
 		background.tick(this);
 		moveScreen();
 		player.tick(this);
-	
+
 	}
-	private void moveScreen()
-	{
-		if(left)
-		{
-			xOffset+=4;
+
+	private void moveScreen() {
+		if (left) {
+			xOffset += 4;
 		}
-		if(right)
-		{
-			xOffset-=4;
+		if (right) {
+			xOffset -= 4;
 		}
-		if(up)
-		{
-			yOffset+=4;
+		if (up) {
+			yOffset += 4;
 		}
-		if(down)
-		{
-			yOffset-=4;
+		if (down) {
+			yOffset -= 4;
 		}
 	}
+
 	private void render() {
 
 		BufferStrategy bs = getBufferStrategy();
@@ -125,21 +116,17 @@ public class WorldLayout extends Canvas implements Runnable{
 		java.awt.Graphics g = bs.getDrawGraphics();
 
 		((java.awt.Graphics) g).drawImage(bufferedImage, 0, 0, getWidth(), getHeight(), null);
-		
+
 		try {
 			background.render(g);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		player.render(g);
 		g.dispose();
 		bs.show();
-		
-		
-		
 
 	}
 
@@ -156,6 +143,5 @@ public class WorldLayout extends Canvas implements Runnable{
 		System.exit(0);
 
 	}
-
 
 }
