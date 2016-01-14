@@ -70,7 +70,7 @@ public class Level {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String delims = "[\\/\\]+";
+		String delims = "[,]+";
 		String[] transfer = Level.imageData.split(delims);
 		for (int i = 0; i < transfer.length; i++) {
 			imageInfo.add(transfer[i]);
