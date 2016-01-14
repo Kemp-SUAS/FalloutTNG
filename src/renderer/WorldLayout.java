@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.swing.JFrame;
+
+import vault1.CharacterFolder.Level;
 import vault1.CharacterFolder.Player;
 
 public class WorldLayout extends Canvas implements Runnable {
@@ -26,6 +28,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	Player player = new Player(world);
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
+	Level level1 = new Level(1);
+	
 	JFrame frame;
 	public static Boolean running = false;
 	public static String Tittle = "Top Down Scrolling";
@@ -81,7 +85,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v1.png");
+		background = new Background(0, 0, world, level1.getIndexInfo(level1.getImageData(), 0));
 	}
 
 	private void tick() {

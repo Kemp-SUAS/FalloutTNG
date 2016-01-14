@@ -15,11 +15,11 @@ public class Level {
 	private static String npcData;
 	private static int id;
 
-	ArrayList<String> npcDataInfo = new ArrayList<String>();
-	ArrayList<String> playerDataInfo = new ArrayList<String>();
-	ArrayList<String> playerPos = new ArrayList<String>();
-	ArrayList<String> wallDimensions = new ArrayList<String>();
-	ArrayList<String> imageInfo = new ArrayList<String>();
+	static ArrayList<String> npcDataInfo = new ArrayList<String>();
+	static ArrayList<String> playerDataInfo = new ArrayList<String>();
+	static ArrayList<String> playerPos = new ArrayList<String>();
+	static ArrayList<String> wallDimensions = new ArrayList<String>();
+	static ArrayList<String> imageInfo = new ArrayList<String>();
 	
 	public Level(int id) {
 		this.id = id;
@@ -30,12 +30,12 @@ public class Level {
 
 	}
 
-	public static String getLevelName() {
+	public static  String getLevelName() {
 		return levelName;
 	}
 
-	public static String getImageData() {
-		return imageData;
+	public static ArrayList<String> getImageData() {
+		return imageInfo;
 	}
 
 	public static String getWallData() {
@@ -67,7 +67,6 @@ public class Level {
 		for (int i = 0; i < transfer.length; i++) {
 			imageInfo.add(transfer[i]);
 		}
-		imageInfo.remove(0);
 	}
 
 	public void setWallData(String wallData) throws ClassNotFoundException, SQLException {
@@ -77,7 +76,6 @@ public class Level {
 		for (int i = 0; i < transfer.length; i++) {
 			wallDimensions.add(transfer[i]);
 		}
-		wallDimensions.remove(0);
 	}
 
 	public void setPlayerPosition(String playerPosition) throws ClassNotFoundException, SQLException {
@@ -87,7 +85,6 @@ public class Level {
 		for (int i = 0; i < transfer.length; i++) {
 			playerPos.add(transfer[i]);
 		}
-		playerPos.remove(0);
 	}
 
 	public void setPlayerData(String playerData) throws ClassNotFoundException, SQLException {
@@ -97,7 +94,6 @@ public class Level {
 		for (int i = 0; i < transfer.length; i++) {
 			playerDataInfo.add(transfer[i]);
 		}
-		playerDataInfo.remove(0);
 	}
 
 	public void npcData(String npcData) throws ClassNotFoundException, SQLException {
@@ -107,7 +103,9 @@ public class Level {
 		for (int i = 0; i < transfer.length; i++) {
 			npcDataInfo.add(transfer[i]);
 		}
-		npcDataInfo.remove(0);
+	}
+	public static String getIndexInfo(ArrayList<String> arrayList, int id) {
+		return arrayList.get(id);
 	}
 
 }
