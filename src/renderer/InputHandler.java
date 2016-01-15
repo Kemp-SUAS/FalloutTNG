@@ -6,7 +6,6 @@ import java.awt.event.KeyListener;
 
 
 public class InputHandler implements KeyListener {
-
 	@Override
 	public void keyPressed(KeyEvent event) {
 	
@@ -14,24 +13,20 @@ public class InputHandler implements KeyListener {
 		if(keyCode== event.VK_LEFT)
 		{
 			WorldLayout.left=true;
-			
-			
 		}
+
 		if(keyCode== event.VK_RIGHT)
 		{
 			WorldLayout.right=true;
 			
 		}
-		
 		if(keyCode== event.VK_UP)
 		{
 			WorldLayout.up=true;
-			
 		}
 		if(keyCode== event.VK_DOWN)
 		{
 			WorldLayout.down=true;
-			
 		}
 	}
 

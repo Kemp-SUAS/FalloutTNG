@@ -46,6 +46,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	int backgroundX = 1600;
 	int backgroundY = 600;
 	Texture image;
+	
+	
 
 	// Key Controlls
 
