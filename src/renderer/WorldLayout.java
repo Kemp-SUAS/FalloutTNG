@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
+import AssetHandling.AssetManager;
 import vault1.CharacterFolder.Level;
 import vault1.CharacterFolder.Player;
 
@@ -87,15 +88,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		Level level1 = null;
-		try {
-			level1 = new Level(1);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		level1.setImageData();
-		background = new Background(0, 0, world, level1.getIndexInfo(level1.getImageData(), 0));
+		background = new Background(0,0,world,"Assets/Pictures/Textures/Hallway_v1.png");
 	}
 
 	private void tick() {
