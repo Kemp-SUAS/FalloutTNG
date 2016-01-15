@@ -7,8 +7,8 @@ import renderer.WorldLayout;
 
 public class Player {
 
-	int x=400;
-	int y=300;
+	int x=368;
+	int y=268;
 	WorldLayout topDwn;
 
 	public Player(WorldLayout topDwn) {

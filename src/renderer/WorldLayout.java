@@ -22,6 +22,7 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private static final WorldLayout world = new WorldLayout();
 	public Background background;
+	int x = 0;
 
 	// displays object
 	int xOffset = 0;
@@ -42,6 +43,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	long lastTime;
 	long timer = 1000 / 60;
 	double fps;
+	int backgroundX = 1600;
+	int backgroundY = 600;
 	Texture image;
 
 	// Key Controlls
@@ -61,7 +64,7 @@ public class WorldLayout extends Canvas implements Runnable {
 			}
 			fps = 1000000000.0 / (System.nanoTime() - lastTime);
 			lastTime = System.nanoTime();
-			tick();
+			tick(); 
 			render();
 
 		}
@@ -95,21 +98,24 @@ public class WorldLayout extends Canvas implements Runnable {
 		background.tick(this);
 		moveScreen();
 		player.tick(this);
+		
 
 	}
 
 	private void moveScreen() {
+		for(x=0;x<10;x++){
 		if (left) {
-			xOffset += 4;
+			xOffset += 1;
 		}
 		if (right) {
-			xOffset -= 4;
+			xOffset -= 1;
 		}
 		if (up) {
-			yOffset += 4;
+			yOffset += 1;
 		}
 		if (down) {
-			yOffset -= 4;
+			yOffset -= 1;
+		}
 		}
 	}
 
@@ -130,7 +136,18 @@ public class WorldLayout extends Canvas implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		if(xOffset < -1200 + 32){
+			xOffset = -1200 + 32;
+		}
+		if(xOffset > 400 - 32){
+			xOffset = 400 -32;
+		}
+		if(yOffset < -300 +32){
+			yOffset = -300 +32;
+		}
+		if(yOffset > 300 - 32){
+			yOffset = 300 -32;
+		}
 		player.render(g);
 		g.dispose();
 		bs.show();
