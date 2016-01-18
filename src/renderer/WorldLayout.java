@@ -138,13 +138,13 @@ public class WorldLayout extends Canvas implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(xOffset < -1200 + 32){
+		if(xOffset < (-1 * backgroundX) +432){
 			xOffset = -1200 + 32;
 		}
 		if(xOffset > 400 - 32){
 			xOffset = 400 -32;
 		}
-		if(yOffset < -300 +32){
+		if(yOffset < (-1 * backgroundY) + 332){
 			yOffset = -300 +32;
 		}
 		if(yOffset > 300 - 32){
