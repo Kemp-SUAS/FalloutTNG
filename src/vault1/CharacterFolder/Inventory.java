@@ -13,7 +13,7 @@ public class Inventory {
 	
 	
 	
-	public static void cosumeables (PlayerGameplayStats playerStats, PlayerSkillPoints playerSkillPoints , int id) throws ClassNotFoundException, SQLException{
+	public static void cosumeables (PlayerGameplayStats playerStats, PlayerSkillPoints playerSkillPoints , int id) throws ClassNotFoundException, SQLException, CharacterException{
 		String item = AssetManager.dataBaseGet("items", id , "effect"); 
 		String delims = "[,]+";
 		String[] transfer = item.split(delims);
@@ -26,67 +26,67 @@ public class Inventory {
 		
 		if(transfer[0] == "toxresist"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerStats.setToxinResist(playerStats.getToxinResist()+ value);			
 		}
 		
 		if(transfer[0] == "health"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerStats.setHealthStat(playerStats.getHealthStat()+ value);			
 		}
 		
 		if(transfer[0] == "armor"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerStats.setArmor(playerStats.getArmor()+ value);			
 		}
 		
 		if(transfer[0] == "ammo"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerStats.setAmmo(playerStats.getAmmo()+ value);			
 		}
 		
 		if(transfer[0] == "abilitypoints"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerStats.setAbilityPoints(playerStats.getAbilityPoints()+ value);			
 		}
 		
 		if(transfer[0] == "str"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setStrengthStat(playerSkillPoints.getStrengthStat()+ value);			
 		}
 		
 		if(transfer[0] == "aware"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setAwarenessStat(playerSkillPoints.getAwarenessStat()+ value);			
 		}
 		
 		if(transfer[0] == "end"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setEnduranceStat(playerSkillPoints.getEnduranceStat()+ value);			
 		}
 		
 		if(transfer[0] == "wit"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setWitStat(playerSkillPoints.getWitStat()+ value);			
 		}
 		
 		if(transfer[0] == "int"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setIntellignceStat(playerSkillPoints.getIntelligenceStat()+ value);			
 		}
 		
 		if(transfer[0] == "dex"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setDexterityStat(playerSkillPoints.getDexterityStat()+ value);			
 		}
 		
 		if(transfer[0] == "luck"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setLuckStat(playerSkillPoints.getLuckStat()+ value);			
 		}
 		
 		if(transfer[0] == "carryweight"){
 			value = Integer.parseInt(transfer[1]);
-			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
+			playerSkillPoints.setCarryWeightMultiplier(playerSkillPoints.getCarryWeightMultiplier()+ value);			
 		}
 	
 	}
