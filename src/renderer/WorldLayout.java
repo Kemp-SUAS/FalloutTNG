@@ -2,7 +2,6 @@ package renderer;
 
 import java.awt.BorderLayout;
 
-
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.image.BufferStrategy;
@@ -32,8 +31,6 @@ public class WorldLayout extends Canvas implements Runnable {
 	Player player = new Player(world);
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
-	
-	
 	JFrame frame;
 	public static Boolean running = false;
 	public static String Tittle = "Top Down Scrolling";
@@ -46,12 +43,11 @@ public class WorldLayout extends Canvas implements Runnable {
 	int backgroundX = 1600;
 	int backgroundY = 600;
 	Texture image;
-	
-	
+	Texture inventory;
 
 	// Key Controlls
 
-	public static boolean left, right, up, down;
+	public static boolean left, right, up, down, enter;
 
 	@Override
 	public void run() {
@@ -66,7 +62,7 @@ public class WorldLayout extends Canvas implements Runnable {
 			}
 			fps = 1000000000.0 / (System.nanoTime() - lastTime);
 			lastTime = System.nanoTime();
-			tick(); 
+			tick();
 			render();
 
 		}
@@ -93,31 +89,31 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		background = new Background(0,0,world,"Assets/Pictures/Textures/Hallway_v1.png");
+		background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v2_compressed_interlaced.png");
+		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
 	}
 
 	private void tick() {
 		background.tick(this);
 		moveScreen();
 		player.tick(this);
-		
 
 	}
 
 	private void moveScreen() {
-		for(x=0;x<20;x++){
-		if (left) {
-			xOffset += 1;
-		}
-		if (right) {
-			xOffset -= 1;
-		}
-		if (up) {
-			yOffset += 1;
-		}
-		if (down) {
-			yOffset -= 1;
-		}
+		for (x = 0; x < 20; x++) {
+			if (left) {
+				xOffset += 1;
+			}
+			if (right) {
+				xOffset -= 1;
+			}
+			if (up) {
+				yOffset += 1;
+			}
+			if (down) {
+				yOffset -= 1;
+			}
 		}
 	}
 
@@ -134,22 +130,30 @@ public class WorldLayout extends Canvas implements Runnable {
 
 		try {
 			background.render(g);
+			inventory.render(g, 5, 510);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(xOffset < (-1 * backgroundX) +432){
+		if (xOffset < (-1 * backgroundX) + 432) {
 			xOffset = -1200 + 32;
 		}
-		if(xOffset > 400 - 32){
-			xOffset = 400 -32;
+		if (xOffset > 400 - 32) {
+			xOffset = 400 - 32;
 		}
-		if(yOffset < (-1 * backgroundY) + 332){
-			yOffset = -300 +32;
+		if (yOffset < (-1 * backgroundY) + 332) {
+			yOffset = -300 + 32;
 		}
-		if(yOffset > 300 - 32){
-			yOffset = 300 -32;
+		if (yOffset > 300 - 32) {
+			yOffset = 300 - 32;
 		}
+		if (xOffset < -400 && xOffset > -500 && yOffset < 0 && enter == true) {
+			background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v1.png");
+			yOffset = 0;
+			enter = false;
+		}
+		System.out.println("Y offset = " + yOffset);
+		System.out.println("X offset = " + xOffset);
 		player.render(g);
 		g.dispose();
 		bs.show();

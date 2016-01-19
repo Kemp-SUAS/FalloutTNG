@@ -28,6 +28,10 @@ public class InputHandler implements KeyListener {
 		{
 			WorldLayout.down=true;
 		}
+		if(keyCode== event.VK_E)
+		{
+			WorldLayout.enter=true;
+		}
 	}
 
 	@Override
