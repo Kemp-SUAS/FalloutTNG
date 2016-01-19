@@ -87,7 +87,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		level = new Level(1);
+		Level level = new Level(1);
 		level.setImageData();
 		background = new Background(0, 0, world, Level.getImageData().get(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
