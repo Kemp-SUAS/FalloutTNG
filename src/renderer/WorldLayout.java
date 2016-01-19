@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import vault1.CharacterFolder.Level;
 import vault1.CharacterFolder.Player;
@@ -39,7 +41,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	int backgroundY = 600;
 	Texture image;
 	Texture inventory;
-	Level level;
+	
 
 	// Key Controlls
 
