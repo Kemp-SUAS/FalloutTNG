@@ -53,6 +53,13 @@ public class AssetManager {
 			}
 			return data;
 		}
+		public static void dataBasePut(String tableName, String column, int id, String value) throws SQLException, ClassNotFoundException{
+			Class.forName("org.sqlite.JDBC");
+		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
+		     stat = c.createStatement();
+		      String sql = "INSERT INTO "+tableName+" (ID,NAME,AGE,ADDRESS,SALARY) " +
+		                   "VALUES (1, 'Paul', 32, 'California', 20000.00 );";
+		}
 		
 		
 	}

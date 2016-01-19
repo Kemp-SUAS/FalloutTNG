@@ -105,7 +105,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void moveScreen() {
-		for(x=0;x<10;x++){
+		for(x=0;x<20;x++){
 		if (left) {
 			xOffset += 1;
 		}
