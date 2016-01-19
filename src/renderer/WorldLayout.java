@@ -1,17 +1,12 @@
 package renderer;
 
 import java.awt.BorderLayout;
-
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.sql.SQLException;
-
 import javax.swing.JFrame;
-
-import AssetHandling.AssetManager;
 import vault1.CharacterFolder.Level;
 import vault1.CharacterFolder.Player;
 
@@ -44,6 +39,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	int backgroundY = 600;
 	Texture image;
 	Texture inventory;
+	Level level;
 
 	// Key Controlls
 
@@ -89,7 +85,9 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v2_compressed_interlaced.png");
+		level = new Level(1);
+		level.setImageData();
+		background = new Background(0, 0, world, Level.getImageData().get(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
 	}
 
