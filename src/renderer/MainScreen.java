@@ -327,7 +327,7 @@ public class MainScreen extends JFrame {
 		
 
 	}
-	private static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
+	static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
 		String path = AssetManager.dataBaseGet(table, id, column);
 
 		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
