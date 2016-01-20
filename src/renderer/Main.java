@@ -21,6 +21,7 @@ public class Main {
          @Override
          public void actionPerformed(ActionEvent e) {
             cardlayout.show(mainPanel, GAME);
+    
          }
       });
 
@@ -40,9 +41,12 @@ public class Main {
       JFrame frame = new JFrame("FALLOUT TNG");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.getContentPane().add(new Main().getMainComponent());
+      setBounds(100, 100, 1048, 600);
+      frame.size()
       frame.pack();
       frame.setLocationRelativeTo(null);
       frame.setVisible(true);
+      
    }
 
    public static void main(String[] args) {
@@ -55,36 +59,37 @@ public class Main {
 }
 
 class IntroPanel {
-   private JPanel mainPanel = new JPanel();
+   private JPanel contentPane = new JPanel();
    private JButton start = new JButton("Start");
    private JButton exit = new JButton("Exit");
 
    public IntroPanel() {
-      mainPanel.setLayout(new FlowLayout());
+      contentPane.setLayout(new FlowLayout());
       start = new JButton("Start");
       start.setBounds(840, 191, 182, 47);
       exit = new JButton("exit");
       exit.setBounds(840, 191, 182, 47);
 
      
-      mainPanel.add(start);
+      contentPane.add(start);
       
-      mainPanel.add(exit);
-
+      contentPane.add(exit);
+      
+      
       exit.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            Window win = SwingUtilities.getWindowAncestor(mainPanel);
+            Window win = SwingUtilities.getWindowAncestor(contentPane);
             win.dispose();
          }
       });
       start.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-        	  Window win = SwingUtilities.getWindowAncestor(mainPanel);
+        	  Window win = SwingUtilities.getWindowAncestor(contentPane);
               win.dispose();
-        	  WorldLayout TopDwn = new WorldLayout();
-      		TopDwn.start();
+              WorldLayout TopDwn = new WorldLayout();
+        		TopDwn.start();
           }
        });
    }
@@ -94,7 +99,7 @@ class IntroPanel {
    }
 
    public JComponent getMainComponent() {
-      return mainPanel;
+      return contentPane;
    }
 
 }
@@ -124,5 +129,6 @@ class GamePanel {
    }
 
 }
+
 
 

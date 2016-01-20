@@ -120,7 +120,6 @@ public class MainMenu extends Canvas implements Runnable {
 			public void mouseReleased(MouseEvent e) {
 				try {
 					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
-					game.continueButton = true;
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {

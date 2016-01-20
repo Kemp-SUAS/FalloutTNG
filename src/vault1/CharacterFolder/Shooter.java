@@ -41,7 +41,5 @@ public class Shooter {
 	public void render(Graphics g) throws IOException{
 		BufferedImage manager = ImageIO.read(new File(this.bullet));
 		g.drawImage(manager, this.x, this.y, null);
-		//g.drawImage(manager, this.x, this.y, null);
-		//bullet.render(g, (int) x, (int) y);
 	}
 }

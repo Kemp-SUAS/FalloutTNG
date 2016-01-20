@@ -33,7 +33,7 @@ import AssetHandling.AssetManager;
 
 public class MainScreen extends JFrame {
 
-	private JPanel contentPane;
+	public static JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -42,10 +42,10 @@ public class MainScreen extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainScreen frame = new MainScreen();
-					frame.setVisible(true);
+					//MainScreen frame = new MainScreen();
+					//frame.setVisible(true);
 	
-					frame.setResizable(false);
+					//frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
