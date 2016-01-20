@@ -58,6 +58,9 @@ public class InputHandler implements KeyListener {
 		if (keyCode == event.VK_E) {
 			WorldLayout.enter = false;
 		}
+		if (keyCode == event.VK_SPACE) {
+			WorldLayout.space = false;
+		}
 
 	}
 

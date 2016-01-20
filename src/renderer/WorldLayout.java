@@ -33,8 +33,8 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	int xValue;
 	int yValue;
-	public static boolean space;
-	
+	public static boolean space = false;
+
 	JFrame frame;
 	public static Boolean running = false;
 	public static String Tittle = "Top Down Scrolling";
@@ -48,7 +48,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	int backgroundY = 600;
 	Texture image;
 	Texture inventory;
-
+	Shooter shoot;
 	private Controller c;
 
 	// Key Controlls
@@ -181,16 +181,18 @@ public class WorldLayout extends Canvas implements Runnable {
 			yValue = yOffset;
 			enter = false;
 		}
-		System.out.println("Y offset = " + yOffset);
-		System.out.println("X offset = " + xOffset);
+		System.out.println("X offset "+ xOffset );
+		System.out.println("Y offset "+ yOffset );
+		if (space) {
+			//shoot = new Shooter(0, 0, this);
+			//shoot.render(g);
+			c.addBullet(new Shooter( xOffset, yOffset + 268, this));
+			System.out.println("Shoot");
+		}
+		c.render(g);
 		player.render(g);
 		g.dispose();
 		bs.show();
-		
-		c.render(g);
-		if (space){
-			c.addBullet(new Shooter( xOffset, yOffset, this));
-		}
 
 	}
 
