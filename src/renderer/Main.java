@@ -78,6 +78,15 @@ class IntroPanel {
             win.dispose();
          }
       });
+      start.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+        	  Window win = SwingUtilities.getWindowAncestor(mainPanel);
+              win.dispose();
+        	  WorldLayout TopDwn = new WorldLayout();
+      		TopDwn.start();
+          }
+       });
    }
 
    public void addActionListener(ActionListener listener) {
