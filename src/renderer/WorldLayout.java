@@ -2,10 +2,15 @@ package renderer;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.font.TextAttribute;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.text.AttributedString;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -182,6 +187,7 @@ public class WorldLayout extends Canvas implements Runnable {
 			xValue = xOffset;
 			yValue = yOffset;
 		}
+		
 		if (xOffset < -400 && xOffset > -500 && yOffset < 0 && enter == true) {
 			background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v1.png");
 			yOffset = 0;
@@ -202,6 +208,19 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 		c.render(g);
 		player.render(g);
+		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
+			AttributedString astr = new AttributedString("This is a test string");
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			    astr.addAttribute(TextAttribute.FONT, font, 0, 4);
+			    astr.addAttribute(TextAttribute.FOREGROUND, Color.RED,5,9);
+			    astr.addAttribute(TextAttribute.BACKGROUND, Color.CYAN, 10, 21);
+
+			    Graphics2D g2 = (Graphics2D) g;
+			    g2.setColor(Color.BLUE);
+			    g2.setFont(font);
+			    g2.drawString("Enter", 380, 260);
+			//g.drawString(astr. , 100, 100);
+		}
 		g.dispose();
 		bs.show();
 
