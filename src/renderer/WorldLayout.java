@@ -98,6 +98,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		this.addKeyListener(input);
 		init();
 		requestFocus();
+		//added coment quite useless really
 
 	}
 
