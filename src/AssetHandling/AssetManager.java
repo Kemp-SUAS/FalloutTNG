@@ -23,7 +23,7 @@ public class AssetManager {
 		 * @throws ClassNotFoundException Thrown when an application tries to load in a class through its string name using: The forName method in class Class.  The findSystemClass method in class ClassLoader . The loadClass method in class ClassLoader.
 		 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		dataBasePut("test","Money", 1 , "$100");
+		dataBasePut("test","Money", 1 , "'$100'");
 	}
 	
 	public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
@@ -62,6 +62,7 @@ public class AssetManager {
 		    Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
 		    stat = c.createStatement();
 		    String sql = "insert into "+ tableName + "(" + column + ")" + "values (" + " " + value + ")";
+		    System.out.println(value);
 		      
 		      //insert into employees (id, name) values(1, 'Max Eisenhardt');
 		}
