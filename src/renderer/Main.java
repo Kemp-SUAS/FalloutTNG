@@ -5,130 +5,124 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Main {
-   private static final String INTRO = "MainMenu";
-   private static final String GAME = "game";
-   private CardLayout cardlayout = new CardLayout();
-   private JPanel mainPanel = new JPanel(cardlayout);
-   private IntroPanel introPanel = new IntroPanel();
-   private GamePanel gamePanel = new GamePanel();
-   
-   private JButton back = new JButton("main menu");
-   public Main() {
-      mainPanel.add(introPanel.getMainComponent(), INTRO);
-      mainPanel.add(gamePanel.getMainComponent(), GAME);
+	private static final String INTRO = "MainMenu";
+	private static final String GAME = "game";
+	private CardLayout cardlayout = new CardLayout();
+	private JPanel mainPanel = new JPanel(cardlayout);
+	private IntroPanel introPanel = new IntroPanel();
+	private GamePanel gamePanel = new GamePanel();
+	private static final Dimension MAIN_SIZE = new Dimension(1048, 600);
+	private JButton back = new JButton("main menu");
 
-      introPanel.addActionListener(new ActionListener() {
-         @Override
-         public void actionPerformed(ActionEvent e) {
-            cardlayout.show(mainPanel, GAME);
-    
-         }
-      });
+	public Main() {
+		mainPanel.add(introPanel.getMainComponent(), INTRO);
+		mainPanel.add(gamePanel.getMainComponent(), GAME);
+		mainPanel.setPreferredSize(MAIN_SIZE);
+		introPanel.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardlayout.show(mainPanel, GAME);
 
-      gamePanel.addBackActionListener(new ActionListener() {
-         @Override
-         public void actionPerformed(ActionEvent e) {
-            cardlayout.show(mainPanel, INTRO);
-         }
-      });
-   }
+			}
+		});
 
-   private JComponent getMainComponent() {
-      return mainPanel;
-   }
+		gamePanel.addBackActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardlayout.show(mainPanel, INTRO);
 
-   private static void createAndShowUI() {
-      JFrame frame = new JFrame("FALLOUT TNG");
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.getContentPane().add(new Main().getMainComponent());
-      setBounds(100, 100, 1048, 600);
-      frame.size()
-      frame.pack();
-      frame.setLocationRelativeTo(null);
-      frame.setVisible(true);
-      
-   }
+			}
+		});
+	}
 
-   public static void main(String[] args) {
-      java.awt.EventQueue.invokeLater(new Runnable() {
-         public void run() {
-           createAndShowUI();
-         }
-      });
-   }
+	private JComponent getMainComponent() {
+		return mainPanel;
+	}
+
+	private static void createAndShowUI() {
+		JFrame frame = new JFrame("FALLOUT TNG");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(new Main().getMainComponent());
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+
+	}
+
+	public static void main(String[] args) {
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				createAndShowUI();
+			}
+		});
+	}
 }
 
 class IntroPanel {
-   private JPanel contentPane = new JPanel();
-   private JButton start = new JButton("Start");
-   private JButton exit = new JButton("Exit");
+	private JPanel contentPane = new JPanel();
+	private JButton start = new JButton("Start");
+	private JButton exit = new JButton("Exit");
 
-   public IntroPanel() {
-      contentPane.setLayout(new FlowLayout());
-      start = new JButton("Start");
-      start.setBounds(840, 191, 182, 47);
-      exit = new JButton("exit");
-      exit.setBounds(840, 191, 182, 47);
+	public IntroPanel() {
+		contentPane.setLayout(new FlowLayout());
+		start = new JButton("Start");
+		start.setBounds(840, 191, 182, 47);
+		exit = new JButton("exit");
+		exit.setBounds(840, 191, 182, 47);
 
-     
-      contentPane.add(start);
-      
-      contentPane.add(exit);
-      
-      
-      exit.addActionListener(new ActionListener() {
-         @Override
-         public void actionPerformed(ActionEvent e) {
-            Window win = SwingUtilities.getWindowAncestor(contentPane);
-            win.dispose();
-         }
-      });
-      start.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-        	  Window win = SwingUtilities.getWindowAncestor(contentPane);
-              win.dispose();
-              WorldLayout TopDwn = new WorldLayout();
-        		TopDwn.start();
-          }
-       });
-   }
+		contentPane.add(start);
 
-   public void addActionListener(ActionListener listener) {
-     start.addActionListener(listener);
-   }
+		contentPane.add(exit);
 
-   public JComponent getMainComponent() {
-      return contentPane;
-   }
+		exit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Window win = SwingUtilities.getWindowAncestor(contentPane);
+				win.dispose();
+			}
+		});
+		start.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Window win = SwingUtilities.getWindowAncestor(contentPane);
+				win.dispose();
+				WorldLayout TopDwn = new WorldLayout();
+				TopDwn.start();
+			}
+		});
+	}
+
+	public void addActionListener(ActionListener listener) {
+		start.addActionListener(listener);
+	}
+
+	public JComponent getMainComponent() {
+		return contentPane;
+	}
 
 }
 
 class GamePanel {
-   private static final Dimension MAIN_SIZE = new Dimension(700, 525);
-   private JPanel mainPanel = new JPanel();
- WorldLayout game = new WorldLayout();
-   
-   private JButton back;
 
-   public GamePanel() {
-     
-      back = new JButton("return to main menu");
+	private JPanel mainPanel = new JPanel();
 
-     
-      mainPanel.add(back);
-      mainPanel.setPreferredSize(MAIN_SIZE);
-   }
+	private JButton back;
 
-   public JComponent getMainComponent() {
-      return mainPanel;
-   }
+	public GamePanel() {
 
-   public void addBackActionListener(ActionListener listener) {
-      back.addActionListener(listener);
-   }
+		back = new JButton("return to main menu");
+
+		mainPanel.add(back);
+
+	}
+
+	public JComponent getMainComponent() {
+		return mainPanel;
+	}
+
+	public void addBackActionListener(ActionListener listener) {
+		back.addActionListener(listener);
+
+	}
 
 }
-
-
-
