@@ -22,7 +22,11 @@ public class AssetManager {
 		 * @throws SQLException , an exception that provides information on a database access error or other errors.
 		 * @throws ClassNotFoundException Thrown when an application tries to load in a class through its string name using: The forName method in class Class.  The findSystemClass method in class ClassLoader . The loadClass method in class ClassLoader.
 		 */
-		public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		dataBasePut("test","Money", 1 , "$100");
+	}
+	
+	public static String dataBaseGet(String tableName, int id, String column) throws SQLException, ClassNotFoundException{
 			 
 			
 			Class.forName("org.sqlite.JDBC");
@@ -55,10 +59,11 @@ public class AssetManager {
 		}
 		public static void dataBasePut(String tableName, String column, int id, String value) throws SQLException, ClassNotFoundException{
 			Class.forName("org.sqlite.JDBC");
-		     Connection c = DriverManager.getConnection("jdbc:sqlite:Assest/Data/data.db");
-		     stat = c.createStatement();
-		      String sql = "INSERT INTO "+tableName+" (ID,NAME,AGE,ADDRESS,SALARY) " +
-		                   "VALUES (1, 'Paul', 32, 'California', 20000.00 );";
+		    Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
+		    stat = c.createStatement();
+		    String sql = "insert into "+ tableName + "(" + column + ")" + "values (" + " " + value + ")";
+		      
+		      //insert into employees (id, name) values(1, 'Max Eisenhardt');
 		}
 		
 		
