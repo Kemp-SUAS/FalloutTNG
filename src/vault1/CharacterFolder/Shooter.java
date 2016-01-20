@@ -26,11 +26,10 @@ public class Shooter {
 	public Shooter(int x, int y, WorldLayout game) {
 		this.x = x;
 		this.y = y;
-
 	}
 
 	public void tick() {
-		y -= 1;
+		y -= 10;
 	}
 
 	public void render(Graphics g) {

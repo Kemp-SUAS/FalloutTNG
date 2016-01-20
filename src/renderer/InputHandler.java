@@ -9,9 +9,6 @@ import vault1.CharacterFolder.Shooter;
 
 public class InputHandler implements KeyListener {
 
-	int xValue;
-	int yValue;
-
 	private Controller c;
 
 	public void keyPressed(KeyEvent event) {
@@ -34,7 +31,7 @@ public class InputHandler implements KeyListener {
 			WorldLayout.enter = true;
 		}
 		if (keyCode == event.VK_SPACE) {
-			// c.addBullet(new Shooter( xValue, yValue, this));
+			WorldLayout.space = true;
 		}
 	}
 

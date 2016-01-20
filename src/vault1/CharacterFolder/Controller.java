@@ -22,8 +22,7 @@ public class Controller {
 	
 	public Controller (WorldLayout game){
 		this.game = game;
-		
-		addBullet(new Shooter(0, 0, game));
+	
 	}
 
 	public void tick() {

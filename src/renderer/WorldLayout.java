@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Level;
 import vault1.CharacterFolder.Player;
+import vault1.CharacterFolder.Shooter;
 
 public class WorldLayout extends Canvas implements Runnable {
 
@@ -32,7 +33,7 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	int xValue;
 	int yValue;
-
+	public static boolean space;
 	
 	JFrame frame;
 	public static Boolean running = false;
@@ -185,7 +186,11 @@ public class WorldLayout extends Canvas implements Runnable {
 		player.render(g);
 		g.dispose();
 		bs.show();
+		
 		c.render(g);
+		if (space){
+			c.addBullet(new Shooter( xOffset, yOffset, this));
+		}
 
 	}
 
