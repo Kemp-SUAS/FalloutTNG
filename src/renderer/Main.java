@@ -93,7 +93,7 @@ class IntroPanel {
 class GamePanel {
    private static final Dimension MAIN_SIZE = new Dimension(700, 525);
    private JPanel mainPanel = new JPanel();
-  //     WorldLayout game = new WorldLayout();
+ WorldLayout game = new WorldLayout();
    
    private JButton back;
 
