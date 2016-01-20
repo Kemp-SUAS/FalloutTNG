@@ -4,6 +4,7 @@
 package vault1.CharacterFolder;
 
 import java.awt.Graphics;
+import java.io.IOException;
 import java.util.LinkedList;
 
 import renderer.WorldLayout;
@@ -33,7 +34,7 @@ public class Controller {
 		}
 	}
 
-	public void render(Graphics g) {
+	public void render(Graphics g) throws IOException {
 		for (int i = 0; i < b.size(); i++) {
 			TempBullet = b.get(i);
 

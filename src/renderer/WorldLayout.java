@@ -50,10 +50,12 @@ public class WorldLayout extends Canvas implements Runnable {
 	Texture inventory;
 	Shooter shoot;
 	private Controller c;
+	ArrayList<Shooter> bullets= new ArrayList<Shooter>();
+	
 
 	// Key Controlls
 
-	public static boolean left, right, up, down, enter;
+	public static boolean left, right, up, down, enter , remove;
 
 	@Override
 	public void run() {
@@ -69,7 +71,12 @@ public class WorldLayout extends Canvas implements Runnable {
 			fps = 1000000000.0 / (System.nanoTime() - lastTime);
 			lastTime = System.nanoTime();
 			tick();
-			render();
+			try {
+				render();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 
@@ -136,7 +143,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 	}
 
-	private void render() {
+	private void render() throws IOException {
 
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -181,12 +188,15 @@ public class WorldLayout extends Canvas implements Runnable {
 			yValue = yOffset;
 			enter = false;
 		}
-		System.out.println("X offset "+ xOffset );
-		System.out.println("Y offset "+ yOffset );
+		
 		if (space) {
 			//shoot = new Shooter(0, 0, this);
 			//shoot.render(g);
-			c.addBullet(new Shooter( xOffset, yOffset + 268, this));
+			//c.addBullet(new Shooter( xOffset, yOffset, this));
+			bullets.add(new Shooter( xOffset +100, yOffset+100, this));
+			c.addBullet(bullets.get(bullets.size()-1));
+			System.out.println("X offset "+ xOffset );
+			System.out.println("Y offset "+ yOffset );
 			System.out.println("Shoot");
 		}
 		c.render(g);

@@ -6,7 +6,13 @@ package vault1.CharacterFolder;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import renderer.Texture;
 import renderer.WorldLayout;
 
@@ -16,10 +22,10 @@ import renderer.WorldLayout;
  */
 public class Shooter {
 
-	private double x;
-	private double y;
+	private int x;
+	private int y;
 
-	Texture bullet = new Texture("Assets/Pictures/Textures/Objects/Inventory_Icons/luckycharms.png");
+	String bullet = "Assets/Pictures/Textures/Objects/Inventory_Icons/luckycharms.png";
 
 	BufferedImage image;
 
@@ -32,7 +38,10 @@ public class Shooter {
 		y -= 10;
 	}
 
-	public void render(Graphics g) {
-		bullet.render(g, (int) x, (int) y);
+	public void render(Graphics g) throws IOException{
+		BufferedImage manager = ImageIO.read(new File(this.bullet));
+		g.drawImage(manager, this.x, this.y, null);
+		//g.drawImage(manager, this.x, this.y, null);
+		//bullet.render(g, (int) x, (int) y);
 	}
 }

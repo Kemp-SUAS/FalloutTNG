@@ -33,6 +33,9 @@ public class InputHandler implements KeyListener {
 		if (keyCode == event.VK_SPACE) {
 			WorldLayout.space = true;
 		}
+		if (keyCode == event.VK_R) {
+			WorldLayout.space = true;
+		}
 	}
 
 	@Override
@@ -59,6 +62,9 @@ public class InputHandler implements KeyListener {
 			WorldLayout.enter = false;
 		}
 		if (keyCode == event.VK_SPACE) {
+			WorldLayout.space = false;
+		}
+		if (keyCode == event.VK_R) {
 			WorldLayout.space = false;
 		}
 
