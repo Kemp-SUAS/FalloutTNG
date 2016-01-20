@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+
+import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Level;
 import vault1.CharacterFolder.Player;
 
@@ -28,6 +30,10 @@ public class WorldLayout extends Canvas implements Runnable {
 	Player player = new Player(world);
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
+	int xValue;
+	int yValue;
+
+	
 	JFrame frame;
 	public static Boolean running = false;
 	public static String Tittle = "Top Down Scrolling";
@@ -41,7 +47,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	int backgroundY = 600;
 	Texture image;
 	Texture inventory;
-	
+
+	private Controller c;
 
 	// Key Controlls
 
@@ -91,12 +98,15 @@ public class WorldLayout extends Canvas implements Runnable {
 		level.setImageData();
 		background = new Background(0, 0, world, Level.getImageData().get(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
+
+		c = new Controller(this);
 	}
 
 	private void tick() {
 		background.tick(this);
 		moveScreen();
 		player.tick(this);
+		c.tick();
 
 	}
 
@@ -104,15 +114,23 @@ public class WorldLayout extends Canvas implements Runnable {
 		for (x = 0; x < 20; x++) {
 			if (left) {
 				xOffset += 1;
+				xValue = xOffset;
+				yValue = yOffset;
 			}
 			if (right) {
 				xOffset -= 1;
+				xValue = xOffset;
+				yValue = yOffset;
 			}
 			if (up) {
 				yOffset += 1;
+				xValue = xOffset;
+				yValue = yOffset;
 			}
 			if (down) {
 				yOffset -= 1;
+				xValue = xOffset;
+				yValue = yOffset;
 			}
 		}
 	}
@@ -137,19 +155,29 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 		if (xOffset < (-1 * backgroundX) + 432) {
 			xOffset = -1200 + 32;
+			xValue = xOffset;
+			yValue = yOffset;
 		}
 		if (xOffset > 400 - 32) {
 			xOffset = 400 - 32;
+			xValue = xOffset;
+			yValue = yOffset;
 		}
 		if (yOffset < (-1 * backgroundY) + 332) {
 			yOffset = -300 + 32;
+			xValue = xOffset;
+			yValue = yOffset;
 		}
 		if (yOffset > 300 - 32) {
 			yOffset = 300 - 32;
+			xValue = xOffset;
+			yValue = yOffset;
 		}
 		if (xOffset < -400 && xOffset > -500 && yOffset < 0 && enter == true) {
 			background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v1.png");
 			yOffset = 0;
+			xValue = xOffset;
+			yValue = yOffset;
 			enter = false;
 		}
 		System.out.println("Y offset = " + yOffset);
@@ -157,6 +185,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		player.render(g);
 		g.dispose();
 		bs.show();
+		c.render(g);
 
 	}
 
