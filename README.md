@@ -34,6 +34,14 @@ https://drive.google.com/file/d/0B749ABRDKtb9V1JPSDRGOTY5Qms/view?usp=sharing
 Design documents{
 https://drive.google.com/file/d/0B749ABRDKtb9R01CQWlfQzlrVGs/view?usp=sharing
 }
+Test Documents{
+ Mohid Alsam : Shooter.java, Controller.java, AssetManager.java, WorldLayout.java
+
+Faduma Ahmed: Backgeround.java, InputHandler.java, Main.java(MainScreen.java), Texture.java
+
+Kieran Wilson : Inventory.java, Level.java,Player.java, PlayerSkillPoints.java
+
+Simar pal Kalsi: GamePlayStats.java, WorldBinder.java, Shooter.java
 
 
 FalloutTNG creators,
