@@ -25,7 +25,7 @@ public class Shooter {
 	private int x;
 	private int y;
 
-	String bullet = "Assets/Pictures/Textures/Objects/Inventory_Icons/luckycharms.png";
+	String bullet = "Assets/Pictures/Projectile_v1.png";
 
 	BufferedImage image;
 
