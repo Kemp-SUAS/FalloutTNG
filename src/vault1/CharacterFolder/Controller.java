@@ -15,7 +15,7 @@ import renderer.WorldLayout;
  */
 public class Controller {
 
-	private LinkedList<Shooter> b = new LinkedList<Shooter>();
+	public static LinkedList<Shooter> b = new LinkedList<Shooter>();
 
 	Shooter TempBullet;
 	

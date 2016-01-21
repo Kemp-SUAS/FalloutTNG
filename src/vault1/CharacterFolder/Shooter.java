@@ -30,15 +30,22 @@ public class Shooter {
 	BufferedImage image;
 
 	public Shooter(int x, int y, WorldLayout game) {
-		this.x = x;
+		this.x = x ;
 		this.y = y;
+	}
+
+	public void setX(int X) {
+		x = X;
+	}
+	public void setY(int Y) {
+		y = Y;
 	}
 
 	public void tick() {
 		y -= 10;
 	}
 
-	public void render(Graphics g) throws IOException{
+	public void render(Graphics g) throws IOException {
 		BufferedImage manager = ImageIO.read(new File(this.bullet));
 		g.drawImage(manager, this.x, this.y, null);
 	}

@@ -29,8 +29,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	int x = 0;
 
 	// displays object
-	int xOffset = 0;
-	int yOffset = 0;
+	static int xOffset = 0;
+	static int yOffset = 0;
 
 	InputHandler input = new InputHandler();
 	Player player = new Player(world);
@@ -205,6 +205,10 @@ public class WorldLayout extends Canvas implements Runnable {
 			System.out.println("X offset "+ xOffset );
 			System.out.println("Y offset "+ yOffset );
 			System.out.println("Shoot");
+		}
+		for(int i = 0; i < Controller.b.size(); i++){
+			Controller.b.get(i).setX(420+xOffset);
+			//Controller.b.get(i).setY(300+yOffset);
 		}
 		c.render(g);
 		player.render(g);
