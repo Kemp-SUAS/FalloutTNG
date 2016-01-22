@@ -9,11 +9,45 @@ public class Inventory {
 	public Inventory() {
 		// TODO Auto-generated constructor stub
 	}
+	static PlayerGameplayStats playerStats = new PlayerGameplayStats();
+	static PlayerSkillPoints playerSP = new PlayerSkillPoints();	
+	
+	public static void main(String[] args) throws CharacterException, ClassNotFoundException, SQLException{
+		
+			
+		int health;
+		int wit;
+		double carryWeight;
+		
+		playerStats.setHealthStat(100);
+		health = playerStats.getHealthStat();
+		System.out.println(health);
+		
+		playerSP.setWitStat(5);
+		wit = playerSP.getWitStat();
+		System.out.println(wit);
+		
+		
+		carryWeight = playerSP.getCarryWeightMultiplier();
+		System.out.println(carryWeight);
+		
+		consumeables(playerStats, playerSP, 2 );
+		consumeables(playerStats, playerSP, 5 );
+		consumeables(playerStats, playerSP, 9 );
+		
+		health = playerStats.getHealthStat();
+		wit = playerSP.getWitStat();
+		carryWeight = playerSP.getCarryWeightMultiplier();
+		
+		System.out.println(health);
+		System.out.println(wit);
+		System.out.println(carryWeight);
+		
+	}
 	
 	
 	
-	
-	public static void cosumeables (PlayerGameplayStats playerStats, PlayerSkillPoints playerSkillPoints , int id) throws ClassNotFoundException, SQLException, CharacterException{
+	public static void consumeables (PlayerGameplayStats playerStats, PlayerSkillPoints playerSkillPoints , int id) throws ClassNotFoundException, SQLException, CharacterException{
 		String item = AssetManager.dataBaseGet("items", id , "effect"); 
 		String delims = "[,]+";
 		String[] transfer = item.split(delims);
@@ -86,7 +120,7 @@ public class Inventory {
 		
 		if(transfer[0] == "carryweight"){
 			value = Integer.parseInt(transfer[1]);
-			playerSkillPoints.setCarryWeightMultiplier(playerSkillPoints.getCarryWeightMultiplier()+ value);			
+			playerSkillPoints.setCarryWeightMultiplier((int) (playerSkillPoints.getCarryWeightMultiplier()+ value));			
 		}
 	
 	}

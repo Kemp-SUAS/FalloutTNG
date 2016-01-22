@@ -8,11 +8,11 @@ public class PlayerSkillPoints {
 	private int strength;
 	private int awareness;
 	private int endurance;
-	private int wit;
+	private int wit = 5;
 	private int intelligence;
 	private int dexterity;
 	private int luck;
-	int carryWeightMultiplier;
+	double carryWeightMultiplier = 1.0;
 	final int CARRY_WEIGHT_CONST = 100;
 		
 
@@ -94,7 +94,7 @@ public class PlayerSkillPoints {
 	 * Gets the plays Maximum carry weight
 	 * @return
 	 */
-	public int getCarryWeightMultiplier(){
+	public double getCarryWeightMultiplier(){
 		return carryWeightMultiplier * CARRY_WEIGHT_CONST;
 	}
 	

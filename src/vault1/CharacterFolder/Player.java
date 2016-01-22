@@ -28,4 +28,8 @@ public class Player {
 	public void render(Graphics g) {
 			playerMode_up.render(g, x, y);
 	}
+	
+	public static void main(String args[]){
+		
+	}
 }
