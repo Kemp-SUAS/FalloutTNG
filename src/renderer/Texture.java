@@ -1,6 +1,8 @@
 package renderer;
 
 import java.awt.Graphics;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -76,4 +78,14 @@ public class Texture {
 
 		g.drawImage(manager.getImage(), (int) x, (int) y, null);
 	}
+	public void render(Graphics g, double x, double y , double rotation) {
+		double rotationRequired = Math.toRadians (45);
+		double locationX = manager.getImage().getWidth() / 2;
+		double locationY = manager.getImage().getHeight() / 2;
+		AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
+		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+		g.drawImage(op.filter(manager.getImage(), null),  (int)x,  (int)y, null);
+		
+	}
+	
 }
