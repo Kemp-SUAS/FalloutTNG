@@ -38,8 +38,19 @@ public class Level {
 		return imageInfo;
 	}
 
-	public static String getWallData() {
-		return wallData;
+	public String getWallData(int i) {
+		try {
+			wallData = AssetManager.dataBaseGet("Level", id, "wallData");
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String delims = "[,]";
+		String[] transfer = wallData.split(delims);
+		for (int i1 = 0; i1 < transfer.length; i1++) {
+			wallDimensions.add(transfer[i1]);
+		}
+		return transfer[i];
 	}
 
 	public static String getPlayerPosition() {
@@ -78,12 +89,7 @@ public class Level {
 	}
 
 	public void setWallData(String wallData) throws ClassNotFoundException, SQLException {
-		this.wallData = AssetManager.dataBaseGet("Level", id, "wallData");
-		String delims = "[\\/\\,]+";
-		String[] transfer = this.wallData.split(delims);
-		for (int i = 0; i < transfer.length; i++) {
-			wallDimensions.add(transfer[i]);
-		}
+		
 	}
 
 	public void setPlayerPosition(String playerPosition) throws ClassNotFoundException, SQLException {

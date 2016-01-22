@@ -49,14 +49,15 @@ public class WorldLayout extends Canvas implements Runnable {
 	long lastTime;
 	long timer = 1000 / 60;
 	double fps;
-	int backgroundX = 1600;
-	int backgroundY = 600;
+	int backgroundX = 0;
+	int backgroundY = 0;
 	Texture image;
 	Texture inventory;
 	Shooter shoot;
 	private Controller c;
 	ArrayList<Shooter> bullets= new ArrayList<Shooter>();
 	ArrayList<Level> levels = new ArrayList<Level>();
+	Level currentLevel = new Level();
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter , remove;
@@ -111,6 +112,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	private void init() {
 		Level level = new Level(1);
 		level.setImageData();
+		backgroundX = Integer.parseInt(level.getWallData(0));
+		backgroundY = Integer.parseInt(level.getWallData(1));
 		background = new Background(0, 0, world, Level.getImageData().get(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
 		
