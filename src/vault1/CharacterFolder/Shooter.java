@@ -45,16 +45,16 @@ public class Shooter {
 
 	public void tick() {
 		if(rotation == 0){
-		y -= 10;
+		y -= 30;
 		}
 		if(rotation == 180){
-			y += 10;
+			y += 30;
 		}
 		if(rotation == 90){
-			x += 10;
+			x += 30;
 		}
 		if(rotation == 270){
-			x -= 10;
+			x -= 30;
 		}
 	}
 
