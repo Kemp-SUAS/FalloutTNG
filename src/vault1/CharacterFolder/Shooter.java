@@ -25,7 +25,7 @@ public class Shooter {
 	private int x;
 	private int y;
 
-	String bullet = "Assets/Pictures/Projectile_v1.png";
+	String bullet = "Assets/Pictures/Textures/bubbles_v1.png";
 
 	BufferedImage image;
 	double rotation;
@@ -45,16 +45,16 @@ public class Shooter {
 
 	public void tick() {
 		if(rotation == 0){
-		y -= 50;
+		y -= 30;
 		}
 		if(rotation == 180){
-			y += 50;
+			y += 30;
 		}
 		if(rotation == 90){
-			x += 50;
+			x += 30;
 		}
 		if(rotation == 270){
-			x -= 50;
+			x -= 30;
 		}
 	}
 
