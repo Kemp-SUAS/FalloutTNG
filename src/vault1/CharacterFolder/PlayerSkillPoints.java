@@ -8,11 +8,11 @@ public class PlayerSkillPoints {
 	private int strength;
 	private int awareness;
 	private int endurance;
-	private int wit = 5;
+	private int wit;
 	private int intelligence;
 	private int dexterity;
 	private int luck;
-	double carryWeightMultiplier = 1.0;
+	int carryWeightMultiplier = 1;
 	final int CARRY_WEIGHT_CONST = 100;
 		
 
