@@ -29,8 +29,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	int x = 0;
 
 	// displays object
-	static int xOffset = 0;
-	static int yOffset = 0;
+	public static int xOffset = 0;
+	public static int yOffset = 0;
 
 	InputHandler input = new InputHandler();
 	Player player = new Player(world);
@@ -200,16 +200,14 @@ public class WorldLayout extends Canvas implements Runnable {
 			//shoot = new Shooter(0, 0, this);
 			//shoot.render(g);
 			//c.addBullet(new Shooter( xOffset, yOffset, this));
-			bullets.add(new Shooter( xOffset +100, yOffset+100, this));
+			bullets.add(new Shooter( 400-xOffset, 300-yOffset, this));
 			c.addBullet(bullets.get(bullets.size()-1));
 			System.out.println("X offset "+ xOffset );
 			System.out.println("Y offset "+ yOffset );
 			System.out.println("Shoot");
 		}
-		for(int i = 0; i < Controller.b.size(); i++){
-			Controller.b.get(i).setX(420+xOffset);
-			//Controller.b.get(i).setY(300+yOffset);
-		}
+		
+		System.out.println(xValue);
 		c.render(g);
 		player.render(g);
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
