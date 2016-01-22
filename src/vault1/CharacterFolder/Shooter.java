@@ -28,10 +28,12 @@ public class Shooter {
 	String bullet = "Assets/Pictures/Projectile_v1.png";
 
 	BufferedImage image;
+	double rotation;
 
-	public Shooter(int x, int y, WorldLayout game) {
+	public Shooter(int x, int y, WorldLayout game , double rotation) {
 		this.x = x  ;
 		this.y = y;
+		this.rotation = rotation;
 	}
 
 	public void setX(int X) {
@@ -42,7 +44,18 @@ public class Shooter {
 	}
 
 	public void tick() {
+		if(rotation == 0){
 		y -= 10;
+		}
+		if(rotation == 180){
+			y += 10;
+		}
+		if(rotation == 90){
+			x += 10;
+		}
+		if(rotation == 270){
+			x -= 10;
+		}
 	}
 
 	public void render(Graphics g) throws IOException {

@@ -57,7 +57,7 @@ public class Inventory {
 		String[] transfer = item.split(delims);
 		int value  = Integer.parseInt(transfer[1]);
 		System.out.println(transfer[0]);
-		System.out.println("Hello from the other side " + playerStats.getToxinLevel()+ value);
+		System.out.println("Hello from the other side " + playerStats.getToxinLevel());
 		if(transfer[0] == "toxicgone"){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			

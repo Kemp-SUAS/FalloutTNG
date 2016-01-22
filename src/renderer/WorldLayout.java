@@ -33,7 +33,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	public static int yOffset = 0;
 
 	InputHandler input = new InputHandler();
-	Player player = new Player(world);
+	Player player = new Player();
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
 	int xValue;
@@ -56,11 +56,12 @@ public class WorldLayout extends Canvas implements Runnable {
 	Shooter shoot;
 	private Controller c;
 	ArrayList<Shooter> bullets= new ArrayList<Shooter>();
-	
 
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter , remove;
+
+	public static double rotation;
 
 	@Override
 	public void run() {
@@ -103,6 +104,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		this.addKeyListener(input);
 		init();
 		requestFocus();
+
 		//added coment quite useless really
 
 	}
@@ -130,21 +132,25 @@ public class WorldLayout extends Canvas implements Runnable {
 				xOffset += 1;
 				xValue = xOffset;
 				yValue = yOffset;
+				WorldLayout.rotation = 270;
 			}
 			if (right) {
 				xOffset -= 1;
 				xValue = xOffset;
 				yValue = yOffset;
+				WorldLayout.rotation = 90;
 			}
 			if (up) {
 				yOffset += 1;
 				xValue = xOffset;
 				yValue = yOffset;
+				WorldLayout.rotation = 0;
 			}
 			if (down) {
 				yOffset -= 1;
 				xValue = xOffset;
 				yValue = yOffset;
+				WorldLayout.rotation = 180;
 			}
 		}
 	}
@@ -159,7 +165,6 @@ public class WorldLayout extends Canvas implements Runnable {
 		java.awt.Graphics g = bs.getDrawGraphics();
 
 		((java.awt.Graphics) g).drawImage(bufferedImage, 0, 0, getWidth(), getHeight(), null);
-
 		try {
 			background.render(g);
 			inventory.render(g, 5, 510);
@@ -200,16 +205,13 @@ public class WorldLayout extends Canvas implements Runnable {
 			//shoot = new Shooter(0, 0, this);
 			//shoot.render(g);
 			//c.addBullet(new Shooter( xOffset, yOffset, this));
-			bullets.add(new Shooter( 400-xOffset, 300-yOffset, this));
+			bullets.add(new Shooter( 400-xOffset, 300-yOffset, this , rotation));
 			c.addBullet(bullets.get(bullets.size()-1));
-			System.out.println("X offset "+ xOffset );
-			System.out.println("Y offset "+ yOffset );
-			System.out.println("Shoot");
 		}
-		
-		System.out.println(xValue);
+
 		c.render(g);
-		player.render(g);
+		player.render(g,rotation);
+		System.out.println(rotation);
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
 			AttributedString astr = new AttributedString("This is a test string");
 			Font font = new Font("Serif", Font.PLAIN, 25);
@@ -241,5 +243,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		System.exit(0);
 
 	}
+	
+	
 
 }
