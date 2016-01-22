@@ -35,13 +35,15 @@ Design documents{
 https://drive.google.com/file/d/0B749ABRDKtb9R01CQWlfQzlrVGs/view?usp=sharing
 }
 Test Documents{
- Mohid Alsam : Shooter.java, Controller.java, AssetManager.java, WorldLayout.java
+ Mohid : Shooter.java, Controller.java, AssetManager.java, WorldLayout.java
 
-Faduma Ahmed: Backgeround.java, InputHandler.java, Main.java(MainScreen.java), Texture.java
+Faduma : Backgeround.java, Main.java(MainScreen.java), Texture.java
 
-Kieran Wilson : Inventory.java, Level.java,Player.java, PlayerSkillPoints.java
+Kieran : Inventory.java, Level.java,Player.java, PlayerSkillPoints.java
 
 Simar pal Kalsi: GamePlayStats.java, WorldBinder.java, Shooter.java
+
+Each member will create at least one Intergration case
 
 
 FalloutTNG creators,
