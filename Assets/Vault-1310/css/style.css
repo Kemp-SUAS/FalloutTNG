@@ -1,0 +1,35 @@
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #ffcc00;
+}
+.text-muted{
+	color: #BCBBBB;
+}
+.text-thin{
+	font-weight: 600;
+}
+.title-super{
+	font-size: 60px;
+}
+.title-logo{
+	margin-top: 20px;
+}
+.no-bullets{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.li{
+	float: left;
+	display: inline;
+	background-color: white;
+}
+.a{
+	display: block;
+	width: 60px;
+}
+.col-3-menu{
+	background-color: #6699ff;
+	font-weight: 50;
+	
