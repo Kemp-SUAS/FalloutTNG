@@ -51,8 +51,7 @@ public class Inventory {
 		String item = AssetManager.dataBaseGet("items", id , "effect"); 
 		String delims = "[,]+";
 		String[] transfer = item.split(delims);
-		int value = 0;
-		
+		int value  = Integer.parseInt(transfer[1]);
 		if(transfer[0] == "toxicgone"){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
