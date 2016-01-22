@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import AssetHandling.AssetManager;
 
 public class Inventory {
-
-	public Inventory() {
-		// TODO Auto-generated constructor stub
+	PlayerGameplayStats playerStats;
+	PlayerSkillPoints playerSP; 
+	public Inventory(PlayerGameplayStats playerStats,PlayerSkillPoints playerSP) {
+		this.playerStats = playerStats;
+		this.playerSP = playerSP;
 	}
-	static PlayerGameplayStats playerStats = new PlayerGameplayStats();
-	static PlayerSkillPoints playerSP = new PlayerSkillPoints();	
+	
 	
 	public static void main(String[] args) throws CharacterException, ClassNotFoundException, SQLException{
 		
@@ -18,7 +19,10 @@ public class Inventory {
 		int health;
 		int wit;
 		double carryWeight;
-		
+		PlayerGameplayStats playerStats = new PlayerGameplayStats();
+		PlayerSkillPoints playerSP = new PlayerSkillPoints(); 
+		@SuppressWarnings("unused")
+		Inventory inventory = new Inventory(playerStats, playerSP);
 		playerStats.setHealthStat(100);
 		health = playerStats.getHealthStat();
 		System.out.println(health);
@@ -31,9 +35,9 @@ public class Inventory {
 		carryWeight = playerSP.getCarryWeightMultiplier();
 		System.out.println(carryWeight);
 		
-		consumeables(playerStats, playerSP, 2 );
-		consumeables(playerStats, playerSP, 5 );
-		consumeables(playerStats, playerSP, 9 );
+		Inventory.consumeables(playerStats, playerSP, 2 );
+		Inventory.consumeables(playerStats, playerSP, 5 );
+		Inventory.consumeables(playerStats, playerSP, 9 );
 		
 		health = playerStats.getHealthStat();
 		wit = playerSP.getWitStat();
@@ -52,7 +56,8 @@ public class Inventory {
 		String delims = "[,]+";
 		String[] transfer = item.split(delims);
 		int value  = Integer.parseInt(transfer[1]);
-		System.out.println("Hello" + transfer[1]);
+		System.out.println("Hello" + transfer[0]);
+		System.out.println("Hello from the other side " + playerStats.getToxinLevel()+ value);
 		if(transfer[0] == "toxicgone"){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
