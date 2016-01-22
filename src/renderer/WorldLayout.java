@@ -56,13 +56,12 @@ public class WorldLayout extends Canvas implements Runnable {
 	Shooter shoot;
 	private Controller c;
 	ArrayList<Shooter> bullets= new ArrayList<Shooter>();
-
+	ArrayList<Level> levels = new ArrayList<Level>();
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter , remove;
-
 	public static double rotation;
-
+	
 	@Override
 	public void run() {
 		long timer = 1000 / 60;
@@ -104,7 +103,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		this.addKeyListener(input);
 		init();
 		requestFocus();
-
+		
 		//added coment quite useless really
 
 	}
@@ -114,7 +113,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		level.setImageData();
 		background = new Background(0, 0, world, Level.getImageData().get(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
-
+		
 		c = new Controller(this);
 	}
 

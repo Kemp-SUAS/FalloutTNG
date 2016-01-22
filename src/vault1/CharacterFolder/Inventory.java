@@ -57,73 +57,73 @@ public class Inventory {
 		String[] transfer = item.split(delims);
 		int value  = Integer.parseInt(transfer[1]);
 		System.out.println(transfer[0]);
-		System.out.println("Hello from the other side " + playerStats.getToxinLevel());
-		if(transfer[0] == "toxicgone"){
+		//System.out.println("Hello from the other side " + value);
+		if(transfer[0].equals("toxicgone")){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setToxinLevel(playerStats.getToxinLevel()+ value);			
 		}
 		
-		if(transfer[0] == "toxresist"){
+		if(transfer[0].equals("toxresist")){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setToxinResist(playerStats.getToxinResist()+ value);			
 		}
 		
-		if(transfer[0] == "health"){
+		if(transfer[0].equals("health")){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setHealthStat(playerStats.getHealthStat()+ value);			
 		}
 		
-		if(transfer[0] == "armor"){
+		if(transfer[0].equals("armor")){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setArmor(playerStats.getArmor()+ value);			
 		}
 		
-		if(transfer[0] == "ammo"){
+		if(transfer[0].equals("ammo")){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setAmmo(playerStats.getAmmo()+ value);			
 		}
 		
-		if(transfer[0] == "abilitypoints"){
+		if(transfer[0].equals("abilitypoints")){
 			value = Integer.parseInt(transfer[1]);
 			playerStats.setAbilityPoints(playerStats.getAbilityPoints()+ value);			
 		}
 		
-		if(transfer[0] == "str"){
+		if(transfer[0].equals("str")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setStrengthStat(playerSkillPoints.getStrengthStat()+ value);			
 		}
 		
-		if(transfer[0] == "aware"){
+		if(transfer[0].equals("aware")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setAwarenessStat(playerSkillPoints.getAwarenessStat()+ value);			
 		}
 		
-		if(transfer[0] == "end"){
+		if(transfer[0].equals("end")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setEnduranceStat(playerSkillPoints.getEnduranceStat()+ value);			
 		}
 		
-		if(transfer[0] == "wit"){
+		if(transfer[0].equals("wit")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setWitStat(playerSkillPoints.getWitStat()+ value);			
 		}
 		
-		if(transfer[0] == "int"){
+		if(transfer[0].equals("int")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setIntellignceStat(playerSkillPoints.getIntelligenceStat()+ value);			
 		}
 		
-		if(transfer[0] == "dex"){
+		if(transfer[0].equals("dex")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setDexterityStat(playerSkillPoints.getDexterityStat()+ value);			
 		}
 		
-		if(transfer[0] == "luck"){
+		if(transfer[0].equals("luck")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setLuckStat(playerSkillPoints.getLuckStat()+ value);			
 		}
 		
-		if(transfer[0] == "carryweight"){
+		if(transfer[0].equals("carryweight")){
 			value = Integer.parseInt(transfer[1]);
 			playerSkillPoints.setCarryWeightMultiplier((int) (playerSkillPoints.getCarryWeightMultiplier()+ value));			
 		}
