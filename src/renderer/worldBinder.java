@@ -15,11 +15,11 @@ import vault1.CharacterFolder.Level;
  *
  */
 public class worldBinder {
-	Level currentLevel;
+	
 	ArrayList<Level> levels = new ArrayList<Level>();
 
 	public static void render(Graphics g) {
-
+		
 	}
 
 }

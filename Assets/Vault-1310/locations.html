@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset = "utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fallout TNG</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/ico" href="Images/vault_boy.ico" sizes="16x16"><link href='http://fonts.googleapis.com/css?family=Lato:300'rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="java_scripts/jssor.js"></script>
+<script type="text/javascript" src="java_scripts/jssor.slider.js"></script>
+ <script>
+        init_jssor_slider1 = function (containerId) {
+<!-- AUTO CHANGE FOR STREAK -->
+
+            var options = {
+                $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+
+                $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$(containerId, options);
+        };
+    </script>
+    <style type="text/css">
+        .image_slider{
+            padding-right: 1000px;
+        }
+        .ul{
+            padding: 0;
+            list-style: none;
+        }
+         ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+    }
+    ul li a{
+        display: block;
+        padding: 8px 25px;
+        color: #6699ff;
+        text-decoration: none;
+    }
+    ul li a:hover{
+        color: #6699ff;
+        background: #ffcc00;
+    }
+    ul li ul.dropdown{
+        min-width: 125px; /* Set width of the dropdown */
+        background-color: #6699ff;
+        color: #6699ff;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
+    ul li:hover ul.dropdown{
+        display: block; /* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+        <div class="col-md-6">
+            <img class="title-logo" src="images/vault_boy_PNG.PNG" alt="Cheking if neuclear exlopsion dangerous" height="25%" width="25%">
+        </div>
+        <div class="col-md-6 text-right text-uppercase">
+            <h1 class="title-super text-thick">SAUS</h1>
+            <h4>Fallout-TNG</h4>
+        </div>
+    </div>
+        <div class="row" >
+        <nav>
+        <ul style="list-style-type:none">
+            <div class="col-md-3 text-center col-3-menu">
+                <li><a href="home.html" style="color:yellow">Home</a></li>
+            </div>
+            <div class="col-md-3 text-center  col-3-menu">
+                <li><a href="about_us.html" style="color:yellow">About SUAS</a></li>
+            </div>
+            <div class="col-md-3 text-center  col-3-menu">
+                <li><a href="contact-us.html" style="color:yellow">Contact us</a></li>
+            </div>
+            <div class="col-md-3 text-center  col-3-menu">
+               <!-- <li><a href="teams.html" style="color:white">Teams</a></li> -->
+             <li>
+            <a href="teams.html" style="color:yellow
+            ">Game wiki &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="characters.html" style="color:yellow">Charcters</a></li>
+                <li><a href="locations.html" style="color:yellow">Locations</a></li>
+                <li><a href="inventory.html" style="color:yellow">Iventory</a></li>
+                <li><a href="stats.html" style="color:yellow">Stats</a></li>
+                <li><a href="mechanics.html" style="color:yellow">Mechanics</a></li>
+            </ul>
+        </li>
+            </div>
+        </ul>   
+        <!--       -->
+        
+    </nav>
+    </div>
+    <div class="row">
+            <hr>
+    </div>
+</div>
+</body>
+</html> 

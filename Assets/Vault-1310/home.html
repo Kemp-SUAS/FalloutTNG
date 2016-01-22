@@ -85,13 +85,13 @@
         <nav>
         <ul style="list-style-type:none">
             <div class="col-md-3 text-center col-3-menu">
-                <li><a href="website.html" style="color:yellow">Home</a></li>
+                <li><a href="home.html" style="color:yellow">Home</a></li>
             </div>
             <div class="col-md-3 text-center  col-3-menu">
                 <li><a href="about_us.html" style="color:yellow">About SUAS</a></li>
             </div>
             <div class="col-md-3 text-center  col-3-menu">
-                <li><a href="contact-us.html" style="color:yellow">Donate</a></li>
+                <li><a href="contact-us.html" style="color:yellow">Contact us</a></li>
             </div>
             <div class="col-md-3 text-center  col-3-menu">
                <!-- <li><a href="teams.html" style="color:white">Teams</a></li> -->
@@ -99,11 +99,11 @@
             <a href="teams.html" style="color:yellow
             ">Game wiki &#9662;</a>
             <ul class="dropdown">
-                <li><a href="soccer_teams.html" style="color:yellow">Charcters</a></li>
-                <li><a href="football_teams.html" style="color:yellow">Locations</a></li>
-                <li><a href="hockey_teams.html" style="color:yellow">Iventory</a></li>
-                <li><a href="basketball_teams.html" style="color:yellow">Stats</a></li>
-                <li><a href="other_teams.html" style="color:yellow">Gmeplay</a></li>
+                <li><a href="characters.html" style="color:yellow">Charcters</a></li>
+                <li><a href="locations.html" style="color:yellow">Locations</a></li>
+                <li><a href="inventory.html" style="color:yellow">Iventory</a></li>
+                <li><a href="stats.html" style="color:yellow">Stats</a></li>
+                <li><a href="mechanics.html" style="color:yellow">Mechanics</a></li>
             </ul>
         </li>
             </div>
@@ -114,6 +114,72 @@
     </div>
     <div class="row">
             <hr>
+    </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div id="slider1_container" class="col-md-6" style="position: relative; width: 600px;
+        height: 300px; overflow: hidden;" align="center">
+ 
+        <!-- Slides Container --> 
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;
+            overflow: hidden;">
+            <div><img u="image"  src="images/working_hard.png"  /></div>
+            <div><img u="image" src="images/basketball_resized.png" /></div>
+            <div><img u="image" src="images/bigpiture_resized.png" /></div>
+            <div><img u="image" src="images/soccer_resized.png" /></div>
+        </div>
+
+        <!--#region Arrow Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
+        <style>
+            /* jssor slider arrow navigator skin 11 css */
+            /*
+            .jssora11l                  (normal)
+            .jssora11r                  (normal)
+            .jssora11l:hover            (normal mouseover)
+            .jssora11r:hover            (normal mouseover)
+            .jssora11l.jssora11ldn      (mousedown)
+            .jssora11r.jssora11rdn      (mousedown)
+            */
+            .jssora11l, .jssora11r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 37px;
+                height: 37px;
+                cursor: pointer;
+                background: url(images/a11.png) no-repeat;
+                overflow: hidden;
+            }
+            .jssora11l { background-position: -11px -41px; }
+            .jssora11r { background-position: -71px -41px; }
+            .jssora11l:hover { background-position: -131px -41px; }
+            .jssora11r:hover { background-position: -191px -41px; }
+            .jssora11l.jssora11ldn { background-position: -251px -41px; }
+            .jssora11r.jssora11rdn { background-position: -311px -41px; }
+        </style>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora11l" style="top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora11r" style="top: 123px; right: 8px;">
+        </span>
+        <!--#endregion Arrow Navigator Skin End -->
+        <a style="display: none" href="http://www.jssor.com">Bootstrap Slider</a>
+        <!-- Trigger -->
+        <script>
+            init_jssor_slider1("slider1_container");
+        </script>
+    </div>
+        </div>
+         <div class="row">
+            <hr>
+    </div>
+    <div>
+        <h1 style="color:blue;">Getting started</h1>
+            <h5 class="text-left">
+                Hetting started
+            </h5>
     </div>
 </div>
 </body>
