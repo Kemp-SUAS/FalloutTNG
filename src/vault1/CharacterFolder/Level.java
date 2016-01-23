@@ -64,7 +64,8 @@ public class Level {
 	public static String getNpcData() {
 		return npcData;
 	}
-
+	
+	
 	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
 		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
 	}
@@ -118,6 +119,7 @@ public class Level {
 			npcDataInfo.add(transfer[i]);
 		}
 	}
+	
 	public static String getIndexInfo(ArrayList<String> arrayList, int id) {
 		return arrayList.get(id);
 	}

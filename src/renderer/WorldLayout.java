@@ -195,8 +195,8 @@ public class WorldLayout extends Canvas implements Runnable {
 			yValue = yOffset;
 		}
 		
-		if (xOffset < -400 && xOffset > -500 && yOffset < 0 && enter == true) {
-			background = new Background(0, 0, world, "Assets/Pictures/Textures/Hallway_v1.png");
+		if (xOffset < -400 && xOffset > -500 && yOffset < -250 && enter == true) {
+			background = new Background(0, 0, world, "Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
 			yOffset = 0;
 			xValue = xOffset;
 			yValue = yOffset;
