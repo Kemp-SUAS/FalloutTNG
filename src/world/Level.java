@@ -128,7 +128,7 @@ public class Level {
 		return npcDataInfo.get(i);
 	}
 
-	public static String getHorizontalTransitionInfo(int i) {
+	public static ArrayList<horizontalTransition> getHorizontalTransitionInfo(int i) {
 		try {
 			horizontalTransition = AssetManager.dataBaseGet("Level", id, "horizontal_transitions");
 		} catch (ClassNotFoundException e) {
@@ -138,12 +138,14 @@ public class Level {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String delims = "[,]+";
+		String delims = "[|]+";
+		String delims2 = "[,]+";
 		String[] transfer = horizontalTransition.split(delims);
 		for (int i1 = 0; i1 < transfer.length; i1++) {
-			horizontalTransitionInfo.add(transfer[i1]);
+			String[] values = transfer[i1].split(delims2);
+			horizontalTransitionInfo.add(new horizontalTransition(Integer.parseInt(values[0]),Integer.parseInt(values[1]),Integer.parseInt(values[2]),Integer.parseInt(values[3])));
 		}
-		return horizontalTransitionInfo.get(i);
+		return horizontalTransitionInfo;
 	}
 
 	public static String getVerticalTransitionInfo(int i) {
