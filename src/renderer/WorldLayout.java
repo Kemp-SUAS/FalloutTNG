@@ -31,44 +31,44 @@ public class WorldLayout extends Canvas implements Runnable {
 	public static double xOffset = 0;
 	public static double yOffset = 0;
 
-	InputHandler input = new InputHandler();
-	Player player = new Player();
-	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+	private InputHandler input = new InputHandler();
+	private Player player = new Player();
+	private BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
-	double xValue;
-	double yValue;
-	public static boolean space = false;
-
-	JFrame frame;
-	public static Boolean running = false;
-	public static String Tittle = "Top Down Scrolling";
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = 600;
-	public static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
-	long lastTime;
-	long timer = 1000 / 60;
-	double fps;
-	int backgroundX = 0;
-	int backgroundY = 0;
-	Texture image;
-	Texture inventory;
-	Shooter shoot;
+	private double xValue;
+	private double yValue;
+	 public static boolean space = false;
+	private boolean inventoryFrame;
+	private JFrame frame;
+	private static Boolean running = false;
+	private static String Tittle = "Top Down Scrolling";
+	private static final int WIDTH = 800;
+	private static final int HEIGHT = 600;
+	private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
+	private long lastTime;
+	private long timer = 1000 / 60;
+	private double fps;
+	private int backgroundX = 0;
+	private int backgroundY = 0;
+	private Texture image;
+	private Texture inventory;
+	private Shooter shoot;
 	private Controller c;
-	ArrayList<Shooter> bullets = new ArrayList<Shooter>();
-	ArrayList<Level> levels = new ArrayList<Level>();
+	private ArrayList<Shooter> bullets = new ArrayList<Shooter>();
+	private ArrayList<Level> levels = new ArrayList<Level>();
 
-	int currentLevelID = 1;
-	int levelCount = 1;
+	private int currentLevelID = 1;
+	private int levelCount = 1;
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter, remove;
 	public static double rotation;
 
-	static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
-	static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
-	Level level = new Level(1);
-	Level currentLevel = level;
-	int horizontalNumber;
+	private static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
+	private static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
+	private Level level = new Level(1);
+	private Level currentLevel = level;
+	private int horizontalNumber;
 
 	@Override
 	public void run() {
@@ -81,7 +81,7 @@ public class WorldLayout extends Canvas implements Runnable {
 			} catch (InterruptedException e) {
 
 			}
-			fps = 1000000000.0 / (System.nanoTime() - lastTime);
+			setFps(1000000000.0 / (System.nanoTime() - lastTime));
 			lastTime = System.nanoTime();
 			tick();
 			try {
@@ -100,14 +100,14 @@ public class WorldLayout extends Canvas implements Runnable {
 		setMinimumSize(dimension);
 		setMaximumSize(dimension);
 		setPreferredSize(dimension);
-		frame = new JFrame(Tittle);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
-		frame.add(this, BorderLayout.CENTER);
-		frame.pack();
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
+		setFrame(new JFrame(Tittle));
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrame().setLayout(new BorderLayout());
+		getFrame().add(this, BorderLayout.CENTER);
+		getFrame().pack();
+		getFrame().setResizable(false);
+		getFrame().setLocationRelativeTo(null);
+		getFrame().setVisible(true);
 		this.addKeyListener(input);
 		init();
 		requestFocus();
@@ -305,6 +305,22 @@ public class WorldLayout extends Canvas implements Runnable {
 		running = false;
 		System.exit(0);
 
+	}
+
+	public double getFps() {
+		return fps;
+	}
+
+	public void setFps(double fps) {
+		this.fps = fps;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 
 }

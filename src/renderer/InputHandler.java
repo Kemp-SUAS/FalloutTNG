@@ -4,16 +4,26 @@ import java.awt.event.KeyEvent;
 
 import java.awt.event.KeyListener;
 
+import javax.swing.JFrame;
+
 import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Shooter;
 
 public class InputHandler implements KeyListener {
-
+		 private WorldLayout world= new WorldLayout();
+	
 	private Controller c;
 
 	public void keyPressed(KeyEvent event) {
 
 		int keyCode = event.getKeyCode();
+		if (keyCode == event.VK_I)
+		{
+			world.setFps(0);
+			world.getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			Inventory inventory = new Inventory();
+		}
+		
 		if (keyCode == event.VK_LEFT) {
 			WorldLayout.left = true;
 		}

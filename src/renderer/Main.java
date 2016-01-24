@@ -62,7 +62,7 @@ public class Main {
 	}
 }
 
-class IntroPanel {
+	class IntroPanel {
 	private JPanel contentPane = new JPanel();
 	private JButton start = new JButton("Start");
 	private JButton exit = new JButton("Exit");
@@ -361,7 +361,7 @@ class IntroPanel {
 
 }
 
-class GamePanel {
+	class GamePanel {
 
 	private JPanel mainPanel = new JPanel();
 
