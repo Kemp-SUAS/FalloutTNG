@@ -4,11 +4,14 @@
 package vault1.CharacterFolder;
 
 /**
- * @author simarpal
+ * @author Simarpal Kalsi
  *
  */
 public class CharacterException extends Exception {
 
+	/**
+	 * 
+	 */
 	public CharacterException() {
 		// TODO Auto-generated constructor stub
 	}

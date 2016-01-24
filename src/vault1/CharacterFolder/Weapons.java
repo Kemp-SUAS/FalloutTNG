@@ -5,51 +5,106 @@ import java.util.TimerTask;
 
 import renderer.WorldLayout;
 
+/**
+ * 
+ * @author Kieran Wilson
+ *
+ */
+
 public class Weapons {
 	public static int damage;
 	public static int weaponWeight;
 	public static int rateOfFire;
 	public static String projectileImage;
 
+	/**
+	 * 
+	 * @param damage
+	 * @param weaponWeight
+	 * @param rateOfFire
+	 * @param projectileImage
+	 */
 	public Weapons(int damage, int weaponWeight, int rateOfFire, String projectileImage) {
 		this.damage = damage;
 		this.weaponWeight = weaponWeight;
 		this.rateOfFire = rateOfFire;
 	}
 
+	/**
+	 * 
+	 */
 	public Weapons() {
 
 	}
 
-	public int getDamage() {
+	/**
+	 * 
+	 * @return damage
+	 */
+	public int getDamage() {//getter for damage
+
 		return damage;
 	}
 
-	public int getWeaponWeight() {
+	/**
+	 * 
+	 * @return weaponWeight
+	 */
+	public int getWeaponWeight() {//getter for weaponWeight
+
 		return weaponWeight;
 	}
 
-	public int getRateOfFire() {
+	/**
+	 * 
+	 * @return rateOfFire
+	 */
+	public int getRateOfFire() {//getter for rateOfFire
+
 		return rateOfFire;
 	}
 
-	public String getProjectileImage() {
+	/**
+	 * 
+	 * @return projectileImage
+	 */
+	public String getProjectileImage() {//getter for projectileImage
+
 		return projectileImage;
 	}
 
-	public void setDamage(int damage) {
+	/**
+	 * 
+	 * @param damage
+	 */
+	public void setDamage(int damage) { //setter for damage
+
 		this.damage = damage;
 	}
 
-	public void setWeaponWeight(int weaponWeight) {
+	/**
+	 * 
+	 * @param weaponWeight
+	 */
+	public void setWeaponWeight(int weaponWeight) { //setter for weaponWeight
 		this.weaponWeight = weaponWeight;
 	}
 
-	public void setRateOfFire(int rateOfFire) {
+	/**
+	 * 
+	 * @param rateOfFire
+	 */
+	public void setRateOfFire(int rateOfFire) {//setter for rateOfFire
+
 		this.rateOfFire = rateOfFire;
 	}
 
-	public void setProjectileImage(String projectileImage) {
+	/**
+	 * 
+	 * @param projectileImage
+	 */
+	public void setProjectileImage(String projectileImage) {//setter for projectileImage
+
 		this.projectileImage = projectileImage;
 	}
 }

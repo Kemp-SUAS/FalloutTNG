@@ -4,7 +4,7 @@
 package renderer;
 
 /**
- * @author 333356731
+ * @author Mohid Aslam
  *
  */
 public class StringParserException extends Exception {
@@ -14,6 +14,9 @@ public class StringParserException extends Exception {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	public StringParserException() {
 		// TODO Auto-generated constructor stub
 	}

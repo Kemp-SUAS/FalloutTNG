@@ -23,6 +23,11 @@ import vault1.CharacterFolder.Shooter;
 import world.Level;
 import world.NPC;
 
+/**
+ * 
+ * @author Faduma Ahmed, Mohid Aslam, Simarpal Kalsi, Kieran Wilson
+ *
+ */
 public class WorldLayout extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -75,6 +80,9 @@ public class WorldLayout extends Canvas implements Runnable {
 	private int horizontalNumber;
 
 	@Override
+	/**
+	 * 
+	 */
 	public void run() {
 		long timer = 1000 / 60;
 
@@ -99,6 +107,9 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	}
 
+	/**
+	 * 
+	 */
 	public WorldLayout() {
 
 		setMinimumSize(dimension);
@@ -120,6 +131,9 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	}
 
+	/**
+	 * 
+	 */
 	private void init() {
 		Level level = new Level(1);
 		Level currentLevel = level;
@@ -135,6 +149,9 @@ public class WorldLayout extends Canvas implements Runnable {
 		c = new Controller(this);
 	}
 
+	/**
+	 * 
+	 */
 	private void tick() {
 		background.tick(this);
 		moveScreen();
@@ -144,6 +161,9 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	}
 
+	/**
+	 * 
+	 */
 	private void moveScreen() {
 		for (x = 0; x < 20; x++) {
 			if (up) {
@@ -208,10 +228,17 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void shootingBullet() {
 		bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
 	}
 
+	/**
+	 * 
+	 * @throws IOException
+	 */
 	private void render() throws IOException {
 
 		BufferStrategy bs = getBufferStrategy();
@@ -314,6 +341,9 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	}
 
+	/**
+	 * 
+	 */
 	synchronized void start() {
 		running = true;
 		Thread thread = new Thread(this);
@@ -321,6 +351,9 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	}
 
+	/**
+	 * 
+	 */
 	synchronized void stop() {
 
 		running = false;
@@ -328,18 +361,34 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	}
 
+	/**
+	 * 
+	 * @return fps
+	 */
 	public double getFps() {
 		return fps;
 	}
 
+	/**
+	 * 
+	 * @param fps
+	 */
 	public void setFps(double fps) {
 		this.fps = fps;
 	}
 
+	/**
+	 * 
+	 * @return frame
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * 
+	 * @param frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}

@@ -30,21 +30,37 @@ public class NPC {
 	public NPC() {
 		
 	}
-	
+	/**
+	 * 
+	 * @param i
+	 */
 	private Object NpcDataInfo(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 */
 	public NPC(int x, int y) {
 		this.X = x + 32;
 		this.Y = y + 32;
 	}
-
+	/**
+	 * 
+	 * @param topDwn
+	 */
 	public void tick(WorldLayout topDwn) {
 		this.topDwn = topDwn;
 	}
-
+	/**
+	 * 
+	 * @param g
+	 * @param xOffset
+	 * @param yOffset
+	 */
 	public void render(Graphics g, double xOffset , double yOffset) {
 		BufferedImage manager = null;
 		try {

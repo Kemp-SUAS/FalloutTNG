@@ -18,6 +18,9 @@ public class Main {
 	private static final Dimension MAIN_SIZE = new Dimension(1040, 600);
 	private JButton back = new JButton("main menu");
 
+	/**
+	 * 
+	 */
 	public Main() {
 		mainPanel.add(introPanel.getMainComponent(), INTRO);
 		mainPanel.add(gamePanel.getMainComponent(), GAME);
@@ -39,10 +42,17 @@ public class Main {
 		});
 	}
 
+	/**
+	 * 
+	 * @return mainPanel
+	 */
 	private JComponent getMainComponent() {
 		return mainPanel;
 	}
 
+	/**
+	 * 
+	 */
 	private static void createAndShowUI() {
 		JFrame frame = new JFrame("FALLOUT TNG");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,6 +63,10 @@ public class Main {
 
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -66,7 +80,9 @@ public class Main {
 	private JPanel contentPane = new JPanel();
 	private JButton start = new JButton("Start");
 	private JButton exit = new JButton("Exit");
-	
+	/**
+	 * 
+	 */
 	public IntroPanel() {
 		contentPane.setLayout(null);
 		start = new JButton("Start");
@@ -88,6 +104,9 @@ public class Main {
 		};
 		continueButton.addMouseListener(new MouseAdapter() {
 			@Override
+			/**
+			 * 
+			 */
 			public void mousePressed(MouseEvent e) {
 				try {
 					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton))); 
@@ -100,6 +119,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseReleased(MouseEvent e) {
 				try {
 					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
@@ -116,6 +138,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseEntered(MouseEvent e) {
 				try {
 					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 2, continueButton)));
@@ -127,6 +152,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseExited(MouseEvent e) {
 				try {
 					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
@@ -139,6 +167,9 @@ public class Main {
 		});
 		exit.addActionListener(new ActionListener() {
 			@Override
+			/**
+			 * 
+			 */
 			public void actionPerformed(ActionEvent e) {
 				Window win = SwingUtilities.getWindowAncestor(contentPane);
 				win.dispose();
@@ -146,6 +177,9 @@ public class Main {
 		});
 		start.addActionListener(new ActionListener() {
 			@Override
+			/**
+			 * 
+			 */
 			public void actionPerformed(ActionEvent e) {
 				Window win = SwingUtilities.getWindowAncestor(contentPane);
 				win.dispose();
@@ -166,6 +200,9 @@ public class Main {
 		};
 		loadButton.addMouseListener(new MouseAdapter() {
 			@Override
+			/**
+			 * 
+			 */
 			public void mousePressed(MouseEvent e) {
 				try {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
@@ -178,6 +215,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseReleased(MouseEvent e) {
 				try {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
@@ -189,6 +229,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseEntered(MouseEvent e) {
 				try {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 5, loadButton)));
@@ -200,6 +243,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseExited(MouseEvent e) {
 				try {
 					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
@@ -211,7 +257,7 @@ public class Main {
 			}
 		});
 		/**
-		 * Create the frame.
+		 * Creates the frame.
 		 * 
 		 * @throws IOException
 		 */
@@ -228,6 +274,9 @@ public class Main {
 		};
 		newGameButton.addMouseListener(new MouseAdapter() {
 			@Override
+			/**
+			 * 
+			 */
 			public void mousePressed(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
@@ -240,6 +289,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseReleased(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
@@ -251,6 +303,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseEntered(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 8, newGameButton)));
@@ -262,6 +317,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseExited(MouseEvent e) {
 				try {
 					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
@@ -290,6 +348,9 @@ public class Main {
 		};
 		exitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
+			/**
+			 * 
+			 */
 			public void mousePressed(MouseEvent e) {
 				try {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 10, exitGameButton))); 
@@ -302,6 +363,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseReleased(MouseEvent e) {
 				try {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
@@ -313,6 +377,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseEntered(MouseEvent e) {
 				try {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 11, exitGameButton)));
@@ -324,6 +391,9 @@ public class Main {
 			}
 
 			@Override
+			/**
+			 * 
+			 */
 			public void mouseExited(MouseEvent e) {
 				try {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
@@ -345,13 +415,31 @@ public class Main {
 		contentPane.add(lblNewLabel);
 	}
 
+	/**
+	 * 
+	 * @param listener
+	 */
 	public void addActionListener(ActionListener listener) {
 		start.addActionListener(listener);
 	}
 
+	/**
+	 * 
+	 * @return contentPane
+	 */
 	public JComponent getMainComponent() {
 		return contentPane;
 	}
+	/**
+	 * 
+	 * @param table
+	 * @param column
+	 * @param id
+	 * @param b
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
 		String path = AssetManager.dataBaseGet(table, id, column);
 
@@ -361,6 +449,11 @@ public class Main {
 
 }
 
+	/**
+	 * 
+	 * 
+	 *
+	 */
 	class GamePanel {
 
 	private JPanel mainPanel = new JPanel();
@@ -375,10 +468,18 @@ public class Main {
 
 	}
 
+	/**
+	 * 
+	 * @return mainPanel
+	 */
 	public JComponent getMainComponent() {
 		return mainPanel;
 	}
 
+	/**
+	 * 
+	 * @param listener
+	 */
 	public void addBackActionListener(ActionListener listener) {
 		back.addActionListener(listener);
 

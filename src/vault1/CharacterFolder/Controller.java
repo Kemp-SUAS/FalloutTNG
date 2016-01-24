@@ -10,22 +10,32 @@ import java.util.LinkedList;
 import renderer.WorldLayout;
 
 /**
- * @author Aslam 1
+ * @author Mohid Aslam
  *
  */
 public class Controller {
 
+	/**
+	 * 
+	 */
 	public static LinkedList<Shooter> b = new LinkedList<Shooter>();
 
 	Shooter TempBullet;
-	
+
 	WorldLayout game;
-	
-	public Controller (WorldLayout game){
+
+	/**
+	 * 
+	 * @param game
+	 */
+	public Controller(WorldLayout game) {
 		this.game = game;
-	
+
 	}
 
+	/**
+	 * 
+	 */
 	public void tick() {
 		for (int i = 0; i < b.size(); i++) {
 			TempBullet = b.get(i);
@@ -34,7 +44,13 @@ public class Controller {
 		}
 	}
 
-	public void render(Graphics g) throws IOException {
+	/**
+	 * 
+	 * @param g
+	 * @throws IOException
+	 */
+	public void render(Graphics g) throws IOException {// renders all bullets
+														// that are created
 		for (int i = 0; i < b.size(); i++) {
 			TempBullet = b.get(i);
 
@@ -42,10 +58,18 @@ public class Controller {
 		}
 	}
 
+	/**
+	 * 
+	 * @param block
+	 */
 	public void addBullet(Shooter block) {
 		b.add(block);
 	}
 
+	/**
+	 * 
+	 * @param block
+	 */
 	public void removeBullet(Shooter block) {
 		b.remove(block);
 	}

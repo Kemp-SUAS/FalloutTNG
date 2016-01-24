@@ -17,7 +17,7 @@ public class PlayerSkillPoints {
 		
 
 	/**
-	 * Defult constructor
+	 * Default constructor
 	 */
 	public PlayerSkillPoints() {
 
@@ -102,56 +102,56 @@ public class PlayerSkillPoints {
 	 * Sets the players Strength stat
 	 * @return
 	 */
-	public void setStrengthStat(int str){
+	public void setStrengthStat(int str){//setter for strength
 		this.strength = str;
 	}
 	/**
 	 * Sets the players Awareness stat
 	 * @return
 	 */
-	public void setAwarenessStat(int aware){
+	public void setAwarenessStat(int aware){//setter for awareness
 		this.awareness = aware;
 	}
 	/**
 	 * Sets the players Endurance stat
 	 * @return
 	 */
-	public void setEnduranceStat(int end){
+	public void setEnduranceStat(int end){//setter for endurance
 		this.endurance = end;
 	}
 	/**
 	 * Sets the players Wit stat
 	 * @return
 	 */
-	public void setWitStat(int wit){
+	public void setWitStat(int wit){//setter for witStat
 		this.wit = wit;
 	}
 	/**
 	 * Sets the player Intelligence stat
 	 * @return
 	 */
-	public void setIntellignceStat(int intel){
+	public void setIntellignceStat(int intel){//setter for intelligence
 		this.strength = intel;
 	}
 	/**
 	 * Sets the players Dexterity stat
 	 * @return
 	 */
-	public void setDexterityStat(int dex){
+	public void setDexterityStat(int dex){//setter for dexterity
 		this.strength = dex;
 	}
 	/**
 	 * Sets the players Luck stat
 	 * @return
 	 */
-	public void setLuckStat(int luck){
+	public void setLuckStat(int luck){//setter for luck
 		this.strength = luck;
 	}
 	/**
 	 * Sets the players maximum carry weight
 	 * @param carryWeightMultiplier
 	 */
-	public void setCarryWeightMultiplier(int carryWeightMultiplier){
+	public void setCarryWeightMultiplier(int carryWeightMultiplier){//setter for carryWeightMultiplier
 		this.carryWeightMultiplier = carryWeightMultiplier;
 	}
 		

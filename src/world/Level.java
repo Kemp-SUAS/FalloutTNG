@@ -25,7 +25,10 @@ public class Level {
 	static ArrayList<horizontalTransition> horizontalTransitionInfo = new ArrayList<horizontalTransition>();
 	static ArrayList<verticalTransition> verticalTransitionInfo = new ArrayList<verticalTransition>();
 
-
+	/**
+	 * 
+	 * @param id
+	 */
 	public Level(int id) {
 		Level.id = id;
 
@@ -39,6 +42,9 @@ public class Level {
 		return levelName;
 	}
 
+	/*
+	 * 
+	 */
 	public String getImageData(int i) {
 		try {
 			Level.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
@@ -57,6 +63,11 @@ public class Level {
 		return imageInfo.get(i);
 	}
 
+	/**
+	 * 
+	 * @param i
+	 * @return wallData
+	 */
 	public String getWallData(int i) {
 		try {
 			wallData = AssetManager.dataBaseGet("Level", id, "wallData");
@@ -75,6 +86,11 @@ public class Level {
 		return wallDimensions.get(i);
 	}
 
+	/**
+	 * 
+	 * @param i
+	 * @return playerPos
+	 */
 	public String getPlayerPosition(int i) {
 		try {
 			playerPosition = AssetManager.dataBaseGet("Level", id, "playerPos");
@@ -93,6 +109,11 @@ public class Level {
 		return playerPos.get(i);
 	}
 
+	/**
+	 * 
+	 * @param i
+	 * @return playerDataInfo
+	 */
 	public String getPlayerData(int i) {
 		try {
 			playerData = AssetManager.dataBaseGet("Level", id, "playerData");
@@ -111,6 +132,11 @@ public class Level {
 		return playerDataInfo.get(i);
 	}
 
+	/**
+	 * 
+	 * @param i
+	 * @return npcDataInfo
+	 */
 	public ArrayList<NPC> getNpcData(int i) {
 		try {
 			npcData = AssetManager.dataBaseGet("Level", id, "npcData");
@@ -126,11 +152,15 @@ public class Level {
 		String[] transfer = horizontalTransition.split(delims);
 		for (int i1 = 0; i1 < transfer.length; i1++) {
 			String[] values = transfer[i1].split(delims2);
-			npcDataInfo.add(new NPC(Integer.parseInt(values[0]),Integer.parseInt(values[1])));
+			npcDataInfo.add(new NPC(Integer.parseInt(values[0]), Integer.parseInt(values[1])));
 		}
 		return npcDataInfo;
 	}
 
+	/**
+	 * 
+	 * @return horizontalTansistionInfo
+	 */
 	public ArrayList<horizontalTransition> getHorizontalTransitionInfo() {
 		try {
 			horizontalTransition = AssetManager.dataBaseGet("Level", id, "horizontal_transitions");
@@ -152,6 +182,10 @@ public class Level {
 		return horizontalTransitionInfo;
 	}
 
+	/**
+	 * 
+	 * @return verticalTransitionInfo
+	 */
 	public ArrayList<verticalTransition> getVerticalTransitionInfo() {
 		try {
 			verticalTransition = AssetManager.dataBaseGet("Level", id, "vertical_transitions");
@@ -173,9 +207,22 @@ public class Level {
 		return verticalTransitionInfo;
 	}
 
-	public int gethorizontalTransitionNumber(){
+	/**
+	 * 
+	 * @return horizontalTransitionInfo
+	 */
+	public int gethorizontalTransitionNumber() {
 		return horizontalTransitionInfo.size();
 	}
+
+	/**
+	 * 
+	 * @return verticalTransitionInfo
+	 */
+	public int getVerticalTransitionNumber() {
+		return verticalTransitionInfo.size();
+	}
+
 	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
 		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
 	}
