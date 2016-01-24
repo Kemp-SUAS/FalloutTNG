@@ -54,14 +54,14 @@ public class WorldLayout extends Canvas implements Runnable {
 	Texture inventory;
 	Shooter shoot;
 	private Controller c;
-	ArrayList<Shooter> bullets= new ArrayList<Shooter>();
+	ArrayList<Shooter> bullets = new ArrayList<Shooter>();
 	ArrayList<Level> levels = new ArrayList<Level>();
 	Level currentLevel = new Level();
 	// Key Controlls
 
-	public static boolean left, right, up, down, enter , remove;
+	public static boolean left, right, up, down, enter, remove;
 	public static double rotation;
-	
+
 	@Override
 	public void run() {
 		long timer = 1000 / 60;
@@ -103,8 +103,8 @@ public class WorldLayout extends Canvas implements Runnable {
 		this.addKeyListener(input);
 		init();
 		requestFocus();
-		
-		//added coment quite useless really
+
+		// added coment quite useless really
 
 	}
 
@@ -115,7 +115,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		backgroundY = Integer.parseInt(level.getWallData(1));
 		background = new Background(0, 0, this, Level.getImageData().get(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_l1.png");
-		
+
 		c = new Controller(this);
 	}
 
@@ -135,40 +135,36 @@ public class WorldLayout extends Canvas implements Runnable {
 				yValue = yOffset;
 				WorldLayout.rotation = 0;
 			}
-			
-			
+
 			if (right) {
 				xOffset -= 1;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 90;
 			}
-			
-			
+
 			if (down) {
 				yOffset -= 1;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 180;
 			}
-			
-			
+
 			if (left) {
 				xOffset += 1;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 270;
 			}
-			
-			if (up&& right)
-			{
+
+			if (up && right) {
 				yOffset += 0.5;
 				xOffset -= 0.5;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 45;
 			}
-			
+
 			if (up && left) {
 				yOffset += 0.5;
 				xOffset += 0.5;
@@ -176,25 +172,22 @@ public class WorldLayout extends Canvas implements Runnable {
 				yValue = yOffset;
 				WorldLayout.rotation = 315;
 			}
-			if(down && left)
-			{
+			if (down && left) {
 				yOffset += 0.5;
 				xOffset -= 0.5;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 225;
 			}
-			
-			if(down && right)
-			{
+
+			if (down && right) {
 				yOffset -= 0.5;
 				xOffset -= 0.5;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 135;
 			}
-			
-			
+
 		}
 	}
 
@@ -235,38 +228,39 @@ public class WorldLayout extends Canvas implements Runnable {
 			xValue = xOffset;
 			yValue = yOffset;
 		}
-		
+
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250 && enter == true) {
-			background = new Background(0, 0, this, "Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
+			background = new Background(0, 0, this,
+					"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
 			yOffset = 0;
 			xValue = xOffset;
 			yValue = yOffset;
 			enter = false;
 		}
-		
+
 		if (space) {
-			//shoot = new Shooter(0, 0, this);
-			//shoot.render(g);
-			//c.addBullet(new Shooter( xOffset, yOffset, this));
-			bullets.add(new Shooter( 400-xOffset, 300-yOffset, this , rotation));
-			c.addBullet(bullets.get(bullets.size()-1));
+			// shoot = new Shooter(0, 0, this);
+			// shoot.render(g);
+			// c.addBullet(new Shooter( xOffset, yOffset, this));
+			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
+			c.addBullet(bullets.get(bullets.size() - 1));
 		}
 
 		c.render(g);
-		player.render(g,rotation);
+		player.render(g, rotation);
 		System.out.println(rotation);
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
 			AttributedString astr = new AttributedString("This is a test string");
 			Font font = new Font("Serif", Font.PLAIN, 25);
-			    astr.addAttribute(TextAttribute.FONT, font, 0, 4);
-			    astr.addAttribute(TextAttribute.FOREGROUND, Color.RED,5,9);
-			    astr.addAttribute(TextAttribute.BACKGROUND, Color.CYAN, 10, 21);
+			astr.addAttribute(TextAttribute.FONT, font, 0, 4);
+			astr.addAttribute(TextAttribute.FOREGROUND, Color.RED, 5, 9);
+			astr.addAttribute(TextAttribute.BACKGROUND, Color.CYAN, 10, 21);
 
-			    Graphics2D g2 = (Graphics2D) g;
-			    g2.setColor(Color.BLUE);
-			    g2.setFont(font);
-			    g2.drawString("Enter", 380, 260);
-			//g.drawString(astr. , 100, 100);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLUE);
+			g2.setFont(font);
+			g2.drawString("Enter", 380, 260);
+			// g.drawString(astr. , 100, 100);
 		}
 		g.dispose();
 		bs.show();
@@ -286,7 +280,5 @@ public class WorldLayout extends Canvas implements Runnable {
 		System.exit(0);
 
 	}
-	
-	
 
 }

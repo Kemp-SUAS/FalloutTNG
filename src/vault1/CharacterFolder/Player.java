@@ -17,8 +17,8 @@ import renderer.InputHandler;
 
 public class Player {
 
-	int x = 368;
-	int y = 268;
+	double x = 368;
+	double y = 268;
 	WorldLayout topDwn;
 	double rotation;
 	Texture playerMode_up = new Texture("Assets/Pictures/Textures/Character/Unsorted/Characters/Shooter2.png");
