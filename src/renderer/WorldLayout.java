@@ -280,18 +280,22 @@ public class WorldLayout extends Canvas implements Runnable {
 
 			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
 			c.addBullet(bullets.get(bullets.size() - 1));
-			System.out.println("Direction "+ bullets.get(bullets.size()-1).getDirection());
 		}
 		if (!bullets.isEmpty()) {
 			for(int i = 0; i < bullets.size(); i++){
-				
+				if(bullets.get(i).getDirection().equals("0")){
+					if(bullets.get(i).getY()<0 ){
+						Controller.b.remove(i);
+						bullets.remove(i);
+						System.out.println("Bullet removed");
+					}
+				}
 			}
 		}
 
 		c.render(g);
 		player.render(g, rotation);
 		npc.render(g, xOffset, yOffset);
-		System.out.println(rotation);
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
 			AttributedString astr = new AttributedString("This is a test string");
 			Font font = new Font("Serif", Font.PLAIN, 25);
