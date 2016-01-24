@@ -12,11 +12,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.AttributedString;
 import java.util.ArrayList;
+import java.util.Timer;
 
 import javax.swing.JFrame;
 
 import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Player;
+import vault1.CharacterFolder.ReloadTime;
 import vault1.CharacterFolder.Shooter;
 import world.Level;
 import world.NPC;
@@ -39,7 +41,7 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private double xValue;
 	private double yValue;
-	 public static boolean space = false;
+	public static boolean space = false;
 	private boolean inventoryFrame;
 	private JFrame frame;
 	private static Boolean running = false;
@@ -205,7 +207,10 @@ public class WorldLayout extends Canvas implements Runnable {
 
 		}
 	}
-
+	public void shootingBullet(){
+		bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
+	}
+	
 	private void render() throws IOException {
 
 		BufferStrategy bs = getBufferStrategy();
@@ -268,10 +273,11 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 
 		if (space) {
-			// shoot = new Shooter(0, 0, this);
-			// shoot.render(g);
-			// c.addBullet(new Shooter( xOffset, yOffset, this));
-			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
+			
+			Timer timer = new Timer();	
+			timer.schedule(new ReloadTime(), 0, 500);
+					
+			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));			 
 			c.addBullet(bullets.get(bullets.size() - 1));
 		}
 		/**if (bullets.size() > 0) {
