@@ -143,12 +143,13 @@ public class Level {
 		String[] transfer = horizontalTransition.split(delims);
 		for (int i1 = 0; i1 < transfer.length; i1++) {
 			String[] values = transfer[i1].split(delims2);
-			horizontalTransitionInfo.add(new horizontalTransition(Integer.parseInt(values[0]),Integer.parseInt(values[1]),Integer.parseInt(values[2]),Integer.parseInt(values[3])));
+			horizontalTransitionInfo.add(new horizontalTransition(Integer.parseInt(values[0]),
+					Integer.parseInt(values[1]), Integer.parseInt(values[2]), Integer.parseInt(values[3])));
 		}
 		return horizontalTransitionInfo;
 	}
 
-	public ArrayList<verticalTransition> getVerticalTransitionInfo(int i) {
+	public ArrayList<verticalTransition> getVerticalTransitionInfo() {
 		try {
 			verticalTransition = AssetManager.dataBaseGet("Level", id, "vertical_transitions");
 		} catch (ClassNotFoundException e) {
@@ -163,12 +164,16 @@ public class Level {
 		String[] transfer = verticalTransition.split(delims);
 		for (int i1 = 0; i1 < transfer.length; i1++) {
 			String[] values = transfer[i1].split(delims2);
-			verticalTransitionInfo.add(new verticalTransition(Integer.parseInt(values[0]),Integer.parseInt(values[1]),Integer.parseInt(values[2]),Integer.parseInt(values[3])));
+			verticalTransitionInfo.add(new verticalTransition(Integer.parseInt(values[0]), Integer.parseInt(values[1]),
+					Integer.parseInt(values[2]), Integer.parseInt(values[3])));
 		}
 		return verticalTransitionInfo;
 	}
 
 	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
 		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
+	}
+	public int gethorizontalTransitionNumber(){
+		return horizontalTransitionInfo.size();
 	}
 }
