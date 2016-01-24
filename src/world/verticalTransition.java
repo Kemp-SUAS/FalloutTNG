@@ -17,4 +17,13 @@ public class verticalTransition {
 	public int getLevel(){
 		return this.levelId;
 	}
+	public int getY1(){
+		return this.y1;
+	}
+	public int getY2(){
+		return this.y2;
+	}
+	public int getX1(){
+		return this.x1;
+	}
 }

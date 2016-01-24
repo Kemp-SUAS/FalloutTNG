@@ -56,8 +56,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	private Controller c;
 	ArrayList<Shooter> bullets = new ArrayList<Shooter>();
 	ArrayList<Level> levels = new ArrayList<Level>();
-	Level level = new Level(1);
-	Level currentLevel = level;
+
 	int currentLevelID = 1;
 	int levelCount = 1;
 	// Key Controlls
@@ -67,6 +66,9 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
 	static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
+	Level level = new Level(1);
+	Level currentLevel = level;
+	int horizontalNumber;
 
 	@Override
 	public void run() {
@@ -115,14 +117,17 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		for(int i = 1; i <= levelCount; i++){
+		Level level = new Level(1);
+		Level currentLevel = level;
+		for (int i = 1; i <= levelCount; i++) {
 			levels.add(new Level(i));
 		}
 		backgroundX = Integer.parseInt(currentLevel.getWallData(0));
 		backgroundY = Integer.parseInt(currentLevel.getWallData(1));
 		background = new Background(0, 0, this, currentLevel.getImageData(0));
+		System.out.println(currentLevel.getImageData(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_l1.png");
-
+		horizontalNumber = currentLevel.gethorizontalTransitionNumber();
 		c = new Controller(this);
 	}
 
@@ -197,6 +202,7 @@ public class WorldLayout extends Canvas implements Runnable {
 
 		}
 	}
+
 	private void render() throws IOException {
 
 		BufferStrategy bs = getBufferStrategy();
@@ -234,9 +240,11 @@ public class WorldLayout extends Canvas implements Runnable {
 			xValue = xOffset;
 			yValue = yOffset;
 		}
-		for (int i = 0; i <= verticalTransitionInfo.size(); i++) {
+		for (int i = 0; i <= horizontalNumber; i++) {
 
-			if (xOffset < -400 && xOffset > -500 && yOffset < -250 && enter == true) {
+			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
+					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2() && yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1()
+					&& enter == true) {
 				background = new Background(0, 0, this,
 						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
 				yOffset = 0;
@@ -255,7 +263,7 @@ public class WorldLayout extends Canvas implements Runnable {
 				enter = false;
 			}
 		}
-		
+
 		if (space) {
 			// shoot = new Shooter(0, 0, this);
 			// shoot.render(g);

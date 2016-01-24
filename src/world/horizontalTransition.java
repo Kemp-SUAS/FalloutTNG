@@ -19,4 +19,13 @@ public class horizontalTransition {
 	public int getLevel() {
 		return this.levelId;
 	}
+	public int getX1(){
+		return this.x1;
+	}
+	public int getX2(){
+		return this.x2;
+	}
+	public int getY1(){
+		return this.y1;
+	}
 }
