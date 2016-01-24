@@ -19,6 +19,7 @@ import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Player;
 import vault1.CharacterFolder.Shooter;
 import world.Level;
+import world.NPC;
 
 public class WorldLayout extends Canvas implements Runnable {
 
@@ -33,6 +34,7 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private InputHandler input = new InputHandler();
 	private Player player = new Player();
+	private NPC npc = new NPC();
 	private BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
 	private double xValue;
@@ -135,6 +137,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		background.tick(this);
 		moveScreen();
 		player.tick(this);
+		npc.tick(this);
 		c.tick();
 
 	}
@@ -274,6 +277,7 @@ public class WorldLayout extends Canvas implements Runnable {
 
 		c.render(g);
 		player.render(g, rotation);
+		npc.render(g, xOffset, yOffset);
 		System.out.println(rotation);
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
 			AttributedString astr = new AttributedString("This is a test string");
