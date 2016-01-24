@@ -136,6 +136,30 @@ public class WorldLayout extends Canvas implements Runnable {
 				WorldLayout.rotation = 0;
 			}
 			
+			
+			if (right) {
+				xOffset -= 1;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 90;
+			}
+			
+			
+			if (down) {
+				yOffset -= 1;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 180;
+			}
+			
+			
+			if (left) {
+				xOffset += 1;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 270;
+			}
+			
 			if (up&& right)
 			{
 				yOffset += 0.5;
@@ -145,12 +169,20 @@ public class WorldLayout extends Canvas implements Runnable {
 				WorldLayout.rotation = 45;
 			}
 			
-			
-			if (right) {
-				xOffset -= 1;
+			if (up && left) {
+				yOffset += 0.5;
+				xOffset += 0.5;
 				xValue = xOffset;
 				yValue = yOffset;
-				WorldLayout.rotation = 90;
+				WorldLayout.rotation = 315;
+			}
+			if(down && left)
+			{
+				yOffset += 0.5;
+				xOffset -= 0.5;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 225;
 			}
 			
 			if(down && right)
@@ -160,37 +192,6 @@ public class WorldLayout extends Canvas implements Runnable {
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 135;
-			}
-			
-			if (down) {
-				yOffset -= 1;
-				xValue = xOffset;
-				yValue = yOffset;
-				WorldLayout.rotation = 180;
-			}
-			
-			if(down && left)
-			{
-				yOffset -= 0.5;
-				xOffset += 0.5;
-				xValue = xOffset;
-				yValue = yOffset;
-				WorldLayout.rotation = 225;
-			}
-			
-			if (left) {
-				xOffset += 1;
-				xValue = xOffset;
-				yValue = yOffset;
-				WorldLayout.rotation = 270;
-			}
-			
-			if (up && left) {
-				yOffset += 0.5;
-				xOffset += 0.5;
-				xValue = xOffset;
-				yValue = yOffset;
-				WorldLayout.rotation = 315;
 			}
 			
 			
