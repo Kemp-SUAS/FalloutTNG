@@ -274,7 +274,36 @@ public class WorldLayout extends Canvas implements Runnable {
 			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
 			c.addBullet(bullets.get(bullets.size() - 1));
 		}
+		/**if (bullets.size() > 0) {
+		for (int i = 0; i < bullets.size(); i++) {
+			if (bullets.get(i).getX() < (-1 * backgroundX) + 432) {
+				bullets.get(i).setX(-1200 + 32);
+				bullets.remove(i);
+			}
+			if (bullets.get(i).getX() > 400 - 32) {
+				bullets.get(i).setX(400 - 32);
+				bullets.remove(i);
+			}
+			if (bullets.get(i).getY() < (-1 * backgroundY) + 332) {
+				bullets.get(i).setX(-300 + 32);
+				bullets.remove(i);
+			}
+			if (bullets.get(i).getY() > 300 - 32) {
+				bullets.get(i).setX(300 - 32);
+				bullets.remove(i);
+			}
+		}
+	}**/
 
+	if (bullets.size() > 0) {
+		for (int i = 0; i < bullets.size(); i++) {
+			System.out.println("X Value: " + bullets.get(0).getX() + " ");
+			System.out.println("Y Value: " + bullets.get(0).getY() + " ");
+		}
+	}
+	if (bullets.size() > 1){
+		bullets.remove(0);
+	}
 		c.render(g);
 		player.render(g, rotation);
 		npc.render(g, xOffset, yOffset);
