@@ -192,7 +192,6 @@ public class WorldLayout extends Canvas implements Runnable {
 
 		}
 	}
-
 	private void render() throws IOException {
 
 		BufferStrategy bs = getBufferStrategy();
@@ -229,18 +228,6 @@ public class WorldLayout extends Canvas implements Runnable {
 			yOffset = 300 - 32;
 			xValue = xOffset;
 			yValue = yOffset;
-		}
-		for (int i = 0; i <= 100; i++) {
-			try {
-				horizontalTransitionInfo.add(Level.getHorizontalTransitionInfo(i));
-			} finally {
-
-			}
-			try {
-				verticalTransitionInfo.add(Level.getVerticalTransitionInfo(i));
-			} finally {
-
-			}
 		}
 		for (int i = 0; i <= verticalTransitionInfo.size(); i++) {
 

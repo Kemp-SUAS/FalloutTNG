@@ -1,10 +1,10 @@
 package world;
 
-public class verticalTransitions {
+public class verticalTransition {
 
 	int y1,y2,x1,levelId;
 	
-	public verticalTransitions( int y1 , int y2, int x1 , int levelId)
+	public verticalTransition( int y1 , int y2, int x1 , int levelId)
 	{
 		this.y1 = y1;
 		this.y2 = y2;
