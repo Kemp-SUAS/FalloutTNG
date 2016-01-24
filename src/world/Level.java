@@ -1,4 +1,4 @@
-package vault1.CharacterFolder;
+package world;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import vault1.CharacterFolder.Controller;
-import vault1.CharacterFolder.Level;
 import vault1.CharacterFolder.Player;
 import vault1.CharacterFolder.Shooter;
+import world.Level;
 
 public class WorldLayout extends Canvas implements Runnable {
 
