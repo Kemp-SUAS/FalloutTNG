@@ -75,6 +75,34 @@ public class Shooter {
 			y -= 15;
 		}
 	}
+	public String getDirection(){
+		if(rotation == 0){
+			return "0";
+			}
+			if(rotation == 45){
+				return "45";
+			}
+			if(rotation == 90){
+				return "90";
+			}
+			if(rotation == 135){
+				return "135";
+			}
+			if(rotation == 180){
+				return "180";
+			}
+			if(rotation == 225){
+				return "225";
+			}
+			
+			if(rotation == 270){
+				return "270";
+			}
+			if(rotation == 315){
+				return "315";
+			}
+			return "null";
+	}
 
 	public void render(Graphics g) throws IOException {
 		BufferedImage manager = ImageIO.read(new File(this.bullet));

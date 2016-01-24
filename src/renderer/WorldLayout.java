@@ -130,7 +130,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		backgroundY = Integer.parseInt(currentLevel.getWallData(1));
 		background = new Background(0, 0, this, currentLevel.getImageData(0));
 		System.out.println(currentLevel.getImageData(0));
-		inventory = new Texture("Assets/Pictures/Textures/Inventory_l1.png");
+		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
 		horizontalNumber = currentLevel.gethorizontalTransitionNumber();
 		c = new Controller(this);
 	}
@@ -207,10 +207,11 @@ public class WorldLayout extends Canvas implements Runnable {
 
 		}
 	}
-	public void shootingBullet(){
+
+	public void shootingBullet() {
 		bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
 	}
-	
+
 	private void render() throws IOException {
 
 		BufferStrategy bs = getBufferStrategy();
@@ -251,8 +252,8 @@ public class WorldLayout extends Canvas implements Runnable {
 		for (int i = 0; i <= horizontalNumber; i++) {
 
 			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
-					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2() && yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1()
-					&& enter == true) {
+					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
+					&& yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1() && enter == true) {
 				background = new Background(0, 0, this,
 						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
 				yOffset = 0;
@@ -273,43 +274,20 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 
 		if (space) {
-			
-			Timer timer = new Timer();	
-			timer.schedule(new ReloadTime(), 0, 500);
-					
-			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));			 
-			c.addBullet(bullets.get(bullets.size() - 1));
-		}
-		/**if (bullets.size() > 0) {
-		for (int i = 0; i < bullets.size(); i++) {
-			if (bullets.get(i).getX() < (-1 * backgroundX) + 432) {
-				bullets.get(i).setX(-1200 + 32);
-				bullets.remove(i);
-			}
-			if (bullets.get(i).getX() > 400 - 32) {
-				bullets.get(i).setX(400 - 32);
-				bullets.remove(i);
-			}
-			if (bullets.get(i).getY() < (-1 * backgroundY) + 332) {
-				bullets.get(i).setX(-300 + 32);
-				bullets.remove(i);
-			}
-			if (bullets.get(i).getY() > 300 - 32) {
-				bullets.get(i).setX(300 - 32);
-				bullets.remove(i);
-			}
-		}
-	}**/
 
-	if (bullets.size() > 0) {
-		for (int i = 0; i < bullets.size(); i++) {
-			System.out.println("X Value: " + bullets.get(0).getX() + " ");
-			System.out.println("Y Value: " + bullets.get(0).getY() + " ");
+			Timer timer = new Timer();
+			timer.schedule(new ReloadTime(), 0, 500);
+
+			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
+			c.addBullet(bullets.get(bullets.size() - 1));
+			System.out.println("Direction "+ bullets.get(bullets.size()-1).getDirection());
 		}
-	}
-	if (bullets.size() > 1){
-		bullets.remove(0);
-	}
+		if (!bullets.isEmpty()) {
+			for(int i = 0; i < bullets.size(); i++){
+				
+			}
+		}
+
 		c.render(g);
 		player.render(g, rotation);
 		npc.render(g, xOffset, yOffset);
