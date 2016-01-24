@@ -22,24 +22,24 @@ import renderer.WorldLayout;
  */
 public class Shooter {
 
-	private int x;
-	private int y;
+	private double x;
+	private double y;
 
 	String bullet = "Assets/Pictures/Textures/bubbles_v1.png";
 
 	BufferedImage image;
 	double rotation;
 
-	public Shooter(int x, int y, WorldLayout game , double rotation) {
+	public Shooter(double x, double y, WorldLayout game , double rotation) {
 		this.x = x  ;
 		this.y = y;
 		this.rotation = rotation;
 	}
 
-	public void setX(int X) {
+	public void setX(double X) {
 		x = X +x;
 	}
-	public void setY(int Y) {
+	public void setY(double Y) {
 		y = Y;
 	}
 
@@ -47,19 +47,37 @@ public class Shooter {
 		if(rotation == 0){
 		y -= 30;
 		}
-		if(rotation == 180){
-			y += 30;
+		if(rotation == 45){
+			y-=15;
+			x += 15;
 		}
 		if(rotation == 90){
 			x += 30;
 		}
+		if(rotation == 135){
+			
+			x += 15;
+			y += 15;
+		}
+		if(rotation == 180){
+			y += 30;
+		}
+		if(rotation == 225){
+			y += 15;
+			x -= 15;
+		}
+		
 		if(rotation == 270){
 			x -= 30;
+		}
+		if(rotation == 315){
+			x -= 15;
+			y -= 15;
 		}
 	}
 
 	public void render(Graphics g) throws IOException {
 		BufferedImage manager = ImageIO.read(new File(this.bullet));
-		g.drawImage(manager, WorldLayout.xOffset + this.x, this.y + WorldLayout.yOffset, null);
+		g.drawImage(manager, (int) (WorldLayout.xOffset + this.x), (int) (this.y + WorldLayout.yOffset), null);
 	}
 }

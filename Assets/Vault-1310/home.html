@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset = "utf-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fallout TNG</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" type="image/ico" href="Images/vault_boy.ico" sizes="16x16"><link href='http://fonts.googleapis.com/css?family=Lato:300'rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/ico" href="Images/vault_boy.ico"
+	sizes="16x16">
+<link href='http://fonts.googleapis.com/css?family=Lato:300'
+	rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="java_scripts/jssor.js"></script>
 <script type="text/javascript" src="java_scripts/jssor.slider.js"></script>
- <script>
+<script>
         init_jssor_slider1 = function (containerId) {
 <!-- AUTO CHANGE FOR STREAK -->
 
@@ -29,111 +32,129 @@
             var jssor_slider1 = new $JssorSlider$(containerId, options);
         };
     </script>
-    <style type="text/css">
-        .image_slider{
-            padding-right: 1000px;
-        }
-        .ul{
-            padding: 0;
-            list-style: none;
-        }
-         ul li{
-        display: inline-block;
-        position: relative;
-        line-height: 21px;
-        text-align: left;
-    }
-    ul li a{
-        display: block;
-        padding: 8px 25px;
-        color: #6699ff;
-        text-decoration: none;
-    }
-    ul li a:hover{
-        color: #6699ff;
-        background: #ffcc00;
-    }
-    ul li ul.dropdown{
-        min-width: 125px; /* Set width of the dropdown */
-        background-color: #6699ff;
-        color: #6699ff;
-        display: none;
-        position: absolute;
-        z-index: 999;
-        left: 0;
-    }
-    ul li:hover ul.dropdown{
-        display: block; /* Display the dropdown */
-    }
-    ul li ul.dropdown li{
-        display: block;
-    }
-    </style>
+<style type="text/css">
+.image_slider {
+	padding-right: 1000px;
+}
+
+.ul {
+	padding: 0;
+	list-style: none;
+}
+
+ul li {
+	display: inline-block;
+	position: relative;
+	line-height: 21px;
+	text-align: left;
+}
+
+ul li a {
+	display: block;
+	padding: 8px 25px;
+	color: #6699ff;
+	text-decoration: none;
+}
+
+ul li a:hover {
+	color: #6699ff;
+	background: #ffcc00;
+}
+
+ul li ul.dropdown {
+	min-width: 125px; /* Set width of the dropdown */
+	background-color: #6699ff;
+	color: #6699ff;
+	display: none;
+	position: absolute;
+	z-index: 999;
+	left: 0;
+}
+
+ul li:hover ul.dropdown {
+	display: block; /* Display the dropdown */
+}
+
+ul li ul.dropdown li {
+	display: block;
+}
+</style>
 </head>
 <body>
-<div class="container">
-<div class="row">
-        <div class="col-md-6">
-            <img class="title-logo" src="images/vault_boy_PNG.PNG" alt="Cheking if neuclear exlopsion dangerous" height="25%" width="25%">
-        </div>
-        <div class="col-md-6 text-right text-uppercase">
-            <h1 class="title-super text-thick">SAUS</h1>
-            <h4>Fallout-TNG</h4>
-        </div>
-    </div>
-        <div class="row" >
-        <nav>
-        <ul style="list-style-type:none">
-            <div class="col-md-3 text-center col-3-menu">
-                <li><a href="home.html" style="color:yellow">Home</a></li>
-            </div>
-            <div class="col-md-3 text-center  col-3-menu">
-                <li><a href="about_us.html" style="color:yellow">About SUAS</a></li>
-            </div>
-            <div class="col-md-3 text-center  col-3-menu">
-                <li><a href="contact-us.html" style="color:yellow">Contact us</a></li>
-            </div>
-            <div class="col-md-3 text-center  col-3-menu">
-               <!-- <li><a href="teams.html" style="color:white">Teams</a></li> -->
-             <li>
-            <a href="teams.html" style="color:yellow
-            ">Game wiki &#9662;</a>
-            <ul class="dropdown">
-                <li><a href="characters.html" style="color:yellow">Charcters</a></li>
-                <li><a href="locations.html" style="color:yellow">Locations</a></li>
-                <li><a href="inventory.html" style="color:yellow">Iventory</a></li>
-                <li><a href="stats.html" style="color:yellow">Stats</a></li>
-                <li><a href="mechanics.html" style="color:yellow">Mechanics</a></li>
-            </ul>
-        </li>
-            </div>
-        </ul>   
-        <!--       -->
-        
-    </nav>
-    </div>
-    <div class="row">
-            <hr>
-    </div>
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div id="slider1_container" class="col-md-6" style="position: relative; width: 600px;
-        height: 300px; overflow: hidden;" align="center">
- 
-        <!-- Slides Container --> 
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;
-            overflow: hidden;">
-            <div><img u="image"  src="images/working_hard.png"  /></div>
-            <div><img u="image" src="images/basketball_resized.png" /></div>
-            <div><img u="image" src="images/bigpiture_resized.png" /></div>
-            <div><img u="image" src="images/soccer_resized.png" /></div>
-        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<img class="title-logo" src="images/vault_boy_PNG.PNG"
+					alt="Cheking if neuclear exlopsion dangerous" height="25%"
+					width="25%">
+			</div>
+			<div class="col-md-6 text-right text-uppercase">
+				<h1 class="title-super text-thick">SAUS</h1>
+				<h4>Fallout-TNG</h4>
+			</div>
+		</div>
+		<div class="row">
+			<nav>
+				<ul style="list-style-type: none">
+					<div class="col-md-3 text-center col-3-menu">
+						<li><a href="home.html" style="color: yellow">Home</a></li>
+					</div>
+					<div class="col-md-3 text-center  col-3-menu">
+						<li><a href="about_us.html" style="color: yellow">About
+								SUAS</a></li>
+					</div>
+					<div class="col-md-3 text-center  col-3-menu">
+						<li><a href="contact-us.html" style="color: yellow">Contact
+								us</a></li>
+					</div>
+					<div class="col-md-3 text-center  col-3-menu">
+						<!-- <li><a href="teams.html" style="color:white">Teams</a></li> -->
+						<li><a href="teams.html" style="color: yellow">Game wiki
+								&#9662;</a>
+							<ul class="dropdown">
+								<li><a href="characters.html" style="color: yellow">Charcters</a></li>
+								<li><a href="locations.html" style="color: yellow">Locations</a></li>
+								<li><a href="inventory.html" style="color: yellow">Iventory</a></li>
+								<li><a href="stats.html" style="color: yellow">Stats</a></li>
+								<li><a href="mechanics.html" style="color: yellow">Mechanics</a></li>
+							</ul></li>
+					</div>
+				</ul>
+				<!--       -->
 
-        <!--#region Arrow Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
-        <style>
-            /* jssor slider arrow navigator skin 11 css */
-            /*
+			</nav>
+		</div>
+		<div class="row">
+			<hr>
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div id="slider1_container" class="col-md-6"
+				style="position: relative; width: 600px; height: 300px; overflow: hidden;"
+				align="center">
+
+				<!-- Slides Container -->
+				<div u="slides"
+					style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
+					<div>
+						<img u="image" src="images/working_hard.png" />
+					</div>
+					<div>
+						<img u="image" src="images/basketball_resized.png" />
+					</div>
+					<div>
+						<img u="image" src="images/bigpiture_resized.png" />
+					</div>
+					<div>
+						<img u="image" src="images/soccer_resized.png" />
+					</div>
+				</div>
+
+				<!--#region Arrow Navigator Skin Begin -->
+				<!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
+				<style>
+/* jssor slider arrow navigator skin 11 css */
+/*
             .jssora11l                  (normal)
             .jssora11r                  (normal)
             .jssora11l:hover            (normal mouseover)
@@ -141,46 +162,116 @@
             .jssora11l.jssora11ldn      (mousedown)
             .jssora11r.jssora11rdn      (mousedown)
             */
-            .jssora11l, .jssora11r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 37px;
-                height: 37px;
-                cursor: pointer;
-                background: url(images/a11.png) no-repeat;
-                overflow: hidden;
-            }
-            .jssora11l { background-position: -11px -41px; }
-            .jssora11r { background-position: -71px -41px; }
-            .jssora11l:hover { background-position: -131px -41px; }
-            .jssora11r:hover { background-position: -191px -41px; }
-            .jssora11l.jssora11ldn { background-position: -251px -41px; }
-            .jssora11r.jssora11rdn { background-position: -311px -41px; }
-        </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora11l" style="top: 123px; left: 8px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora11r" style="top: 123px; right: 8px;">
-        </span>
-        <!--#endregion Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">Bootstrap Slider</a>
-        <!-- Trigger -->
-        <script>
+.jssora11l, .jssora11r {
+	display: block;
+	position: absolute;
+	/* size of arrow element */
+	width: 37px;
+	height: 37px;
+	cursor: pointer;
+	background: url(images/a11.png) no-repeat;
+	overflow: hidden;
+}
+
+.jssora11l {
+	background-position: -11px -41px;
+}
+
+.jssora11r {
+	background-position: -71px -41px;
+}
+
+.jssora11l:hover {
+	background-position: -131px -41px;
+}
+
+.jssora11r:hover {
+	background-position: -191px -41px;
+}
+
+.jssora11l.jssora11ldn {
+	background-position: -251px -41px;
+}
+
+.jssora11r.jssora11rdn {
+	background-position: -311px -41px;
+}
+</style>
+				<!-- Arrow Left -->
+				<span u="arrowleft" class="jssora11l" style="top: 123px; left: 8px;">
+				</span>
+				<!-- Arrow Right -->
+				<span u="arrowright" class="jssora11r"
+					style="top: 123px; right: 8px;"> </span>
+				<!--#endregion Arrow Navigator Skin End -->
+				<a style="display: none" href="http://www.jssor.com">Bootstrap
+					Slider</a>
+				<!-- Trigger -->
+				<script>
             init_jssor_slider1("slider1_container");
         </script>
-    </div>
-        </div>
-         <div class="row">
-            <hr>
-    </div>
-    <div>
-        <h1 style="color:blue;">Getting started</h1>
-            <h3 class="text-left">
-                To get started with this awsome game please to this . blah blah blah.
-            </h3>
-    </div>
-</div>
+			</div>
+		</div>
+		<div class="row">
+			<hr>
+		</div>
+		<div>
+			<h1 style="color: blue;">Getting started</h1>
+			<h3 class="text-left">
+				Our game essentially test the skills acquired from our senior level
+				technology class, ISC4U/O. In the early stages of our software
+				project, we had to create a design document, high level description
+				of our program and its capabilities. We also had to create a UML
+				diagram that would show all the classes we would write. Our UML
+				diagram and design document can found in the following link.
+				 <br> 
+				 <br> 
+				 
+				UML Overview {
+				https://drive.google.com/file/d/0B4WktV7Sh1-bb0hhV2tYSHAwM3M/view?usp=sharing
+				} 
+				<br>
+				<br> 
+				 UML with Classes and Variables{
+				https://drive.google.com/file/d/0B749ABRDKtb9V1JPSDRGOTY5Qms/view?usp=sharing
+				}<br> 
+				Design documents{
+				https://drive.google.com/file/d/0B749ABRDKtb9R01CQWlfQzlrVGs/view?usp=sharing
+				} 
+				<br> 
+				<br> 
+				We have also created a to-do list to ensure that all the
+				requirements for this project are accomplished <br> -----To-Do
+				list----- 
+				<br>
+				<br> 
+				-Complete the DGEDS(Dynamic game engine database
+				structure). The DGEDS will dynamically load and create levels based
+				on pre-made constants stored in a database. 
+				<br>
+				<br> 
+				 -Complete dynamic asset
+				handling. This is going to be a complete overhaul of the asset
+				handling classes. All the string constants will be stored a database
+				which we can put information of off quite easily and dynamically.
+				<br>
+				<br> 
+				-Finish the wiki web site and blog made using the bootstrap
+				framework and the trusty sublime text. -Start working on the web
+				site being controlled using JSP and create a servelet application
+				that will dynamically change the blog and wiki of the web site.
+				<br>
+				<br> 
+				-Keep an updated and well kept Wiki web site. -Create a fluid flow
+				between rendered and character packages.
+				<br>
+				<br>
+				 -Create dynamic and unique art.
+
+
+
+			</h3>
+		</div>
+	</div>
 </body>
-</html> 
+</html>

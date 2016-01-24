@@ -28,15 +28,15 @@ public class WorldLayout extends Canvas implements Runnable {
 	int x = 0;
 
 	// displays object
-	public static int xOffset = 0;
-	public static int yOffset = 0;
+	public static double xOffset = 0;
+	public static double yOffset = 0;
 
 	InputHandler input = new InputHandler();
 	Player player = new Player();
 	BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
-	int xValue;
-	int yValue;
+	double xValue;
+	double yValue;
 	public static boolean space = false;
 
 	JFrame frame;
@@ -129,30 +129,71 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private void moveScreen() {
 		for (x = 0; x < 20; x++) {
-			if (left) {
-				xOffset += 1;
-				xValue = xOffset;
-				yValue = yOffset;
-				WorldLayout.rotation = 270;
-			}
-			if (right) {
-				xOffset -= 1;
-				xValue = xOffset;
-				yValue = yOffset;
-				WorldLayout.rotation = 90;
-			}
 			if (up) {
 				yOffset += 1;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 0;
 			}
+			
+			if (up&& right)
+			{
+				yOffset += 0.5;
+				xOffset -= 0.5;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 45;
+			}
+			
+			
+			if (right) {
+				xOffset -= 1;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 90;
+			}
+			
+			if(down && right)
+			{
+				yOffset -= 0.5;
+				xOffset -= 0.5;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 135;
+			}
+			
 			if (down) {
 				yOffset -= 1;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 180;
 			}
+			
+			if(down && left)
+			{
+				yOffset -= 0.5;
+				xOffset += 0.5;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 225;
+			}
+			
+			if (left) {
+				xOffset += 1;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 270;
+			}
+			
+			if (up && left) {
+				yOffset += 0.5;
+				xOffset += 0.5;
+				xValue = xOffset;
+				yValue = yOffset;
+				WorldLayout.rotation = 315;
+			}
+			
+			
 		}
 	}
 
