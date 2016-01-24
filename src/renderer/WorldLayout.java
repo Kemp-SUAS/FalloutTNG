@@ -12,13 +12,16 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.AttributedString;
 import java.util.ArrayList;
+import java.util.Timer;
 
 import javax.swing.JFrame;
 
 import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Player;
+import vault1.CharacterFolder.ReloadTime;
 import vault1.CharacterFolder.Shooter;
 import world.Level;
+import world.NPC;
 
 public class WorldLayout extends Canvas implements Runnable {
 
@@ -33,11 +36,12 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private InputHandler input = new InputHandler();
 	private Player player = new Player();
+	private NPC npc = new NPC();
 	private BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
 	private double xValue;
 	private double yValue;
-	 public static boolean space = false;
+	public static boolean space = false;
 	private boolean inventoryFrame;
 	private JFrame frame;
 	private static Boolean running = false;
@@ -135,6 +139,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		background.tick(this);
 		moveScreen();
 		player.tick(this);
+		npc.tick(this);
 		c.tick();
 
 	}
@@ -202,7 +207,10 @@ public class WorldLayout extends Canvas implements Runnable {
 
 		}
 	}
-
+	public void shootingBullet(){
+		bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
+	}
+	
 	private void render() throws IOException {
 
 		BufferStrategy bs = getBufferStrategy();
@@ -265,15 +273,46 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 
 		if (space) {
-			// shoot = new Shooter(0, 0, this);
-			// shoot.render(g);
-			// c.addBullet(new Shooter( xOffset, yOffset, this));
-			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
+			
+			Timer timer = new Timer();	
+			timer.schedule(new ReloadTime(), 0, 500);
+					
+			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));			 
 			c.addBullet(bullets.get(bullets.size() - 1));
 		}
+		/**if (bullets.size() > 0) {
+		for (int i = 0; i < bullets.size(); i++) {
+			if (bullets.get(i).getX() < (-1 * backgroundX) + 432) {
+				bullets.get(i).setX(-1200 + 32);
+				bullets.remove(i);
+			}
+			if (bullets.get(i).getX() > 400 - 32) {
+				bullets.get(i).setX(400 - 32);
+				bullets.remove(i);
+			}
+			if (bullets.get(i).getY() < (-1 * backgroundY) + 332) {
+				bullets.get(i).setX(-300 + 32);
+				bullets.remove(i);
+			}
+			if (bullets.get(i).getY() > 300 - 32) {
+				bullets.get(i).setX(300 - 32);
+				bullets.remove(i);
+			}
+		}
+	}**/
 
+	if (bullets.size() > 0) {
+		for (int i = 0; i < bullets.size(); i++) {
+			System.out.println("X Value: " + bullets.get(0).getX() + " ");
+			System.out.println("Y Value: " + bullets.get(0).getY() + " ");
+		}
+	}
+	if (bullets.size() > 1){
+		bullets.remove(0);
+	}
 		c.render(g);
 		player.render(g, rotation);
+		npc.render(g, xOffset, yOffset);
 		System.out.println(rotation);
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
 			AttributedString astr = new AttributedString("This is a test string");

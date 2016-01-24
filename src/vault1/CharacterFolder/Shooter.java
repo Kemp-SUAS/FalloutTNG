@@ -80,4 +80,14 @@ public class Shooter {
 		BufferedImage manager = ImageIO.read(new File(this.bullet));
 		g.drawImage(manager, (int) (WorldLayout.xOffset + this.x), (int) (this.y + WorldLayout.yOffset), null);
 	}
+
+	public double getX() {
+		// TODO Auto-generated method stub
+		return x;
+	}
+
+	public double getY() {
+		// TODO Auto-generated method stub
+		return y;
+	}
 }

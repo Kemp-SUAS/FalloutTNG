@@ -15,7 +15,7 @@ import javax.swing.SwingUtilities;
 
 import vault1.CharacterFolder.PlayerSkillPoints;
 
-public class Inventory {
+public class InventoryScreen {
 
 	public PlayerSkillPoints skill = new PlayerSkillPoints();
 
@@ -40,7 +40,7 @@ public class Inventory {
 	private JButton backToGame = new JButton("Return To The Game");
 	private JButton exit = new JButton("Exit");
 
-	public Inventory() {
+	public InventoryScreen() {
 		Image background = Toolkit.getDefaultToolkit().createImage("Assets/Pictures/MainScreen/Inventory.png");
 
 		inventory.setLayout(null);

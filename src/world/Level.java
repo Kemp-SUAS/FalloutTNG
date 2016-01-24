@@ -17,13 +17,14 @@ public class Level {
 	private static String verticalTransition;
 	private static int id;
 
-	static ArrayList<String> npcDataInfo = new ArrayList<String>();
+	static ArrayList<NPC> npcDataInfo = new ArrayList<NPC>();
 	static ArrayList<String> playerDataInfo = new ArrayList<String>();
 	static ArrayList<String> playerPos = new ArrayList<String>();
 	static ArrayList<String> wallDimensions = new ArrayList<String>();
 	static ArrayList<String> imageInfo = new ArrayList<String>();
 	static ArrayList<horizontalTransition> horizontalTransitionInfo = new ArrayList<horizontalTransition>();
 	static ArrayList<verticalTransition> verticalTransitionInfo = new ArrayList<verticalTransition>();
+
 
 	public Level(int id) {
 		Level.id = id;
@@ -110,7 +111,7 @@ public class Level {
 		return playerDataInfo.get(i);
 	}
 
-	public String getNpcData(int i) {
+	public ArrayList<NPC> getNpcData(int i) {
 		try {
 			npcData = AssetManager.dataBaseGet("Level", id, "npcData");
 		} catch (ClassNotFoundException e) {
@@ -120,12 +121,14 @@ public class Level {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String delims = "[,]+";
-		String[] transfer = npcData.split(delims);
+		String delims = "[|]+";
+		String delims2 = "[,]+";
+		String[] transfer = horizontalTransition.split(delims);
 		for (int i1 = 0; i1 < transfer.length; i1++) {
-			npcDataInfo.add(transfer[i1]);
+			String[] values = transfer[i1].split(delims2);
+			npcDataInfo.add(new NPC(Integer.parseInt(values[0]),Integer.parseInt(values[1])));
 		}
-		return npcDataInfo.get(i);
+		return npcDataInfo;
 	}
 
 	public ArrayList<horizontalTransition> getHorizontalTransitionInfo() {
@@ -170,10 +173,11 @@ public class Level {
 		return verticalTransitionInfo;
 	}
 
-	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
-		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
-	}
 	public int gethorizontalTransitionNumber(){
 		return horizontalTransitionInfo.size();
 	}
+	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
+		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
+	}
+
 }
