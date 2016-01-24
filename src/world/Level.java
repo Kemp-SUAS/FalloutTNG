@@ -34,11 +34,11 @@ public class Level {
 
 	}
 
-	public static String getLevelName() {
+	public String getLevelName() {
 		return levelName;
 	}
 
-	public static String getImageData(int i) {
+	public String getImageData(int i) {
 		try {
 			Level.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
 		} catch (ClassNotFoundException e) {
@@ -56,7 +56,7 @@ public class Level {
 		return imageInfo.get(i);
 	}
 
-	public static String getWallData(int i) {
+	public String getWallData(int i) {
 		try {
 			wallData = AssetManager.dataBaseGet("Level", id, "wallData");
 		} catch (ClassNotFoundException e) {
@@ -74,7 +74,7 @@ public class Level {
 		return wallDimensions.get(i);
 	}
 
-	public static String getPlayerPosition(int i) {
+	public String getPlayerPosition(int i) {
 		try {
 			playerPosition = AssetManager.dataBaseGet("Level", id, "playerPos");
 		} catch (ClassNotFoundException e) {
@@ -92,7 +92,7 @@ public class Level {
 		return playerPos.get(i);
 	}
 
-	public static String getPlayerData(int i) {
+	public String getPlayerData(int i) {
 		try {
 			playerData = AssetManager.dataBaseGet("Level", id, "playerData");
 		} catch (ClassNotFoundException e) {
@@ -110,7 +110,7 @@ public class Level {
 		return playerDataInfo.get(i);
 	}
 
-	public static String getNpcData(int i) {
+	public String getNpcData(int i) {
 		try {
 			npcData = AssetManager.dataBaseGet("Level", id, "npcData");
 		} catch (ClassNotFoundException e) {
@@ -128,7 +128,7 @@ public class Level {
 		return npcDataInfo.get(i);
 	}
 
-	public static ArrayList<horizontalTransition> getHorizontalTransitionInfo() {
+	public ArrayList<horizontalTransition> getHorizontalTransitionInfo() {
 		try {
 			horizontalTransition = AssetManager.dataBaseGet("Level", id, "horizontal_transitions");
 		} catch (ClassNotFoundException e) {
@@ -148,7 +148,7 @@ public class Level {
 		return horizontalTransitionInfo;
 	}
 
-	public static ArrayList<verticalTransition> getVerticalTransitionInfo(int i) {
+	public ArrayList<verticalTransition> getVerticalTransitionInfo(int i) {
 		try {
 			verticalTransition = AssetManager.dataBaseGet("Level", id, "vertical_transitions");
 		} catch (ClassNotFoundException e) {
@@ -171,9 +171,4 @@ public class Level {
 	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
 		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
 	}
-
-	public static String getIndexInfo(ArrayList<String> arrayList, int id) {
-		return arrayList.get(id);
-	}
-
 }
