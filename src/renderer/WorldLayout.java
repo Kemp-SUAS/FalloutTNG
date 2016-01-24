@@ -56,7 +56,10 @@ public class WorldLayout extends Canvas implements Runnable {
 	private Controller c;
 	ArrayList<Shooter> bullets = new ArrayList<Shooter>();
 	ArrayList<Level> levels = new ArrayList<Level>();
-	Level currentLevel = new Level();
+	Level level = new Level(1);
+	Level currentLevel = level;
+	int currentLevelID = 1;
+	int levelCount = 2;
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter, remove;
@@ -112,9 +115,11 @@ public class WorldLayout extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		Level level = new Level(1);
-		backgroundX = Integer.parseInt(level.getWallData(0));
-		backgroundY = Integer.parseInt(level.getWallData(1));
+		for(int i = 1; i <= levelCount; i++){
+			levels.add(new Level(i));
+		}
+		backgroundX = Integer.parseInt(currentLevel.getWallData(0));
+		backgroundY = Integer.parseInt(currentLevel.getWallData(1));
 		background = new Background(0, 0, this, Level.getImageData(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_l1.png");
 
@@ -250,7 +255,7 @@ public class WorldLayout extends Canvas implements Runnable {
 				enter = false;
 			}
 		}
-
+		
 		if (space) {
 			// shoot = new Shooter(0, 0, this);
 			// shoot.render(g);
