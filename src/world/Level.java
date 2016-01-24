@@ -170,10 +170,11 @@ public class Level {
 		return verticalTransitionInfo;
 	}
 
-	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
-		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
-	}
 	public int gethorizontalTransitionNumber(){
 		return horizontalTransitionInfo.size();
 	}
+	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
+		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
+	}
+
 }
