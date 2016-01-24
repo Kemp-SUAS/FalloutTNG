@@ -196,8 +196,7 @@ public class Inventory {
 				Window win = SwingUtilities.getWindowAncestor(inventory);
 				win.dispose();
 				Main main= new Main();
-				String[] args = null;
-				main.main(args);
+				
 				
 				
 			}
