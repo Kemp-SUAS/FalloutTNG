@@ -24,7 +24,6 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final WorldLayout world = new WorldLayout();
 	public Background background;
 	int x = 0;
 
@@ -114,7 +113,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		level.setImageData();
 		backgroundX = Integer.parseInt(level.getWallData(0));
 		backgroundY = Integer.parseInt(level.getWallData(1));
-		background = new Background(0, 0, world, Level.getImageData().get(0));
+		background = new Background(0, 0, this, Level.getImageData().get(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
 		
 		c = new Controller(this);
@@ -196,7 +195,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 		
 		if (xOffset < -400 && xOffset > -500 && yOffset < -250 && enter == true) {
-			background = new Background(0, 0, world, "Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
+			background = new Background(0, 0, this, "Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
 			yOffset = 0;
 			xValue = xOffset;
 			yValue = yOffset;
