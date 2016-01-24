@@ -18,12 +18,12 @@ public class Level {
 	private static int id;
 
 	static ArrayList<String> npcDataInfo = new ArrayList<String>();
-	static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
-	static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
 	static ArrayList<String> playerDataInfo = new ArrayList<String>();
 	static ArrayList<String> playerPos = new ArrayList<String>();
 	static ArrayList<String> wallDimensions = new ArrayList<String>();
 	static ArrayList<String> imageInfo = new ArrayList<String>();
+	static ArrayList<horizontalTransition> horizontalTransitionInfo = new ArrayList<horizontalTransition>();
+	static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
 
 	public Level(int id) {
 		Level.id = id;
@@ -130,7 +130,7 @@ public class Level {
 
 	public static String getHorizontalTransitionInfo(int i) {
 		try {
-			horizontalTransition = AssetManager.dataBaseGet("Level", id, "horizontal transitions");
+			horizontalTransition = AssetManager.dataBaseGet("Level", id, "horizontal_transitions");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -148,7 +148,7 @@ public class Level {
 
 	public static String getVerticalTransitionInfo(int i) {
 		try {
-			verticalTransition = AssetManager.dataBaseGet("Level", id, "vertical transitions");
+			verticalTransition = AssetManager.dataBaseGet("Level", id, "vertical_transitions");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
