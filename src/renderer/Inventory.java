@@ -2,12 +2,16 @@ package renderer;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import vault1.CharacterFolder.PlayerSkillPoints;
 
@@ -167,6 +171,36 @@ public class Inventory {
 
 			}
 
+		});
+		
+		backToGame.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Window win = SwingUtilities.getWindowAncestor(inventory);
+				win.dispose();
+				WorldLayout TopDwn = new WorldLayout();
+				TopDwn.start();
+			}
+		});
+		
+		exit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Window win = SwingUtilities.getWindowAncestor(inventory);
+				win.dispose();
+			}
+		});
+		backToMain.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Window win = SwingUtilities.getWindowAncestor(inventory);
+				win.dispose();
+				Main main= new Main();
+				String[] args = null;
+				main.main(args);
+				
+				
+			}
 		});
 
 	}
