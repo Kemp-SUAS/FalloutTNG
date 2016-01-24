@@ -62,6 +62,9 @@ public class WorldLayout extends Canvas implements Runnable {
 	public static boolean left, right, up, down, enter, remove;
 	public static double rotation;
 
+	static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
+	static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
+
 	@Override
 	public void run() {
 		long timer = 1000 / 60;
@@ -110,10 +113,9 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private void init() {
 		Level level = new Level(1);
-		level.setImageData();
 		backgroundX = Integer.parseInt(level.getWallData(0));
 		backgroundY = Integer.parseInt(level.getWallData(1));
-		background = new Background(0, 0, this, Level.getImageData().get(0));
+		background = new Background(0, 0, this, Level.getImageData(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_l1.png");
 
 		c = new Controller(this);
@@ -228,14 +230,38 @@ public class WorldLayout extends Canvas implements Runnable {
 			xValue = xOffset;
 			yValue = yOffset;
 		}
+		for (int i = 0; i <= 100; i++) {
+			try {
+				horizontalTransitionInfo.add(Level.getHorizontalTransitionInfo(i));
+			} finally {
 
-		if (xOffset < -400 && xOffset > -500 && yOffset < -250 && enter == true) {
-			background = new Background(0, 0, this,
-					"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
-			yOffset = 0;
-			xValue = xOffset;
-			yValue = yOffset;
-			enter = false;
+			}
+			try {
+				verticalTransitionInfo.add(Level.getVerticalTransitionInfo(i));
+			} finally {
+
+			}
+		}
+		for (int i = 0; i <= verticalTransitionInfo.size(); i++) {
+
+			if (xOffset < -400 && xOffset > -500 && yOffset < -250 && enter == true) {
+				background = new Background(0, 0, this,
+						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
+				yOffset = 0;
+				xValue = xOffset;
+				yValue = yOffset;
+				enter = false;
+			}
+		}
+		for (int i = 0; i <= horizontalTransitionInfo.size(); i++) {
+			if (yOffset < -400 && yOffset > -500 && xOffset < -250 && enter == true) {
+				background = new Background(0, 0, this,
+						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
+				yOffset = 0;
+				xValue = xOffset;
+				yValue = yOffset;
+				enter = false;
+			}
 		}
 
 		if (space) {
