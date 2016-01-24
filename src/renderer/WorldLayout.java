@@ -120,7 +120,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 		backgroundX = Integer.parseInt(currentLevel.getWallData(0));
 		backgroundY = Integer.parseInt(currentLevel.getWallData(1));
-		background = new Background(0, 0, this, Level.getImageData(0));
+		background = new Background(0, 0, this, currentLevel.getImageData(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_l1.png");
 
 		c = new Controller(this);

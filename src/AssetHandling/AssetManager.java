@@ -14,6 +14,7 @@ public class AssetManager {
 
 	// The object used for excecuting the static SQLite object
 	static Statement stat;
+
 	/**
 	 * This static method helps to get the external String data from SQLite
 	 * 
@@ -35,21 +36,23 @@ public class AssetManager {
 	 *             method in class ClassLoader.
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		
-		//dataBasePut("test", "Money", "'$100'");
-		dataBaseUpdate("test", "Money", 1 , "'$200'");
+
+		// dataBasePut("test", "Money", "'$100'");
+		dataBaseUpdate("test", "Money", 1, "'$200'");
 		System.out.println(dataBaseGet("test", 1, "Money"));
-			
+
 	}
 
 	public static String dataBaseGet(String tableName, int id, String column)
 			throws SQLException, ClassNotFoundException {
-
+		String indexInformation = "";
 		Class.forName("org.sqlite.JDBC");
 		Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
 		stat = c.createStatement();
 		ResultSet rs = stat.executeQuery("select * from " + tableName + " where id =" + id);
-		String indexInformation = rs.getString(column);
+		while (rs.next()) {
+			indexInformation = rs.getString(column);
+		}
 		return indexInformation;
 	}
 
@@ -76,9 +79,7 @@ public class AssetManager {
 		stat = c.createStatement();
 		ResultSet rs = stat.executeQuery("select * from " + tableName + ";");
 		ArrayList<String> data = new ArrayList<String>();
-		while (rs.next()) {
-			data.add(rs.getString(column));
-		}
+
 		c.close();
 		return data;
 	}
@@ -92,14 +93,16 @@ public class AssetManager {
 		stat.executeUpdate(sql);
 		c.close();
 	}
-	public static void dataBaseUpdate(String tableName, String column, int id, String value) throws ClassNotFoundException, SQLException{
+
+	public static void dataBaseUpdate(String tableName, String column, int id, String value)
+			throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
 		Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
-		PreparedStatement ps = c.prepareStatement("UPDATE " + tableName + " SET " + column + " = ? WHERE id = ?"); 
+		PreparedStatement ps = c.prepareStatement("UPDATE " + tableName + " SET " + column + " = ? WHERE id = ?");
 		ps.setString(1, value);
 		ps.setInt(2, id);
 		ps.executeUpdate();
 		ps.close();
 	}
-	
+
 }
