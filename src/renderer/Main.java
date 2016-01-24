@@ -80,7 +80,7 @@ class IntroPanel {
 
 		contentPane.add(exit);
 		try {
-			continueButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 3, continueButton)));
+			continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (SQLException e1) {
@@ -90,7 +90,7 @@ class IntroPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					continueButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 1, continueButton))); 
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 1, continueButton))); 
 			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
@@ -102,7 +102,7 @@ class IntroPanel {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				try {
-					continueButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 3, continueButton)));
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
 					Window win = SwingUtilities.getWindowAncestor(contentPane);
 					win.dispose();
 					WorldLayout TopDwn = new WorldLayout();
@@ -118,7 +118,7 @@ class IntroPanel {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					continueButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 2, continueButton)));
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 2, continueButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -129,7 +129,7 @@ class IntroPanel {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				try {
-					continueButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 3, continueButton)));
+					continueButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 3, continueButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -158,7 +158,7 @@ class IntroPanel {
 		contentPane.add(loadButton);
 
 		try {
-			loadButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 6, loadButton)));
+			loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (SQLException e1) {
@@ -168,7 +168,7 @@ class IntroPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					loadButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 4, loadButton))); 
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 4, loadButton))); 
 			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
@@ -180,7 +180,7 @@ class IntroPanel {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				try {
-					loadButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 6, loadButton)));
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -191,7 +191,7 @@ class IntroPanel {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					loadButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 5, loadButton)));
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 5, loadButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -202,7 +202,7 @@ class IntroPanel {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				try {
-					loadButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 6, loadButton)));
+					loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -220,7 +220,7 @@ class IntroPanel {
 		contentPane.add(newGameButton);
 
 		try {
-			newGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 9, newGameButton)));
+			newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (SQLException e1) {
@@ -230,7 +230,7 @@ class IntroPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 7, newGameButton))); 
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 7, newGameButton))); 
 			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
@@ -242,7 +242,7 @@ class IntroPanel {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 9, newGameButton)));
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -253,7 +253,7 @@ class IntroPanel {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 8, newGameButton)));
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 8, newGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -264,7 +264,7 @@ class IntroPanel {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				try {
-					newGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 9, newGameButton)));
+					newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -282,7 +282,7 @@ class IntroPanel {
 		contentPane.add(exitGameButton);
 
 		try {
-			exitGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 12, exitGameButton)));
+			exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (SQLException e1) {
@@ -292,7 +292,7 @@ class IntroPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 10, exitGameButton))); 
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 10, exitGameButton))); 
 			
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
@@ -304,7 +304,7 @@ class IntroPanel {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 12, exitGameButton)));
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -315,7 +315,7 @@ class IntroPanel {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 11, exitGameButton)));
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 11, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -326,7 +326,7 @@ class IntroPanel {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				try {
-					exitGameButton.setIcon(new ImageIcon(MainScreen.imageMaker("image_strings", "path", 12, exitGameButton)));
+					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -351,6 +351,12 @@ class IntroPanel {
 
 	public JComponent getMainComponent() {
 		return contentPane;
+	}
+	static Image imageMaker(String table, String column, int id, JButton b) throws ClassNotFoundException, SQLException{
+		String path = AssetManager.dataBaseGet(table, id, column);
+
+		Image image = new ImageIcon(path).getImage().getScaledInstance(b.getWidth(),b.getHeight(),java.awt.Image.SCALE_SMOOTH);
+		return image;
 	}
 
 }
