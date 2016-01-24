@@ -59,7 +59,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	Level level = new Level(1);
 	Level currentLevel = level;
 	int currentLevelID = 1;
-	int levelCount = 2;
+	int levelCount = 1;
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter, remove;
