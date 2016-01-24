@@ -17,7 +17,7 @@ import renderer.Texture;
 import renderer.WorldLayout;
 
 /**
- * @author Mohid
+ * @author Mohid Aslam
  *
  */
 public class Shooter {
@@ -30,20 +30,38 @@ public class Shooter {
 	BufferedImage image;
 	double rotation;
 
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param game
+	 * @param rotation
+	 */
 	public Shooter(double x, double y, WorldLayout game , double rotation) {
 		this.x = x  ;
 		this.y = y;
 		this.rotation = rotation;
 	}
 
+	/**
+	 * 
+	 * @param X
+	 */
 	public void setX(double X) {
 		x = X +x;
 	}
+	/**
+	 * 
+	 * @param Y
+	 */
 	public void setY(double Y) {
 		y = Y;
 	}
 
-	public void tick() {
+	/**
+	 * 
+	 */
+	public void tick() {//bullet shoots in direction the player is facing
 		if(rotation == 0){
 		y -= 30;
 		}
@@ -75,7 +93,12 @@ public class Shooter {
 			y -= 15;
 		}
 	}
-	public String getDirection(){
+	
+	/**
+	 * 
+	 * @return angles
+	 */
+	public String getDirection(){//bullet shoots in direction player is facing
 		if(rotation == 0){
 			return "0";
 			}
@@ -104,17 +127,30 @@ public class Shooter {
 			return "null";
 	}
 
+	/**
+	 * 
+	 * @param g
+	 * @throws IOException
+	 */
 	public void render(Graphics g) throws IOException {
 		BufferedImage manager = ImageIO.read(new File(this.bullet));
 		g.drawImage(manager, (int) (WorldLayout.xOffset + this.x), (int) (this.y + WorldLayout.yOffset), null);
 	}
 
-	public double getX() {
+	/**
+	 * 
+	 * @return x
+	 */
+	public double getX() {//getter for x
 		// TODO Auto-generated method stub
 		return x;
 	}
 
-	public double getY() {
+	/**
+	 * 
+	 * @return y
+	 */
+	public double getY() {//getter for y 
 		// TODO Auto-generated method stub
 		return y;
 	}

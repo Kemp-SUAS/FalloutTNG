@@ -309,9 +309,9 @@ public class WorldLayout extends Canvas implements Runnable {
 			c.addBullet(bullets.get(bullets.size() - 1));
 		}
 		if (!bullets.isEmpty()) {
-			for(int i = 0; i < bullets.size(); i++){
-				if(bullets.get(i).getDirection().equals("0")){
-					if(bullets.get(i).getY()<0 ){
+			for (int i = 0; i < bullets.size(); i++) {
+				if (bullets.get(i).getDirection().equals("0")) {
+					if (bullets.get(i).getY() < 0) {
 						Controller.b.remove(i);
 						bullets.remove(i);
 						System.out.println("Bullet removed");
