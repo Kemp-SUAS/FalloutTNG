@@ -20,7 +20,15 @@ public class PlayerSkillPoints {
 	 * Default constructor
 	 */
 	public PlayerSkillPoints() {
-
+		
+			strength = 0;
+			awareness = 0;
+			endurance = 0;
+			wit = 0;
+			intelligence = 0;
+			dexterity = 0;
+			luck = 0;
+		
 	}
 	/**
 	 * Constructor for all of the fields
@@ -41,6 +49,7 @@ public class PlayerSkillPoints {
 		this.dexterity = dex;
 		this.luck = luck;
 	}
+	
 	/**
 	 * Gets the players Strength stat
 	 * @return

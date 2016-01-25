@@ -129,6 +129,17 @@ public class Main {
 					win.dispose();
 					WorldLayout TopDwn = new WorldLayout();
 					TopDwn.start();
+					if(TopDwn.inventoryPanel)
+					{
+						TopDwn.frame.setDefaultCloseOperation(TopDwn.frame.DISPOSE_ON_CLOSE);
+							
+						InventoryScreen inventory = new InventoryScreen();
+						inventory.start();
+						
+					}
+
+					
+					
 				} catch (ClassNotFoundException e1) {
 				
 					e1.printStackTrace();

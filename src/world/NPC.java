@@ -17,10 +17,11 @@ import world.Level;
 
 public class NPC {	
 
-
-	PlayerGameplayStats npcGameplayStats;
-	WorldLayout topDwn;
-	Level lvl;
+	private Collision collision ;
+	
+	private PlayerGameplayStats npcGameplayStats;
+	private WorldLayout topDwn;
+	private Level lvl;
 	double rotation;
 	Texture playerMode_up = new Texture("Assets/Pictures/Textures/Character/Unsorted/Characters/Shooter2.png");	
 	
@@ -28,6 +29,8 @@ public class NPC {
 	int Y;
 	
 	public NPC() {
+		
+		
 		
 	}
 	/**
@@ -45,8 +48,14 @@ public class NPC {
 	 * @param y
 	 */
 	public NPC(int x, int y) {
+		
+
 		this.X = x + 32;
 		this.Y = y + 32;
+		
+		collision = new Collision(X, X+40,Y,Y+40);
+		
+		
 	}
 	/**
 	 * 

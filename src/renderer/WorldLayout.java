@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.event.WindowEvent;
 import java.awt.font.TextAttribute;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -48,7 +49,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	private double yValue;
 	public static boolean space = false;
 	private boolean inventoryFrame;
-	private JFrame frame;
+	public static JFrame frame;
 	private static Boolean running = false;
 	private static String Tittle = "Top Down Scrolling";
 	private static final int WIDTH = 800;
@@ -70,8 +71,10 @@ public class WorldLayout extends Canvas implements Runnable {
 	private int levelCount = 1;
 	// Key Controlls
 
-	public static boolean left, right, up, down, enter, remove;
-	public static double rotation;
+	public static boolean left, right, up, down, enter, remove, inventoryPanel;
+	public static double rotation, fpsStat;
+	
+	
 
 	private static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
 	private static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
@@ -85,6 +88,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	 * 
 	 */
 	public void run() {
+		
+		fps=fpsStat;
 		long timer = 1000 / 60;
 
 		while (running) {
@@ -160,9 +165,20 @@ public class WorldLayout extends Canvas implements Runnable {
 		player.tick(this);
 		npc.tick(this);
 		c.tick();
+		
+		if(inventoryPanel)
+		{
+			frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
+				
+			InventoryScreen inventory = new InventoryScreen();
+			inventory.start();
+			
+		}
 
 	}
 
+	
+	
 	/**
 	 * 
 	 */
@@ -281,6 +297,9 @@ public class WorldLayout extends Canvas implements Runnable {
 		System.out.println("X offset = " + xOffset);
 		System.out.println("Y offset = " + yOffset);
 		for (int i = 0; i <= horizontalNumber; i++) {
+			
+			
+			
 			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
 					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
 					&& yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1()) {

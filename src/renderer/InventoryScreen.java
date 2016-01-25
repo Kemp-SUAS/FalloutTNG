@@ -1,5 +1,7 @@
 package renderer;
 
+import java.awt.BorderLayout;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Window;
@@ -7,8 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -19,12 +24,18 @@ import vault1.CharacterFolder.PlayerSkillPoints;
  * @author Kieran Wilson, Faduma Ahmed, Simar Kalsi, Mohid Aslam 
  *
  */
-public class InventoryScreen {
 
+public class InventoryScreen extends JPanel implements Runnable{
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4092094527771064840L;
 
 	public PlayerSkillPoints skill = new PlayerSkillPoints();
 
-	private JPanel inventory = new JPanel();
+	public static JPanel inventory = new JPanel(new BorderLayout());
 	private JButton strength = new JButton("Strength");
 	private JLabel strengthLabel;
 	private JButton awareness = new JButton("Awareness");
@@ -44,13 +55,18 @@ public class InventoryScreen {
 	private JButton backToMain = new JButton("Return to Main Menu");
 	private JButton backToGame = new JButton("Return To The Game");
 	private JButton exit = new JButton("Exit");
+	private long lastTime;
+	private long timer = 1000 / 60;
+	private double fps;
+	private static Boolean running = false;
 
+	
 	/**
 	 * The inventory screen displayed on the screen and shows the stats of the player in game.
 	 */
 	public InventoryScreen() {
-		Image background = Toolkit.getDefaultToolkit().createImage("Assets/Pictures/MainScreen/Inventory.png");
-
+		
+		super();
 		inventory.setLayout(null);
 
 		strength.setBounds(150, 200, 182, 47);
@@ -84,20 +100,28 @@ public class InventoryScreen {
 		exit.setBounds(150, 700, 182, 47);
 
 		inventory.add(awareness);
+		inventory.add(awarenessLabel);
 
 		inventory.add(strength);
+		inventory.add(strengthLabel);
 
 		inventory.add(endurance);
+		inventory.add(enduranceLabel);
 
 		inventory.add(luck);
+		inventory.add(luckLabel);
+		inventory.add(witLabel);
 
 		inventory.add(wit);
 
 		inventory.add(dexterity);
+		inventory.add(dexterityLabel);
 
 		inventory.add(intelligence);
+		inventory.add(intelligenceLabel);
 
 		inventory.add(weightCarryMultiplier);
+		inventory.add(weightCarryMultiplierLabel);
 
 		inventory.add(backToMain);
 
@@ -109,8 +133,13 @@ public class InventoryScreen {
 
 		{
 			public void mousePressed(MouseEvent e) {
-
+					if(skill.getAwarenessStat() != 0)
+				
 				awarenessLabel.setText(String.valueOf(skill.getAwarenessStat()));
+					
+					else
+			   awarenessLabel.setText(String.valueOf(0));
+						
 
 			}
 
@@ -121,7 +150,14 @@ public class InventoryScreen {
 		{
 			public void mousePressed(MouseEvent e) {
 
-				strengthLabel.setText(String.valueOf(skill.getStrengthStat()));
+				if(skill.getStrengthStat() != 0)
+					
+					strengthLabel.setText(String.valueOf(skill.getAwarenessStat()));
+						
+						else
+					strengthLabel.setText(String.valueOf(0));
+				
+				
 
 			}
 
@@ -132,7 +168,13 @@ public class InventoryScreen {
 		{
 			public void mousePressed(MouseEvent e) {
 
-				enduranceLabel.setText(String.valueOf(skill.getEnduranceStat()));
+					if(skill.getEnduranceStat() != 0)
+					
+						enduranceLabel.setText(String.valueOf(skill.getEnduranceStat()));
+						
+						else
+						enduranceLabel.setText(String.valueOf(0));
+				
 
 			}
 
@@ -143,7 +185,14 @@ public class InventoryScreen {
 		{
 			public void mousePressed(MouseEvent e) {
 
-				luckLabel.setText(String.valueOf(skill.getLuckStat()));
+				if(skill.getLuckStat() != 0)
+					
+					luckLabel.setText(String.valueOf(skill.getLuckStat()));
+					
+					else
+					luckLabel.setText(String.valueOf(0));
+				
+				
 
 			}
 
@@ -153,7 +202,12 @@ public class InventoryScreen {
 		{
 			public void mousePressed(MouseEvent e) {
 
-				witLabel.setText(String.valueOf(skill.getWitStat()));
+					if(skill.getWitStat() != 0)
+					
+					witLabel.setText(String.valueOf(skill.getWitStat()));
+					
+					else
+					witLabel.setText(String.valueOf(0));
 
 			}
 
@@ -164,7 +218,12 @@ public class InventoryScreen {
 		{
 			public void mousePressed(MouseEvent e) {
 
-				dexterityLabel.setText(String.valueOf(skill.getDexterityStat()));
+					if(skill.getDexterityStat() != 0)
+					
+						dexterityLabel.setText(String.valueOf(skill.getDexterityStat()));
+					
+					else
+						dexterityLabel.setText(String.valueOf(0));
 
 			}
 
@@ -175,7 +234,12 @@ public class InventoryScreen {
 		{
 			public void mousePressed(MouseEvent e) {
 
-				intelligenceLabel.setText(String.valueOf(skill.getIntelligenceStat()));
+				if(skill.getIntelligenceStat() ==0)
+					
+					intelligenceLabel.setText(String.valueOf(skill.getIntelligenceStat()));
+				
+				else
+					intelligenceLabel.setText(String.valueOf(0));
 
 			}
 
@@ -207,9 +271,58 @@ public class InventoryScreen {
 				
 				
 				
+				
+				
 			}
 		});
-
+		
 	}
+	
+		@Override
+		public void paintComponent(Graphics g)
+		{
+		  super.paintComponent(g);
+		   ImageIcon i = new ImageIcon("Assets/Pictures/MainScreen/Inventory.png");
+		  i.paintIcon(this, g, 0, 0);
+		  
+		}
+		
+		
+		synchronized void start() {
+			running = true;
+			Thread thread = new Thread(this);
+			thread.start();
 
-}
+		}
+
+		@Override
+		public void run() {
+			long timer = 1000 / 60;
+
+			while (running) {
+				lastTime = System.nanoTime();
+				try {
+					Thread.sleep(timer);
+				} catch (InterruptedException e) {
+
+				}
+				setFps(1000000000.0 / (System.nanoTime() - lastTime));
+				lastTime = System.nanoTime();
+				
+				
+				}
+
+			}
+
+		public double getFps() {
+			return fps;
+		}
+
+		public void setFps(double fps) {
+			this.fps = fps;
+		}
+
+		}
+
+
+

@@ -29,9 +29,9 @@ public class InputHandler implements KeyListener {
 
 		int keyCode = event.getKeyCode();
 		if (keyCode == event.VK_I) {
-			// world.setFps(0);
-			// world.getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			// Inventory inventory = new Inventory();
+			WorldLayout.fpsStat=0;
+			
+			WorldLayout.inventoryPanel= true;
 		}
 
 		if (keyCode == event.VK_LEFT) {
@@ -89,6 +89,11 @@ public class InputHandler implements KeyListener {
 		}
 		if (keyCode == event.VK_R) {
 			WorldLayout.space = false;
+		}
+		
+		if (keyCode == event.VK_I) {
+			
+			WorldLayout.inventoryPanel= false;
 		}
 
 	}
