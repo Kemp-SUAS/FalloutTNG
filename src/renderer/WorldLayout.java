@@ -11,16 +11,19 @@ import java.awt.font.TextAttribute;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.Timer;
 
 import javax.swing.JFrame;
 
+import AssetHandling.AssetManager;
 import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Player;
 import vault1.CharacterFolder.ReloadTime;
 import vault1.CharacterFolder.Shooter;
+import world.Items;
 import world.Level;
 import world.NPC;
 
@@ -68,13 +71,11 @@ public class WorldLayout extends Canvas implements Runnable {
 	private ArrayList<Level> levels = new ArrayList<Level>();
 
 	private int currentLevelID = 1;
-	private int levelCount = 1;
+	private int levelCount = 2;
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter, remove, inventoryPanel;
 	public static double rotation, fpsStat;
-	
-	
 
 	private static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
 	private static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
@@ -82,14 +83,17 @@ public class WorldLayout extends Canvas implements Runnable {
 	private Level currentLevel = level;
 	private int horizontalNumber;
 	private int verticalNumber;
+	private int levelId = 1;
+	Level level2 = new Level(2);
+	ArrayList<Items> itemsOnScreen = new ArrayList<Items>();
 
 	@Override
 	/**
 	 * 
 	 */
 	public void run() {
-		
-		fps=fpsStat;
+
+		fps = fpsStat;
 		long timer = 1000 / 60;
 
 		while (running) {
@@ -133,6 +137,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		init();
 		requestFocus();
 
+
 		// added coment quite useless really
 
 	}
@@ -141,11 +146,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	 * 
 	 */
 	private void init() {
-		Level level = new Level(1);
-		Level currentLevel = level;
-		for (int i = 1; i <= levelCount; i++) {
-			levels.add(new Level(i));
-		}
+		currentLevel = new Level(1);
+
 		backgroundX = Integer.parseInt(currentLevel.getWallData(0));
 		backgroundY = Integer.parseInt(currentLevel.getWallData(1));
 		background = new Background(0, 0, this, currentLevel.getImageData(0));
@@ -153,6 +155,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
 		horizontalNumber = currentLevel.gethorizontalTransitionNumber();
 		verticalNumber = currentLevel.getVerticalTransitionNumber();
+		itemsOnScreen = currentLevel.getItems();
 		c = new Controller(this);
 	}
 
@@ -167,8 +170,6 @@ public class WorldLayout extends Canvas implements Runnable {
 		c.tick();
 	}
 
-	
-	
 	/**
 	 * 
 	 */
@@ -259,7 +260,6 @@ public class WorldLayout extends Canvas implements Runnable {
 		((java.awt.Graphics) g).drawImage(bufferedImage, 0, 0, getWidth(), getHeight(), null);
 		try {
 			background.render(g);
-			inventory.render(g, 5, 510);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -270,7 +270,7 @@ public class WorldLayout extends Canvas implements Runnable {
 			yValue = yOffset;
 		}
 		if (xOffset > 400 - 32) {
-			
+
 			xOffset = 400 - 32;
 			xValue = xOffset;
 			yValue = yOffset;
@@ -285,55 +285,9 @@ public class WorldLayout extends Canvas implements Runnable {
 			xValue = xOffset;
 			yValue = yOffset;
 		}
-		System.out.println("X offset = " + xOffset);
-		System.out.println("Y offset = " + yOffset);
-		
-		for (int i = 0; i <= horizontalNumber; i++) {
-			
-			
-			
-			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
-					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
-					&& yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1()) {
-				Font font = new Font("Serif", Font.PLAIN, 30);
-				Graphics2D g2 = (Graphics2D) g;
-				g2.setColor(Color.BLACK);
-				g2.setFont(font);
-				g2.drawString("Enter",545 , 560);
-			}
-			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
-					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
-					&& yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1() && enter == true) {
-				background = new Background(0, 0, this,
-						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
-				yOffset = 0;
-				xValue = xOffset;
-				yValue = yOffset;
-				enter = false;
-			}
+		for (int i = 0; i < itemsOnScreen.size(); i++) {
+			itemsOnScreen.get(i).render(g, xOffset, yOffset);
 		}
-		for (int i = 0; i <= verticalNumber; i++) {
-			if (yOffset > currentLevel.getVerticalTransitionInfo().get(i).getY1()
-					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getY2()
-					&& xOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1()) {
-				Font font = new Font("Serif", Font.PLAIN, 25);
-				Graphics2D g2 = (Graphics2D) g;
-				g2.setColor(Color.BLACK);
-				g2.setFont(font);
-				g2.drawString("Enter", 545, 560);
-			}
-			if (yOffset > currentLevel.getVerticalTransitionInfo().get(i).getY1()
-					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getY2()
-					&& xOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1() && enter == true) {
-				background = new Background(0, 0, this,
-						"Assets/Pictures/Textures/levels/Dungeon_v4.png");
-				yOffset = 0;
-				xValue = xOffset;
-				yValue = yOffset;
-				enter = false;
-			}
-		}
-
 		if (space) {
 
 			Timer timer = new Timer();
@@ -373,7 +327,189 @@ public class WorldLayout extends Canvas implements Runnable {
 				}
 			}
 		}
-
+		System.out.println("Level : " +levelId);
+		inventory.render(g, 5, 510);
+		if (yOffset > -120&& yOffset < 120&& xOffset < -1110  && levelId == 1) {
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter Intersection", 500, 560);
+		
+			if (enter == true) {
+				enter = false;
+				try {
+				 levelId =  2;
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("Level", levelId, "imageData"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+					yOffset = 0;
+					xOffset = 300;
+			}
+			}
+		if(levelId == 2&& xOffset<-400 && xOffset > -600&& yOffset<-250){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter lowHold", 500, 560);
+			if(enter == true){
+				levelId = 3;
+				try {
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 17, "path"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				enter = false;
+				xOffset = -500;
+				yOffset = 250;
+			}
+		}
+		if(levelId == 2&& yOffset>-150 && yOffset < 150&& xOffset<-1000){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter mid-earth", 500, 560);
+			if(enter == true){
+				levelId = 5;
+				try {
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 19, "path"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				enter = false;
+				xOffset = 100;
+				yOffset = 0;
+			}
+		}
+		if(levelId == 2&& yOffset>-150 && yOffset < 150&& xOffset>150){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter street", 500, 560);
+			if(enter == true){
+				levelId = 1;
+				try {
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 14, "path"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				enter = false;
+				xOffset = -1100;
+				yOffset = 0;
+			}
+		}
+		if(levelId == 5&& yOffset>-150 && yOffset < 150&& xOffset<300){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter intersection", 500, 560);
+			if(enter == true){
+				levelId = 2;
+				try {
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 16, "path"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				enter = false;
+				xOffset = -1000;
+				yOffset = 0;
+			}
+		}
+		if(levelId == 2&& xOffset<-400 && xOffset > -600&& yOffset>250){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter uplands", 500, 560);
+			if(enter == true){
+				levelId = 4;
+				try {
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 18, "path"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				enter = false;
+				xOffset = -500;
+				yOffset = -250;
+			}
+		}
+		if(levelId == 3&& xOffset<-400 && xOffset > -600&& yOffset>250){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter Intersection", 500, 560);
+			if(enter == true){
+				levelId = 2;
+				try {
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 16, "path"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				enter = false;
+				xOffset = -500;
+				yOffset = 250;
+			}
+		}
+		
+		if(levelId == 4&& xOffset<-400 && xOffset > -600&& yOffset<-250){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.BLACK);
+			g2.setFont(font);
+			g2.drawString("Enter Intersection", 500, 560);
+			if(enter == true){
+				levelId = 2;
+				try {
+					background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 16, "path"));
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				enter = false;
+				xOffset = -500;
+				yOffset = 250;
+			}
+		}
+			
+			
+		
 		c.render(g);
 		player.render(g, rotation);
 		npc.render(g, xOffset, yOffset);

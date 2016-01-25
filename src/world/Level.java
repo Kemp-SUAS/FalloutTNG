@@ -34,10 +34,14 @@ public class Level {
 		Level.id = id;
 
 	}
+	public int getLevelId(){
+		return Level.id;
+	}
 
 	public Level() {
 
 	}
+	
 
 	public String getLevelName() {
 		return levelName;
@@ -222,7 +226,12 @@ public class Level {
 		String[] transfer = verticalTransition.split(delims);
 		for (int i1 = 0; i1 < transfer.length; i1++) {
 			String[] values = transfer[i1].split(delims2);
-			itemsOnScreen.add(new Items(Integer.parseInt(values[0]),Integer.parseInt(values[1]),Integer.parseInt(values[2])));
+			try {
+				itemsOnScreen.add(new Items(Integer.parseInt(values[0]),Integer.parseInt(values[1]),Integer.parseInt(values[2])));
+			} catch (NumberFormatException | ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return itemsOnScreen;
 	}
