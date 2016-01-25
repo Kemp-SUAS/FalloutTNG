@@ -334,7 +334,7 @@ public class WorldLayout extends Canvas implements Runnable {
 					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getY2()
 					&& xOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1() && enter == true) {
 				background = new Background(0, 0, this,
-						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
+						"Assets/Pictures/Textures/levels/Dungeon_v4.png");
 				yOffset = 0;
 				xValue = xOffset;
 				yValue = yOffset;
