@@ -272,7 +272,6 @@ class IntroPanel {
 		});
 		JButton loadButton = new JButton("");
 		loadButton.setBounds(840, 291, 182, 47);
-		contentPane.add(loadButton);
 
 		try {
 			loadButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 6, loadButton)));
@@ -367,7 +366,6 @@ class IntroPanel {
 		JButton newGameButton = new JButton("");
 
 		newGameButton.setBounds(840, 391, 182, 47);
-		contentPane.add(newGameButton);
 
 		try {
 			newGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 9, newGameButton)));
@@ -458,7 +456,6 @@ class IntroPanel {
 		JButton exitGameButton = new JButton("");
 		exitGameButton.setBounds(840, 491, 182, 47);
 		contentPane.add(exitGameButton);
-
 		try {
 			exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
 		} catch (ClassNotFoundException e1) {
@@ -482,6 +479,7 @@ class IntroPanel {
 					JFrame frameClose = new JFrame();
 					frameClose.dispatchEvent(new WindowEvent(frameClose, WindowEvent.WINDOW_CLOSING));
 					frameClose.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					System.exit(0);
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
@@ -500,9 +498,7 @@ class IntroPanel {
 			public void mouseReleased(MouseEvent e) {
 				try {
 					exitGameButton.setIcon(new ImageIcon(imageMaker("image_strings", "path", 12, exitGameButton)));
-					JFrame frameClose = new JFrame();
-					frameClose.dispatchEvent(new WindowEvent(frameClose, WindowEvent.WINDOW_CLOSING));
-					frameClose.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					
 
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
