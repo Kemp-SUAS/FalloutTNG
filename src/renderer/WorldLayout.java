@@ -520,11 +520,6 @@ public class WorldLayout extends Canvas implements Runnable {
 				g2.setFont(font);
 				g2.drawString("Interact", 500, 560);
 				g2.setFont(font);
-				if (medkitPickup == true) {
-					g2.setColor(Color.BLACK);
-					g2.setFont(font);
-					g2.drawString("You picked up a med kiet +10 HP", 500, 560);
-				}
 				if (enter == true) {
 					firstInteract = true;
 					convoState = 1;
@@ -543,7 +538,6 @@ public class WorldLayout extends Canvas implements Runnable {
 					}
 					if (two == true) {
 						convoState = 3;
-						System.out.println("Lveel one intiated");
 					}
 					if (three == true) {
 						convoState = 4;
@@ -584,13 +578,14 @@ public class WorldLayout extends Canvas implements Runnable {
 			}
 			if (xOffset > -500 && xOffset < -400 && yOffset < 80 && yOffset > 20&&medkitPickup == false ) {
 				g2.drawString("Interact", 500, 560);
+				if (enter == true) {
+					medkitPickup = true;
+				}
 			}
 			if (medkitPickup == false) {
 				medKit.render(g2, xOffset, yOffset);
 			}
-			if (enter == true) {
-				medkitPickup = true;
-			}
+			
 		}
 		System.out.println("X = " + xOffset);
 		System.out.println("Y = " + yOffset);
