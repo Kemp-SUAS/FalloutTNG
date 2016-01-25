@@ -284,11 +284,11 @@ public class WorldLayout extends Canvas implements Runnable {
 			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
 					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
 					&& yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1()) {
-				Font font = new Font("Serif", Font.PLAIN, 25);
+				Font font = new Font("Serif", Font.PLAIN, 30);
 				Graphics2D g2 = (Graphics2D) g;
-				g2.setColor(Color.BLUE);
+				g2.setColor(Color.BLACK);
 				g2.setFont(font);
-				g2.drawString("Enter", 380, 260);
+				g2.drawString("Enter",545 , 560);
 			}
 			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
 					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
@@ -307,9 +307,9 @@ public class WorldLayout extends Canvas implements Runnable {
 					&& xOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1()) {
 				Font font = new Font("Serif", Font.PLAIN, 25);
 				Graphics2D g2 = (Graphics2D) g;
-				g2.setColor(Color.BLUE);
+				g2.setColor(Color.BLACK);
 				g2.setFont(font);
-				g2.drawString("Enter", 380, 260);
+				g2.drawString("Enter", 545, 560);
 			}
 			if (yOffset > currentLevel.getVerticalTransitionInfo().get(i).getY1()
 					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getY2()
