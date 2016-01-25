@@ -67,6 +67,8 @@ public class AssetManager {
 		stat = c.createStatement();
 		ResultSet rs = stat.executeQuery("select * from " + tableName + " where id =" + id);
 		String indexInformation = rs.getString(column);
+		stat.close();
+		c.close();
 		return indexInformation;
 	}
 
@@ -96,6 +98,7 @@ public class AssetManager {
 		while (rs.next()) {
 			data.add(rs.getString(column));
 		}
+		stat.close();
 		c.close();
 		return data;
 	}
@@ -123,6 +126,7 @@ public class AssetManager {
 		stat = c.createStatement();
 		String sql = "INSERT INTO " + tableName + " (id, " + column + ")" + " VALUES (1," + " " + value + ")";
 		stat.executeUpdate(sql);
+		stat.close();
 		c.close();
 	}
 
@@ -148,6 +152,7 @@ public class AssetManager {
 		ps.setInt(2, id);
 		ps.executeUpdate();
 		ps.close();
+		c.close();
 	}
 
 }
