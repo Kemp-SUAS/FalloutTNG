@@ -28,16 +28,18 @@ public class InputHandler implements KeyListener {
 	 * Takes the key pressed by the user and changes the background image
 	 * accordingly
 	 */
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(KeyEvent event) {
 
 		int keyCode = event.getKeyCode();
 		if (keyCode == event.VK_I) {
-			WorldLayout.fpsStat=0;
-			
-			WorldLayout.inventoryPanel= true;
+			WorldLayout.fpsStat = 0;
+
+			WorldLayout.inventoryPanel = true;
 		}
 
 		if (keyCode == event.VK_LEFT) {
@@ -62,9 +64,24 @@ public class InputHandler implements KeyListener {
 		if (keyCode == event.VK_R) {
 			WorldLayout.space = true;
 		}
+		if (keyCode == event.VK_1) {
+
+			WorldLayout.one = true;
+		}
+		if (keyCode == event.VK_2) {
+
+			WorldLayout.two = true;
+		}
+		if (keyCode == event.VK_3) {
+
+			WorldLayout.three = true;
+		}
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -99,15 +116,29 @@ public class InputHandler implements KeyListener {
 		if (keyCode == event.VK_R) {
 			WorldLayout.space = false;
 		}
-		
+
 		if (keyCode == event.VK_I) {
-			
-			WorldLayout.inventoryPanel= false;
+
+			WorldLayout.inventoryPanel = false;
+		}
+		if (keyCode == event.VK_1) {
+
+			WorldLayout.one = false;
+		}
+		if (keyCode == event.VK_2) {
+
+			WorldLayout.two = false;
+		}
+		if (keyCode == event.VK_3) {
+
+			WorldLayout.three = false;
 		}
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
 	@Override

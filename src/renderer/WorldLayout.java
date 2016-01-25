@@ -69,12 +69,13 @@ public class WorldLayout extends Canvas implements Runnable {
 	private Controller c;
 	private ArrayList<Shooter> bullets = new ArrayList<Shooter>();
 	private ArrayList<Level> levels = new ArrayList<Level>();
+	boolean firstInteract = false;
 
 	private int currentLevelID = 1;
 	private int levelCount = 2;
 	// Key Controlls
 
-	public static boolean left, right, up, down, enter, remove, inventoryPanel;
+	public static boolean left, right, up, down, enter, remove, inventoryPanel, one , two, three;
 	public static double rotation, fpsStat;
 
 	private static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
@@ -86,6 +87,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	private int levelId = 1;
 	Level level2 = new Level(2);
 	ArrayList<Items> itemsOnScreen = new ArrayList<Items>();
+	int npcOneCounter = 0;
+	int convoState =0;
 
 	@Override
 	/**
@@ -285,9 +288,6 @@ public class WorldLayout extends Canvas implements Runnable {
 			xValue = xOffset;
 			yValue = yOffset;
 		}
-		for (int i = 0; i < itemsOnScreen.size(); i++) {
-			itemsOnScreen.get(i).render(g, xOffset, yOffset);
-		}
 		if (space) {
 
 			Timer timer = new Timer();
@@ -327,7 +327,6 @@ public class WorldLayout extends Canvas implements Runnable {
 				}
 			}
 		}
-		System.out.println("Level : " +levelId);
 		inventory.render(g, 5, 510);
 		if (yOffset > -120&& yOffset < 120&& xOffset < -1110  && levelId == 1) {
 			Font font = new Font("Serif", Font.PLAIN, 25);
@@ -507,12 +506,79 @@ public class WorldLayout extends Canvas implements Runnable {
 				yOffset = 250;
 			}
 		}
+		if(levelId == 1){
+			boolean npcDone = false;
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			Graphics2D player = (Graphics2D) g;
+			player.setColor(Color.RED);
+			g2.setColor(Color.BLACK);
+			NPC guide = new NPC(100,200);
+			guide.render(g, xOffset, yOffset);
+			if(xOffset>150&&xOffset<300&&yOffset>-20&&yOffset<80 && npcDone == false){
+				g2.setColor(Color.BLACK);
+				g2.setFont(font);
+				g2.drawString("Interact", 500, 560);
+				g2.setFont(font);
+
+				if(enter==true){
+					firstInteract = true;
+					convoState = 1;
+					System.out.println("State changed");
 			
+				}
+				 if( convoState==1){
+					player.setFont(font);
+					g2.setFont(font);
+					g2.drawString("Q)So is it your first time in the wasteland?", 200, 180);
+					player.drawString("1) yes", 200, 200);
+					player.drawString("2) NO", 200, 220);
+					player.drawString("3) I come here a lot more than you", 200, 240);
+					if(one == true){
+						convoState = 2;
+					}
+					if(two == true){
+						convoState = 3;
+						System.out.println("Lveel one intiated");
+					}
+					if(three == true){
+						convoState = 4;
+					}
+					
+				}
+				if(convoState ==2){
+					g2.drawString("Is that so, then a word of advice", 200, 180);
+					g2.drawString("Stay away from the loveClaws adn pick up items", 200, 210);
+				}
+				if(convoState ==3){
+					g2.drawString("ahh okay sir good on ya", 200, 180);
+					npcOneCounter++;
+					if(npcOneCounter == 240){
+					npcDone = true;
+					System.out.println("Done");
+					}
+					
+				}
+				if(convoState ==4){
+					g2.drawString("U WOT M8", 200, 180);
+					if(npcOneCounter == 240){
+						npcDone = true;
+						}
+					
+				}
+				
+			}
+			else if(firstInteract == false){
+				g2.setFont(font);
+				g2.drawString("Hey Dude come here", 100 +(int)xOffset, 100+(int)yOffset);
+			}
+			
+		}
+
 			
 		
 		c.render(g);
 		player.render(g, rotation);
-		npc.render(g, xOffset, yOffset);
 		g.dispose();
 		bs.show();
 
