@@ -13,8 +13,8 @@ public class Level {
 	private static String playerPosition;
 	private static String playerData;
 	private static String npcData;
-	private static String horizontalTransition;
-	private static String verticalTransition;
+	private static String horizontalTransition = "";
+	private static String verticalTransition = "";
 	private static int id;
 
 	static ArrayList<NPC> npcDataInfo = new ArrayList<NPC>();

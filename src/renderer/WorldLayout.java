@@ -78,6 +78,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	private Level level = new Level(1);
 	private Level currentLevel = level;
 	private int horizontalNumber;
+	private int verticalNumber;
 
 	@Override
 	/**
@@ -146,6 +147,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		System.out.println(currentLevel.getImageData(0));
 		inventory = new Texture("Assets/Pictures/Textures/Inventory_v1.png");
 		horizontalNumber = currentLevel.gethorizontalTransitionNumber();
+		verticalNumber = currentLevel.getVerticalTransitionNumber();
 		c = new Controller(this);
 	}
 
@@ -277,7 +279,15 @@ public class WorldLayout extends Canvas implements Runnable {
 			yValue = yOffset;
 		}
 		for (int i = 0; i <= horizontalNumber; i++) {
-
+			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
+					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
+					&& yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1()) {
+				Font font = new Font("Serif", Font.PLAIN, 25);
+				Graphics2D g2 = (Graphics2D) g;
+				g2.setColor(Color.BLUE);
+				g2.setFont(font);
+				g2.drawString("Enter", 380, 260);
+			}
 			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
 					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
 					&& yOffset < currentLevel.getHorizontalTransitionInfo().get(i).getY1() && enter == true) {
@@ -289,8 +299,19 @@ public class WorldLayout extends Canvas implements Runnable {
 				enter = false;
 			}
 		}
-		for (int i = 0; i <= horizontalTransitionInfo.size(); i++) {
-			if (yOffset < -400 && yOffset > -500 && xOffset < -250 && enter == true) {
+		for (int i = 0; i <= horizontalNumber; i++) {
+			if (xOffset < currentLevel.getVerticalTransitionInfo().get(i).getY1()
+					&& xOffset > currentLevel.getVerticalTransitionInfo().get(i).getY2()
+					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1()) {
+				Font font = new Font("Serif", Font.PLAIN, 25);
+				Graphics2D g2 = (Graphics2D) g;
+				g2.setColor(Color.BLUE);
+				g2.setFont(font);
+				g2.drawString("Enter", 380, 260);
+			}
+			if (xOffset < currentLevel.getVerticalTransitionInfo().get(i).getY1()
+					&& xOffset > currentLevel.getVerticalTransitionInfo().get(i).getY2()
+					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1() && enter == true) {
 				background = new Background(0, 0, this,
 						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
 				yOffset = 0;
@@ -310,30 +331,27 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 		if (!bullets.isEmpty()) {
 			for (int i = 0; i < bullets.size(); i++) {
-				System.out.println("Bullets Y :"+bullets.get(i).getY());
-				System.out.println("Bullets X:"+bullets.get(i).getX());
+				System.out.println("Bullets Y :" + bullets.get(i).getY());
+				System.out.println("Bullets X:" + bullets.get(i).getX());
 				if (bullets.get(i).getDirection().equals("0")) {
 					if (bullets.get(i).getY() < 0) {
 						System.out.println("Bullet removed");
 						Controller.b.remove(i);
 						bullets.remove(i);
 					}
-				}
-				else if (bullets.get(i).getDirection().equals("90")) {
+				} else if (bullets.get(i).getDirection().equals("90")) {
 					if (bullets.get(i).getX() > backgroundX) {
 						System.out.println("Bullet removed");
 						Controller.b.remove(i);
 						bullets.remove(i);
 					}
-				}
-				else if (bullets.get(i).getDirection().equals("180")) {
+				} else if (bullets.get(i).getDirection().equals("180")) {
 					if (bullets.get(i).getY() > backgroundY) {
 						System.out.println("Bullet removed");
 						Controller.b.remove(i);
 						bullets.remove(i);
 					}
-				}
-				else if (bullets.get(i).getDirection().equals("270")) {
+				} else if (bullets.get(i).getDirection().equals("270")) {
 					if (bullets.get(i).getX() < 0) {
 						System.out.println("Bullet removed");
 						Controller.b.remove(i);
@@ -346,19 +364,6 @@ public class WorldLayout extends Canvas implements Runnable {
 		c.render(g);
 		player.render(g, rotation);
 		npc.render(g, xOffset, yOffset);
-		if (xOffset < -400 && xOffset > -500 && yOffset < -250) {
-			AttributedString astr = new AttributedString("This is a test string");
-			Font font = new Font("Serif", Font.PLAIN, 25);
-			astr.addAttribute(TextAttribute.FONT, font, 0, 4);
-			astr.addAttribute(TextAttribute.FOREGROUND, Color.RED, 5, 9);
-			astr.addAttribute(TextAttribute.BACKGROUND, Color.CYAN, 10, 21);
-
-			Graphics2D g2 = (Graphics2D) g;
-			g2.setColor(Color.BLUE);
-			g2.setFont(font);
-			g2.drawString("Enter", 380, 260);
-			// g.drawString(astr. , 100, 100);
-		}
 		g.dispose();
 		bs.show();
 
