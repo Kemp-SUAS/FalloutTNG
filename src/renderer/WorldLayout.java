@@ -564,7 +564,7 @@ public class WorldLayout extends Canvas implements Runnable {
 					if (npcOneCounter == 240) {
 						npcDone = true;
 					}
-					
+
 				}
 
 			} else if (firstInteract == false) {
@@ -578,7 +578,7 @@ public class WorldLayout extends Canvas implements Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if (xOffset > -500 && xOffset < -400 && yOffset < 80 && yOffset > 20&&medkitPickup == false ) {
+			if (xOffset > -500 && xOffset < -400 && yOffset < 80 && yOffset > 20 && medkitPickup == false) {
 				g2.drawString("Interact", 500, 560);
 				if (enter == true) {
 					medkitPickup = true;
@@ -587,31 +587,42 @@ public class WorldLayout extends Canvas implements Runnable {
 			if (medkitPickup == false) {
 				medKit.render(g2, xOffset, yOffset);
 			}
-			
+
 		}
-		if(levelId == 2){
+		if (levelId == 2) {
 			Font font = new Font("Serif", Font.PLAIN, 25);
-			NPC stalker = new NPC((int)xOffset,(int) yOffset);
-			stalker.render(g,xOffset, yOffset);
+			NPC stalker = new NPC((int) xOffset, (int) yOffset);
+			
 			Graphics2D g2 = (Graphics2D) g;
 			Graphics2D player = (Graphics2D) g;
 			player.setColor(Color.RED);
 			g2.setColor(Color.BLACK);
-			if(levelTwoKill < 1){
+			if (levelTwoKill < 1) {
 				player.setFont(font);
 				player.drawString("Ohh my a stalker", 300, 100);
 				player.drawString("They look just like you to confuse you", 300, 130);
 				player.drawString("I need to kill it before it kill me", 300, 160);
+				stalker.render(g, xOffset, yOffset);
 			}
+			if (!bullets.isEmpty()) {
+				for (int i = 0; i < bullets.size(); i++) {
+					if (bullets.get(i).getY() > stalker.getY()-100 &&bullets.get(i).getY() < stalker.getY()+100&&
+							bullets.get(i).getX() > stalker.getX()-100&&bullets.get(i).getX() < stalker.getX()+100) {
+						levelTwoKill ++;
+					}
+
+				}
+			}
+			
 
 		}
-		
+
 		System.out.println("X = " + xOffset);
 		System.out.println("Y = " + yOffset);
-		
+
 		c.render(g);
-		
-		if(playerDead == true){
+
+		if (playerDead == true) {
 			Font font = new Font("Serif", Font.PLAIN, 25);
 			Graphics2D g2 = (Graphics2D) g;
 			g2.setColor(Color.RED);

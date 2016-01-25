@@ -64,6 +64,12 @@ public class NPC {
 		}
 		return false;
 	}
+	public double getX(){
+		return this.X;
+	}
+	public double getY(){
+		return this.Y;
+	}
 	/**
 	 * 
 	 * @param topDwn
