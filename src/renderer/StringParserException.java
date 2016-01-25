@@ -4,13 +4,14 @@
 package renderer;
 
 /**
- * @author Mohid Aslam
+ *  This is an exxception class to help with any errors when parsing info from SQLite
+ * @author Faduma Ahmed Mohid Aslam Keiran Wilson Simar Pal Kalsi
  *
  */
 public class StringParserException extends Exception {
 
 	/**
-	 * 
+	 * the serial version of this class
 	 */
 	private static final long serialVersionUID = 1L;
 

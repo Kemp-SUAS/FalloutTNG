@@ -13,6 +13,9 @@ import java.util.ArrayList;
 public class AssetManager {
 
 	// The object used for excecuting the static SQLite object
+	/**
+	 * The object used for excecuting the static SQLite object
+	 */
 	static Statement stat;
 
 	/**

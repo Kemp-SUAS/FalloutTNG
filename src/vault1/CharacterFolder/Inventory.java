@@ -7,16 +7,34 @@ import java.util.ArrayList;
 import AssetHandling.AssetManager;
 
 /**
- * 
- * @author Kieran Wilson
+ * This method holds all the inventory values of the character
+ * @author Kieran Wilson, Faduma Ahmed, Mohid Aslam , Simar Pal Kalsi
  *
  */
 public class Inventory {
-	PlayerGameplayStats playerStats;
-	PlayerSkillPoints playerSP;
-	Weapons weapons;
+	/**
+	 * object from stats class
+	 */
+	private PlayerGameplayStats playerStats;
+	/**
+	 * object from skills class
+	 */
+	private PlayerSkillPoints playerSP;
+	/**
+	 * object from weapons class
+	 */
+	private Weapons weapons;
+	
+	/**
+	 * array list to hold all the inventory of the player
+	 */
 	public ArrayList<String> inventoryContents = new ArrayList<String>();
 
+	/**
+	 * sets all the inventory points of the character
+	 * @param playerStats, object from stats class
+	 * @param playerSP, object from skill class
+	 */
 	public Inventory(PlayerGameplayStats playerStats, PlayerSkillPoints playerSP) {
 		this.playerStats = playerStats;
 		this.playerSP = playerSP;
@@ -24,10 +42,10 @@ public class Inventory {
 
 	/**
 	 * 
-	 * @param args
-	 * @throws CharacterException
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
+	 * @param args, the usual array list in the main
+	 * @throws ClassNotFoundException, if the class is not found
+	 * @throws SQLException, if there is a problem retrieving imfo from SQLIte
+	 * @throws CharacterException, if the character stats aren't enough or can't be retrived
 	 */
 	public static void main(String[] args) throws CharacterException, ClassNotFoundException, SQLException {
 
@@ -65,10 +83,11 @@ public class Inventory {
 
 	/**
 	 * 
-	 * @param weapons
-	 * @param id
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
+	 * @param weapons, the weapons to be used in the weapons class
+	 * @param id, the row on the SQLITE
+	 * @throws ClassNotFoundException, if the class is not found
+	 * @throws SQLException, if there is a problem retrieving imfo from SQLIte
+	 * @throws CharacterException, if the character stats aren't enough or can't be retrived
 	 */
 	public static void weapons(Weapons weapons, int id) throws ClassNotFoundException, SQLException {
 		String weapon = AssetManager.dataBaseGet("weapons", id, "stats");
@@ -114,12 +133,12 @@ public class Inventory {
 
 	/**
 	 * 
-	 * @param playerStats
-	 * @param playerSkillPoints
-	 * @param id
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws CharacterException
+	 * @param playerStats, the object from the stats class
+	 * @param playerSkillPoints the object from the skills class
+	 * @param id, the row on sQLIte
+	 * @throws ClassNotFoundException, if the class is not found
+	 * @throws SQLException, if there is a problem retrieving imfo from SQLIte
+	 * @throws CharacterException, if the character stats aren't enough or can't be retrived
 	 */
 	public static void consumeables(PlayerGameplayStats playerStats, PlayerSkillPoints playerSkillPoints, int id)
 			throws ClassNotFoundException, SQLException, CharacterException {

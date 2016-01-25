@@ -7,6 +7,11 @@ package AssetHandling;
  *
  */
 public class Constants {
+	
+	
+	/**
+	 * this holds the carry weight multiplier points
+	 */
 	final int CARRY_WEIGHT_CONST = 100;
 
 }

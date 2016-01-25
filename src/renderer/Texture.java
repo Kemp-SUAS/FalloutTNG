@@ -27,14 +27,26 @@ public class Texture {
 	private final static HashMap<String, TextureManager> textureMap = new HashMap<String, TextureManager>();
 
 	// store texture in memory so we can use it
+	/**
+	 * The object from the class Texture Manager
+	 */
 	@SuppressWarnings("unused")
 	private TextureManager manager;
 
 	// if the file is empty
+	/**
+	 * THe name of the file of the image
+	 */
 	private String fileName;
+	/**
+	 *  Object from texture class
+	 */
 	@SuppressWarnings("unused")
 	private Texture texture;
 
+	/**
+	 * @param fileName, the name of the image file to be used
+	 */
 	@SuppressWarnings("unchecked")
 	public Texture(String fileName) {
 		this.fileName = fileName;
@@ -61,10 +73,13 @@ public class Texture {
 	}
 
 	/**
-	 * Overrrives finalize() in super Object AutoMatically Called during Garbage
+	 * Overwrites finalize() in super Object AutoMatically Called during Garbage
 	 * Collection(in run time)
 	 */
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#finalize()
+	 */
 	@Override
 	protected void finalize() throws Throwable {
 		// automatically removes texture when no longer needed
@@ -74,10 +89,23 @@ public class Texture {
 		super.finalize();
 	}
 
+	/**
+	 * @param g, the graphics to be used 
+	 * @param x, the x value of image
+	 * @param y, the y value of the image
+	 * 
+	 */
+	
 	public void render(Graphics g, double x, double y) {
 
 		g.drawImage(manager.getImage(), (int) x, (int) y, null);
 	}
+	/**
+	 * @param g, the graphics to be used 
+	 * @param x, the x value of image
+	 * @param y, the y value of the image
+	 * @param rotation, the rotation value
+	 */
 	public void render(Graphics g, double x, double y , double rotation) {
 		double rotationRequired = Math.toRadians (45);
 		double locationX = manager.getImage().getWidth() / 2;

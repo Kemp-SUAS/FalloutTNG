@@ -6,23 +6,42 @@ import java.util.TimerTask;
 import renderer.WorldLayout;
 
 /**
- * 
- * @author Kieran Wilson
+ * THis class takes care of all the weapons and criteria to be used
+ * @author Kieran Wilson, Mohid Alsam, Keiran Wilson, Simar Pal Kalsi
  *
  */
 
 public class Weapons {
+
+	/**
+	 *  the amount of damage
+	 */
 	public static int damage;
+
+	/**
+	 *  the weight of weapon
+	 */
 	public static int weaponWeight;
+	
+
+	/**
+	 *  the rate of the fire
+	 *  
+	 */  
 	public static int rateOfFire;
+	
+	
+	/**
+	 *  the projection o the image
+	 */
 	public static String projectileImage;
 
 	/**
 	 * 
-	 * @param damage
-	 * @param weaponWeight
-	 * @param rateOfFire
-	 * @param projectileImage
+	 * @param damage, the damage points
+	 * @param weaponWeight, the weight of the weapon
+	 * @param rateOfFire, the rate of the weapon
+	 * @param projectileImage, image being projectiled
 	 */
 	public Weapons(int damage, int weaponWeight, int rateOfFire, String projectileImage) {
 		this.damage = damage;
@@ -39,7 +58,7 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @return damage
+	 * @return damage, getter for damage
 	 */
 	public int getDamage() {//getter for damage
 
@@ -48,7 +67,7 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @return weaponWeight
+	 * @return weaponWeight, getter for weaponWeight
 	 */
 	public int getWeaponWeight() {//getter for weaponWeight
 
@@ -57,7 +76,7 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @return rateOfFire
+	 * @return rateOfFire, getter for rateOfFire
 	 */
 	public int getRateOfFire() {//getter for rateOfFire
 
@@ -66,7 +85,7 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @return projectileImage
+	 * @return projectileImage, getter for projectileImage
 	 */
 	public String getProjectileImage() {//getter for projectileImage
 
@@ -75,7 +94,8 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @param damage
+	 * @param damage, setter for damage
+
 	 */
 	public void setDamage(int damage) { //setter for damage
 
@@ -84,7 +104,7 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @param weaponWeight
+	 * @param weaponWeight, setter for weaponWeight
 	 */
 	public void setWeaponWeight(int weaponWeight) { //setter for weaponWeight
 		this.weaponWeight = weaponWeight;
@@ -92,7 +112,7 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @param rateOfFire
+	 * @param rateOfFire, setter for rateOfFire
 	 */
 	public void setRateOfFire(int rateOfFire) {//setter for rateOfFire
 
@@ -101,7 +121,7 @@ public class Weapons {
 
 	/**
 	 * 
-	 * @param projectileImage
+	 * @param projectileImage, setter for projectileImage
 	 */
 	public void setProjectileImage(String projectileImage) {//setter for projectileImage
 

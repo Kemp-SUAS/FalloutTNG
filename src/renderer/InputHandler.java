@@ -19,11 +19,17 @@ import vault1.CharacterFolder.Shooter;
  */
 public class InputHandler implements KeyListener {
 
+	/**
+	 * object of controller.java
+	 */
 	private Controller c;
 
 	/**
 	 * Takes the key pressed by the user and changes the background image
 	 * accordingly
+	 */
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(KeyEvent event) {
 
@@ -58,6 +64,9 @@ public class InputHandler implements KeyListener {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
 	@Override
 	/**
 	 * When the user releases a key, it stops the command done previously
@@ -98,6 +107,9 @@ public class InputHandler implements KeyListener {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
 	@Override
 	public void keyTyped(KeyEvent event) {
 

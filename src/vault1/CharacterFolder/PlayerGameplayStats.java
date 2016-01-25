@@ -4,23 +4,44 @@ package vault1.CharacterFolder;
  * @author Simar , Kieran
  *
  */
+
+
 public class PlayerGameplayStats {
+	
+	/**
+	 * health points
+	 */
 	private int health;
+	/**
+	 * ability points
+	 */
 	private int abilityPoints;
+	/**
+	 * amour points
+	 */
 	private int armor;
+	/**
+	 * amo points
+	 */
 	private int ammo;
+	/**
+	 * toxinLevels points
+	 */
 	private int toxinLevels;
+	/**
+	 * toxin Resist points
+	 */
 	private int toxinResist;
 
 /**
  * Constructor has all the fields
- * @param hp
- * @param ap
- * @param armP
- * @param ammoP
- * @param toxP
- * @param toxR
- * @param relations
+ * @param hp, health points
+ * @param ap, armour points
+ * @param armP, ability points
+ * @param ammoP, ammo points
+ * @param toxP, toxin points
+ * @param toxR, toxin resist points
+ * @param relations, relation points points
  */
 	public PlayerGameplayStats(int hp, int ap, int armP, int ammoP, int toxP, int toxR) {
 		this.health = hp;

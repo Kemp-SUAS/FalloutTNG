@@ -25,39 +25,115 @@ import vault1.CharacterFolder.PlayerSkillPoints;
  *
  */
 
+
 public class InventoryScreen extends JPanel implements Runnable{
 
 
 	/**
-	 * 
+	 * the serial version 
 	 */
 	private static final long serialVersionUID = 4092094527771064840L;
 
+	
+	/**
+	 * Object of PlayerSkillPoints
+	 */
 	public PlayerSkillPoints skill = new PlayerSkillPoints();
-
+	/**
+	 * Panel for screen
+	 */
 	public static JPanel inventory = new JPanel(new BorderLayout());
+	/**
+	 * Button for strength
+	 */
 	private JButton strength = new JButton("Strength");
+	/**
+	 * label for strength
+	 */
 	private JLabel strengthLabel;
+	/**
+	 * Button for awareness
+	 */
 	private JButton awareness = new JButton("Awareness");
+	/**
+	 * Label for awareness
+	 */
 	private JLabel awarenessLabel;
+	/**
+	 * Button for endurance
+	 */
 	private JButton endurance = new JButton("Endurance");
+	/**
+	 * Label for endurance
+	 */
 	private JLabel enduranceLabel;
+	/**
+	 * Button for Luck
+	 */
 	private JButton luck = new JButton("Luck");
+	/**
+	 * Label for Luck
+	 */
 	private JLabel luckLabel;
+	/**
+	 * Button for intelligence
+	 */
 	private JButton intelligence = new JButton("Intelligence");
+	/**
+	 * Label for intelligence
+	 */
 	private JLabel intelligenceLabel;
+	/**
+	 * Button for wit
+	 */
 	private JButton wit = new JButton("wit");
+	/**
+	 * Label for wit
+	 */
 	private JLabel witLabel;
+	/**
+	 * Button for dexterity
+	 */
 	private JButton dexterity = new JButton("Dexterity");
+	/**
+	 * Label for dexterity
+	 */
 	private JLabel dexterityLabel;
+	/**
+	 * Button for weight multiplier
+	 */
 	private JButton weightCarryMultiplier = new JButton("Weight Carry Multiplier");
+	/**
+	 *  Label for weight multiplier
+	 */
 	private JLabel weightCarryMultiplierLabel;
+	/**
+	 * Button for Return to Main Menu
+	 */
 	private JButton backToMain = new JButton("Return to Main Menu");
+	/**
+	 * Button for Return to Game
+	 */
 	private JButton backToGame = new JButton("Return To The Game");
+	/**
+	 * Button for exit
+	 */
 	private JButton exit = new JButton("Exit");
+	/**
+	 * long for the last tick
+	 */
 	private long lastTime;
+	/**
+	 * long for time in tick
+	 */
 	private long timer = 1000 / 60;
+	/**
+	 * long for frame per seconds
+	 */
 	private double fps;
+	/**
+	 * boolean to check if panel is running
+	 */
 	private static Boolean running = false;
 
 	
@@ -132,6 +208,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		awareness.addMouseListener(new MouseAdapter()
 
 		{
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			public void mousePressed(MouseEvent e) {
 					if(skill.getAwarenessStat() != 0)
 				
@@ -148,6 +227,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		strength.addMouseListener(new MouseAdapter()
 
 		{
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			public void mousePressed(MouseEvent e) {
 
 				if(skill.getStrengthStat() != 0)
@@ -166,6 +248,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		endurance.addMouseListener(new MouseAdapter()
 
 		{
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			public void mousePressed(MouseEvent e) {
 
 					if(skill.getEnduranceStat() != 0)
@@ -183,6 +268,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		luck.addMouseListener(new MouseAdapter()
 
 		{
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			public void mousePressed(MouseEvent e) {
 
 				if(skill.getLuckStat() != 0)
@@ -200,6 +288,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		wit.addMouseListener(new MouseAdapter()
 
 		{
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			public void mousePressed(MouseEvent e) {
 
 					if(skill.getWitStat() != 0)
@@ -216,6 +307,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		dexterity.addMouseListener(new MouseAdapter()
 
 		{
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			public void mousePressed(MouseEvent e) {
 
 					if(skill.getDexterityStat() != 0)
@@ -232,6 +326,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		intelligence.addMouseListener(new MouseAdapter()
 
 		{
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+			 */
 			public void mousePressed(MouseEvent e) {
 
 				if(skill.getIntelligenceStat() ==0)
@@ -278,6 +375,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 		
 	}
 	
+		/* (non-Javadoc)
+		 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+		 */
 		@Override
 		public void paintComponent(Graphics g)
 		{
@@ -288,6 +388,10 @@ public class InventoryScreen extends JPanel implements Runnable{
 		}
 		
 		
+		/**
+		 * 
+		 * to start the thread of this panel
+		 */
 		synchronized void start() {
 			running = true;
 			Thread thread = new Thread(this);
@@ -295,6 +399,9 @@ public class InventoryScreen extends JPanel implements Runnable{
 
 		}
 
+		/* (non-Javadoc)
+		 * @see java.lang.Runnable#run()
+		 */
 		@Override
 		public void run() {
 			long timer = 1000 / 60;

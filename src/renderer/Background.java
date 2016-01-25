@@ -22,10 +22,25 @@ import javax.imageio.ImageIO;
 
 public class Background {
 
+	/**
+	 *  The x value of the background
+	 */
 	public double x;
+	/**
+	 *  The y value of the background
+	 */
 	public double y;
+	/**
+	 *  The x and y offset value of the background
+	 */
 	public double oX, oY;
+	/**
+	 *  The object from worldLayout
+	 */
 	WorldLayout topDwn;
+	/**
+	 *  The path file of the image
+	 */
 	String fileName;
 
 	/**
@@ -50,7 +65,7 @@ public class Background {
 	 * This method is called 60 times a second, and it updates the position of
 	 * the backgorund.
 	 * 
-	 * @param topDwn
+	 * @param topDwn, object from World Layout
 	 */
 	public void tick(WorldLayout topDwn)
 

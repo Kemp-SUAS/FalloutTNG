@@ -4,7 +4,9 @@
 package vault1.CharacterFolder;
 
 /**
- * @author Simarpal Kalsi
+ * 
+ * THis class will help with any problems involving players and their points
+ * @author Simarpal Kalsi, Faduma Ahmed Mohid Aslam Keiran Wilson
  *
  */
 public class CharacterException extends Exception {

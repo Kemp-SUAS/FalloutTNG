@@ -17,25 +17,42 @@ import renderer.Texture;
 import renderer.WorldLayout;
 
 /**
- * @author Mohid Aslam
+ *  The shooter movements and direction
+ * @author Mohid Aslam, Faduma ahmed, Keiran Wilson, Simar Pal Kalsi
  *
  */
 public class Shooter {
 
+	/**
+	 *  the y value
+	 */
 	private double x;
+	/**
+	 *  the x value
+	 */
 	private double y;
 
+	/**
+	 *  the image path
+	 */
 	String bullet = "Assets/Pictures/Textures/bubbles_v1.png";
 
+	/**
+	 *  the image to be used
+	 */
 	BufferedImage image;
+	
+	/**
+	 *  the rotational value
+	 */
 	double rotation;
 
 	/**
 	 * 
-	 * @param x
-	 * @param y
-	 * @param game
-	 * @param rotation
+	 * @param x, the x value
+	 * @param y, the y value
+	 * @param game, the object from world layout
+	 * @param rotation, the rotational angle 
 	 */
 	public Shooter(double x, double y, WorldLayout game , double rotation) {
 		this.x = x  ;
@@ -45,21 +62,21 @@ public class Shooter {
 
 	/**
 	 * 
-	 * @param X
+	 * @param X, , sets the y value
 	 */
 	public void setX(double X) {
 		x = X +x;
 	}
 	/**
 	 * 
-	 * @param Y
+	 * @param Y, sets the y value
 	 */
 	public void setY(double Y) {
 		y = Y;
 	}
 
 	/**
-	 * 
+	 * bullet shoots in direction the player is facing
 	 */
 	public void tick() {//bullet shoots in direction the player is facing
 		if(rotation == 0){
@@ -96,7 +113,7 @@ public class Shooter {
 	
 	/**
 	 * 
-	 * @return angles
+	 * @return angles, that will sets the rotation value
 	 */
 	public String getDirection(){//bullet shoots in direction player is facing
 		if(rotation == 0){
@@ -129,8 +146,8 @@ public class Shooter {
 
 	/**
 	 * 
-	 * @param g
-	 * @throws IOException
+	 * @param g, the graphics for drawing
+	 * @throws IOException, if there is an error inputting the file
 	 */
 	public void render(Graphics g) throws IOException {
 		BufferedImage manager = ImageIO.read(new File(this.bullet));
@@ -139,7 +156,7 @@ public class Shooter {
 
 	/**
 	 * 
-	 * @return x
+	 * @return x,  the value of the x
 	 */
 	public double getX() {//getter for x
 		// TODO Auto-generated method stub
@@ -148,7 +165,7 @@ public class Shooter {
 
 	/**
 	 * 
-	 * @return y
+	 * @return y, the value of the y
 	 */
 	public double getY() {//getter for y 
 		// TODO Auto-generated method stub
