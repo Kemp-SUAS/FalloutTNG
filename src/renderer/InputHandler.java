@@ -55,7 +55,7 @@ public class InputHandler implements KeyListener {
 		if (keyCode == event.VK_DOWN) {
 			WorldLayout.down = true;
 		}
-		if (keyCode == event.VK_E) {
+		if (keyCode == event.VK_ENTER) {
 			WorldLayout.enter = true;
 		}
 		if (keyCode == event.VK_SPACE) {
@@ -107,7 +107,7 @@ public class InputHandler implements KeyListener {
 			WorldLayout.down = false;
 
 		}
-		if (keyCode == event.VK_E) {
+		if (keyCode == event.VK_ENTER) {
 			WorldLayout.enter = false;
 		}
 		if (keyCode == event.VK_SPACE) {

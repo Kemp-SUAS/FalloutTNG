@@ -295,7 +295,7 @@ public class WorldLayout extends Canvas implements Runnable {
 			Timer timer = new Timer();
 			timer.schedule(new ReloadTime(), 0, 500);
 
-			bullets.add(new Shooter(400 - xOffset, 300 - yOffset, this, rotation));
+			bullets.add(new Shooter(395 - xOffset, 300 - yOffset, this, rotation));
 			c.addBullet(bullets.get(bullets.size() - 1));
 		}
 		if (!bullets.isEmpty()) {
