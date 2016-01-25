@@ -14,6 +14,7 @@ public class AssetManager {
 
 	// The object used for excecuting the static SQLite object
 	static Statement stat;
+
 	/**
 	 * This static method helps to get the external String data from SQLite
 	 * 
@@ -35,13 +36,29 @@ public class AssetManager {
 	 *             method in class ClassLoader.
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		
-		//dataBasePut("test", "Money", "'$100'");
-		dataBaseUpdate("test", "Money", 1 , "'$200'");
+
+		// dataBasePut("test", "Money", "'$100'");
+		dataBaseUpdate("test", "Money", 1, "'$200'");
 		System.out.println(dataBaseGet("test", 1, "Money"));
-			
+
 	}
 
+	/**
+	 * 
+	 * @param tableName
+	 *            The name of the table being placed into.
+	 * @param id
+	 *            ID of desired object on the table.
+	 * @param column
+	 *            Column of the desired object on the table.
+	 * @return String Returns a string value.
+	 * @throws SQLException
+	 *             An exception that provides information on a database access
+	 *             error or other errors.
+	 * @throws ClassNotFoundException
+	 *             exception that provides information on a database access
+	 *             error or other errors.
+	 */
 	public static String dataBaseGet(String tableName, int id, String column)
 			throws SQLException, ClassNotFoundException {
 
@@ -54,7 +71,7 @@ public class AssetManager {
 	}
 
 	/**
-	 * THis static method helps to get the external String data from SQLite and
+	 * This static method helps to get the external String data from SQLite and
 	 * places it in a String Array
 	 * 
 	 * @param tableName,String
@@ -83,6 +100,22 @@ public class AssetManager {
 		return data;
 	}
 
+	/**
+	 * This static method allows data to be stored in the SQLite database
+	 * 
+	 * @param tableName
+	 *            Name of the table.
+	 * @param column
+	 *            The column being placed into.
+	 * @param value
+	 *            The value of the stored string.
+	 * @throws SQLException
+	 *             exception that provides information on a database access
+	 *             error or other errors.
+	 * @throws ClassNotFoundException
+	 *             An exception that provides information on a database access
+	 *             error or other errors.
+	 */
 	public static void dataBasePut(String tableName, String column, String value)
 			throws SQLException, ClassNotFoundException {
 		Class.forName("org.sqlite.JDBC");
@@ -92,14 +125,29 @@ public class AssetManager {
 		stat.executeUpdate(sql);
 		c.close();
 	}
-	public static void dataBaseUpdate(String tableName, String column, int id, String value) throws ClassNotFoundException, SQLException{
+
+	/**
+	 * 
+	 * @param tableName
+	 * @param column
+	 * @param id
+	 * @param value
+	 * @throws ClassNotFoundException
+	 *             exception that provides information on a database access
+	 *             error or other errors.
+	 * @throws SQLException
+	 *             An exception that provides information on a database access *
+	 *             error or other errors.
+	 */
+	public static void dataBaseUpdate(String tableName, String column, int id, String value)
+			throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
 		Connection c = DriverManager.getConnection("jdbc:sqlite:Assets/Data/data.db");
-		PreparedStatement ps = c.prepareStatement("UPDATE " + tableName + " SET " + column + " = ? WHERE id = ?"); 
+		PreparedStatement ps = c.prepareStatement("UPDATE " + tableName + " SET " + column + " = ? WHERE id = ?");
 		ps.setString(1, value);
 		ps.setInt(2, id);
 		ps.executeUpdate();
 		ps.close();
 	}
-	
+
 }

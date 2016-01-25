@@ -14,8 +14,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import vault1.CharacterFolder.PlayerSkillPoints;
-
+/**
+ * This screen is displayed while the user plays the game so they are able to see the contents on them.
+ * @author Kieran Wilson, Faduma Ahmed, Simar Kalsi, Mohid Aslam 
+ *
+ */
 public class InventoryScreen {
+
 
 	public PlayerSkillPoints skill = new PlayerSkillPoints();
 
@@ -40,6 +45,9 @@ public class InventoryScreen {
 	private JButton backToGame = new JButton("Return To The Game");
 	private JButton exit = new JButton("Exit");
 
+	/**
+	 * The inventory screen displayed on the screen and shows the stats of the player in game.
+	 */
 	public InventoryScreen() {
 		Image background = Toolkit.getDefaultToolkit().createImage("Assets/Pictures/MainScreen/Inventory.png");
 
