@@ -212,8 +212,8 @@ public class WorldLayout extends Canvas implements Runnable {
 				WorldLayout.rotation = 315;
 			}
 			if (down && left) {
-				yOffset += 0.5;
-				xOffset -= 0.5;
+				yOffset -= 0.5;
+				xOffset += 0.5;
 				xValue = xOffset;
 				yValue = yOffset;
 				WorldLayout.rotation = 225;
@@ -278,6 +278,8 @@ public class WorldLayout extends Canvas implements Runnable {
 			xValue = xOffset;
 			yValue = yOffset;
 		}
+		System.out.println("X offset = " + xOffset);
+		System.out.println("Y offset = " + yOffset);
 		for (int i = 0; i <= horizontalNumber; i++) {
 			if (xOffset < currentLevel.getHorizontalTransitionInfo().get(i).getX1()
 					&& xOffset > currentLevel.getHorizontalTransitionInfo().get(i).getX2()
@@ -299,19 +301,19 @@ public class WorldLayout extends Canvas implements Runnable {
 				enter = false;
 			}
 		}
-		for (int i = 0; i <= horizontalNumber; i++) {
-			if (xOffset < currentLevel.getVerticalTransitionInfo().get(i).getY1()
-					&& xOffset > currentLevel.getVerticalTransitionInfo().get(i).getY2()
-					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1()) {
+		for (int i = 0; i <= verticalNumber; i++) {
+			if (yOffset > currentLevel.getVerticalTransitionInfo().get(i).getY1()
+					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getY2()
+					&& xOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1()) {
 				Font font = new Font("Serif", Font.PLAIN, 25);
 				Graphics2D g2 = (Graphics2D) g;
 				g2.setColor(Color.BLUE);
 				g2.setFont(font);
 				g2.drawString("Enter", 380, 260);
 			}
-			if (xOffset < currentLevel.getVerticalTransitionInfo().get(i).getY1()
-					&& xOffset > currentLevel.getVerticalTransitionInfo().get(i).getY2()
-					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1() && enter == true) {
+			if (yOffset > currentLevel.getVerticalTransitionInfo().get(i).getY1()
+					&& yOffset < currentLevel.getVerticalTransitionInfo().get(i).getY2()
+					&& xOffset < currentLevel.getVerticalTransitionInfo().get(i).getX1() && enter == true) {
 				background = new Background(0, 0, this,
 						"Assets/Pictures/Textures/levels/Hallway_v2_compressed_interlaced.png");
 				yOffset = 0;
