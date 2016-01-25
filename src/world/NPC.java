@@ -57,6 +57,13 @@ public class NPC {
 		
 		
 	}
+	public boolean collide(double xOffset, double yOffset){
+		if(xOffset>(this.X + xOffset)-50 && xOffset<(this.X + xOffset)+50&& yOffset>(this.Y + yOffset)-50
+				&& yOffset>(this.Y + yOffset)+50){
+			return true;
+		}
+		return false;
+	}
 	/**
 	 * 
 	 * @param topDwn

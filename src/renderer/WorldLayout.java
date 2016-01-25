@@ -71,6 +71,8 @@ public class WorldLayout extends Canvas implements Runnable {
 	private ArrayList<Shooter> bullets = new ArrayList<Shooter>();
 	private ArrayList<Level> levels = new ArrayList<Level>();
 	boolean firstInteract = false;
+	int levelTwoKill;
+	boolean playerDead = false;
 
 	private int currentLevelID = 1;
 	private int levelCount = 2;
@@ -587,11 +589,44 @@ public class WorldLayout extends Canvas implements Runnable {
 			}
 			
 		}
+		if(levelId == 2){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			NPC stalker = new NPC((int)xOffset,(int) yOffset);
+			stalker.render(g,xOffset, yOffset);
+			Graphics2D g2 = (Graphics2D) g;
+			Graphics2D player = (Graphics2D) g;
+			player.setColor(Color.RED);
+			g2.setColor(Color.BLACK);
+			if(levelTwoKill < 1){
+				player.setFont(font);
+				player.drawString("Ohh my a stalker", 300, 100);
+				player.drawString("They look just like you to confuse you", 300, 130);
+				player.drawString("I need to kill it before it kill me", 300, 160);
+			}
+
+		}
+		
 		System.out.println("X = " + xOffset);
 		System.out.println("Y = " + yOffset);
 		
-
 		c.render(g);
+		
+		if(playerDead == true){
+			Font font = new Font("Serif", Font.PLAIN, 25);
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setColor(Color.RED);
+			g2.setFont(font);
+			g2.drawString("Good job your DEAD!!!!!!! ENJOY THIScute dogs picture kieran sure will", 100, 100);
+			try {
+				background = new Background(0, 0, this, AssetManager.dataBaseGet("image_strings", 20, "path"));
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		player.render(g, rotation);
 		g.dispose();
 		bs.show();
