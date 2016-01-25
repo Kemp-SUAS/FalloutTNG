@@ -310,11 +310,34 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 		if (!bullets.isEmpty()) {
 			for (int i = 0; i < bullets.size(); i++) {
+				System.out.println("Bullets Y :"+bullets.get(i).getY());
+				System.out.println("Bullets X:"+bullets.get(i).getX());
 				if (bullets.get(i).getDirection().equals("0")) {
 					if (bullets.get(i).getY() < 0) {
+						System.out.println("Bullet removed");
 						Controller.b.remove(i);
 						bullets.remove(i);
+					}
+				}
+				else if (bullets.get(i).getDirection().equals("90")) {
+					if (bullets.get(i).getX() > backgroundX) {
 						System.out.println("Bullet removed");
+						Controller.b.remove(i);
+						bullets.remove(i);
+					}
+				}
+				else if (bullets.get(i).getDirection().equals("180")) {
+					if (bullets.get(i).getY() > backgroundY) {
+						System.out.println("Bullet removed");
+						Controller.b.remove(i);
+						bullets.remove(i);
+					}
+				}
+				else if (bullets.get(i).getDirection().equals("270")) {
+					if (bullets.get(i).getX() < 0) {
+						System.out.println("Bullet removed");
+						Controller.b.remove(i);
+						bullets.remove(i);
 					}
 				}
 			}
