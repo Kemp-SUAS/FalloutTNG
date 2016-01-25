@@ -165,16 +165,6 @@ public class WorldLayout extends Canvas implements Runnable {
 		player.tick(this);
 		npc.tick(this);
 		c.tick();
-		
-		if(inventoryPanel)
-		{
-			frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
-				
-			InventoryScreen inventory = new InventoryScreen();
-			inventory.start();
-			
-		}
-
 	}
 
 	
@@ -280,6 +270,7 @@ public class WorldLayout extends Canvas implements Runnable {
 			yValue = yOffset;
 		}
 		if (xOffset > 400 - 32) {
+			
 			xOffset = 400 - 32;
 			xValue = xOffset;
 			yValue = yOffset;
@@ -296,6 +287,7 @@ public class WorldLayout extends Canvas implements Runnable {
 		}
 		System.out.println("X offset = " + xOffset);
 		System.out.println("Y offset = " + yOffset);
+		
 		for (int i = 0; i <= horizontalNumber; i++) {
 			
 			

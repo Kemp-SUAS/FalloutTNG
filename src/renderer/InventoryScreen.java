@@ -50,7 +50,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 * label for strength
 	 */
-	private JLabel strengthLabel;
+	private JLabel strengthLabel = new JLabel();
 	/**
 	 * Button for awareness
 	 */
@@ -58,7 +58,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 * Label for awareness
 	 */
-	private JLabel awarenessLabel;
+	private JLabel awarenessLabel = new JLabel();
 	/**
 	 * Button for endurance
 	 */
@@ -66,7 +66,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 * Label for endurance
 	 */
-	private JLabel enduranceLabel;
+	private JLabel enduranceLabel = new JLabel();
 	/**
 	 * Button for Luck
 	 */
@@ -74,7 +74,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 * Label for Luck
 	 */
-	private JLabel luckLabel;
+	private JLabel luckLabel = new JLabel();
 	/**
 	 * Button for intelligence
 	 */
@@ -82,7 +82,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 * Label for intelligence
 	 */
-	private JLabel intelligenceLabel;
+	private JLabel intelligenceLabel = new JLabel();
 	/**
 	 * Button for wit
 	 */
@@ -90,7 +90,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 * Label for wit
 	 */
-	private JLabel witLabel;
+	private JLabel witLabel = new JLabel();
 	/**
 	 * Button for dexterity
 	 */
@@ -98,7 +98,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 * Label for dexterity
 	 */
-	private JLabel dexterityLabel;
+	private JLabel dexterityLabel = new JLabel();
 	/**
 	 * Button for weight multiplier
 	 */
@@ -106,7 +106,7 @@ public class InventoryScreen extends JPanel implements Runnable{
 	/**
 	 *  Label for weight multiplier
 	 */
-	private JLabel weightCarryMultiplierLabel;
+	private JLabel weightCarryMultiplierLabel = new JLabel();
 	/**
 	 * Button for Return to Main Menu
 	 */

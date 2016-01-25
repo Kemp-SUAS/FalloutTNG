@@ -24,6 +24,7 @@ public class Level {
 	static ArrayList<String> imageInfo = new ArrayList<String>();
 	static ArrayList<horizontalTransition> horizontalTransitionInfo = new ArrayList<horizontalTransition>();
 	static ArrayList<verticalTransition> verticalTransitionInfo = new ArrayList<verticalTransition>();
+	static ArrayList<Items> itemsOnScreen = new ArrayList<Items>();
 
 	/**
 	 * 
@@ -205,6 +206,25 @@ public class Level {
 					Integer.parseInt(values[2]), Integer.parseInt(values[3])));
 		}
 		return verticalTransitionInfo;
+	}
+	public ArrayList<Items> getItems() {
+		try {
+			verticalTransition = AssetManager.dataBaseGet("Level", id, "items");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String delims = "[|]+";
+		String delims2 = "[,]+";
+		String[] transfer = verticalTransition.split(delims);
+		for (int i1 = 0; i1 < transfer.length; i1++) {
+			String[] values = transfer[i1].split(delims2);
+			itemsOnScreen.add(new Items(Integer.parseInt(values[0]),Integer.parseInt(values[1]),Integer.parseInt(values[2])));
+		}
+		return itemsOnScreen;
 	}
 
 	/**
