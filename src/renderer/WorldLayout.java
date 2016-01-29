@@ -6,18 +6,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.awt.event.WindowEvent;
-import java.awt.font.TextAttribute;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.Timer;
-
 import javax.swing.JFrame;
-
 import AssetHandling.AssetManager;
 import vault1.CharacterFolder.Controller;
 import vault1.CharacterFolder.Player;
@@ -36,7 +31,7 @@ public class WorldLayout extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 
-	public static Background background;
+	public Background background;
 	int x = 0;
 
 	// displays object
@@ -48,10 +43,11 @@ public class WorldLayout extends Canvas implements Runnable {
 	private NPC npc = new NPC();
 	private BufferedImage bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
+	@SuppressWarnings("unused")
 	private double xValue;
+	@SuppressWarnings("unused")
 	private double yValue;
 	public static boolean space = false;
-	private boolean inventoryFrame;
 	public static JFrame frame;
 	private static Boolean running = false;
 	private static String Tittle = "Top Down Scrolling";
@@ -59,33 +55,33 @@ public class WorldLayout extends Canvas implements Runnable {
 	private static final int HEIGHT = 600;
 	private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 	private long lastTime;
-	private long timer = 1000 / 60;
 	private double fps;
 	private int backgroundX = 0;
 	private int backgroundY = 0;
-	private Texture image;
 	private Texture inventory;
-	private Shooter shoot;
 	boolean medkitPickup = false;
 	private Controller c;
 	private ArrayList<Shooter> bullets = new ArrayList<Shooter>();
-	private ArrayList<Level> levels = new ArrayList<Level>();
 	boolean firstInteract = false;
 	int levelTwoKill;
 	boolean playerDead = false;
 
+	@SuppressWarnings("unused")
 	private int currentLevelID = 1;
-	private int levelCount = 2;
 	// Key Controlls
 
 	public static boolean left, right, up, down, enter, remove, inventoryPanel, one, two, three;
 	public static double rotation, fpsStat;
 
+	@SuppressWarnings("unused")
 	private static ArrayList<String> horizontalTransitionInfo = new ArrayList<String>();
+	@SuppressWarnings("unused")
 	private static ArrayList<String> verticalTransitionInfo = new ArrayList<String>();
 	private Level level = new Level(1);
 	private Level currentLevel = level;
+	@SuppressWarnings("unused")
 	private int horizontalNumber;
+	@SuppressWarnings("unused")
 	private int verticalNumber;
 	private int levelId = 1;
 	Level level2 = new Level(2);
@@ -692,6 +688,7 @@ public class WorldLayout extends Canvas implements Runnable {
 	 * 
 	 * @param frame
 	 */
+	@SuppressWarnings("static-access")
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}

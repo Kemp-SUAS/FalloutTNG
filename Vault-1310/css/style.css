@@ -1,7 +1,7 @@
 body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	color: #ffcc00;
+	color: #1a1a1a;
 }
 .text-muted{
 	color: #BCBBBB;
@@ -32,4 +32,5 @@ body {
 .col-3-menu{
 	background-color: #6699ff;
 	font-weight: 50;
+}
 	
