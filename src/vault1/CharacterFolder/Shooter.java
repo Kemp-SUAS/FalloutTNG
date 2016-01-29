@@ -22,6 +22,8 @@ import renderer.WorldLayout;
  *
  */
 public class Shooter {
+	
+	
 
 	/**
 	 *  the y value

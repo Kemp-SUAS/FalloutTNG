@@ -7,35 +7,35 @@ import AssetHandling.AssetManager;
 
 public class Level {
 
-	private static String levelName;
-	private static String imageData;
-	private static String wallData;
-	private static String playerPosition;
-	private static String playerData;
-	private static String npcData;
-	private static String horizontalTransition = "";
-	private static String verticalTransition = "";
-	private static int id;
+	private String levelName;
+	private String imageData;
+	private String wallData;
+	private String playerPosition;
+	private String playerData;
+	private String npcData;
+	private String horizontalTransition = "";
+	private String verticalTransition = "";
+	private int id;
 
-	static ArrayList<NPC> npcDataInfo = new ArrayList<NPC>();
-	static ArrayList<String> playerDataInfo = new ArrayList<String>();
-	static ArrayList<String> playerPos = new ArrayList<String>();
-	static ArrayList<String> wallDimensions = new ArrayList<String>();
-	static ArrayList<String> imageInfo = new ArrayList<String>();
-	static ArrayList<horizontalTransition> horizontalTransitionInfo = new ArrayList<horizontalTransition>();
-	static ArrayList<verticalTransition> verticalTransitionInfo = new ArrayList<verticalTransition>();
-	static ArrayList<Items> itemsOnScreen = new ArrayList<Items>();
+	ArrayList<NPC> npcDataInfo = new ArrayList<NPC>();
+	ArrayList<String> playerDataInfo = new ArrayList<String>();
+	ArrayList<String> playerPos = new ArrayList<String>();
+	ArrayList<String> wallDimensions = new ArrayList<String>();
+	ArrayList<String> imageInfo = new ArrayList<String>();
+	ArrayList<horizontalTransition> horizontalTransitionInfo = new ArrayList<horizontalTransition>();
+	ArrayList<verticalTransition> verticalTransitionInfo = new ArrayList<verticalTransition>();
+	ArrayList<Items> itemsOnScreen = new ArrayList<Items>();
 
 	/**
 	 * 
 	 * @param id
 	 */
 	public Level(int id) {
-		Level.id = id;
+		this.id = id;
 
 	}
 	public int getLevelId(){
-		return Level.id;
+		return this.id;
 	}
 
 	public Level() {
@@ -52,7 +52,7 @@ public class Level {
 	 */
 	public String getImageData(int i) {
 		try {
-			Level.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
+			this.imageData = AssetManager.dataBaseGet("Level", id, "imageData");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,7 +61,7 @@ public class Level {
 			e.printStackTrace();
 		}
 		String delims = "[,]+";
-		String[] transfer = Level.imageData.split(delims);
+		String[] transfer = this.imageData.split(delims);
 		for (int i1 = 0; i1 < transfer.length; i1++) {
 			imageInfo.add(transfer[i1]);
 		}
@@ -253,7 +253,7 @@ public class Level {
 	}
 
 	public void setLevelName(String levelName) throws ClassNotFoundException, SQLException {
-		Level.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
+		this.levelName = AssetManager.dataBaseGet("Level", id, "levelName");
 	}
 
 }
