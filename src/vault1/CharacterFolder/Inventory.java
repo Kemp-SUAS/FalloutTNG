@@ -13,7 +13,7 @@ import AssetHandling.AssetManager;
  */
 public class Inventory {
 	/**
-	 * object from stats class
+	 * object from starts class
 	 */
 	private PlayerGameplayStats playerStats;
 	/**
@@ -44,8 +44,8 @@ public class Inventory {
 	 * 
 	 * @param args, the usual array list in the main
 	 * @throws ClassNotFoundException, if the class is not found
-	 * @throws SQLException, if there is a problem retrieving imfo from SQLIte
-	 * @throws CharacterException, if the character stats aren't enough or can't be retrived
+	 * @throws SQLException, if there is a problem retrieving info from SQLIte
+	 * @throws CharacterException, if the character stats aren't enough or can't be retrieved
 	 */
 	public static void main(String[] args) throws CharacterException, ClassNotFoundException, SQLException {
 
