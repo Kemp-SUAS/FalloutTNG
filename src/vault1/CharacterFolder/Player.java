@@ -16,17 +16,18 @@ import renderer.WorldLayout;
 import renderer.InputHandler;
 
 /**
- * 
- * @author Faduma Ahmed
+ * This class controls the image of the player and where the image is located on the screen.
+ * @author Faduma Ahmed, Kieran Wilson
  *
  */
 public class Player {
 
-	double x = 368;
-	double y = 268;
+	private static double x = 368;
+	private static double y = 268;
 	WorldLayout topDwn;
 	double rotation;
-	Texture playerMode_up = new Texture("Assets/Pictures/Textures/Character/Unsorted/Characters/Shooter2.png");
+	static Texture playerMode_up = new Texture("Assets/Pictures/Textures/Character/Unsorted/Characters/Shooter2.png");
+	
 
 	/**
 	 * 
@@ -47,15 +48,24 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 * Main method used for testing the altering of values inside the player class.
 	 * @param args
 	 */
 	public static void main(String args[]) {
-
-	}
+		System.out.println(x);
+		x = x + 30;
+		System.out.println(x);		
+		System.out.println(y);
+		y = y - 40;
+		System.out.println(y);
+		
+		System.out.println(playerMode_up);
+		playerMode_up = new Texture ("Assets/Pictures/Textures/bubbles_v1.png");
+		System.out.println(playerMode_up);
+		}
 
 	/**
-	 * 
+	 * This class is run in the main method and draws the image on the screen.
 	 * @param g
 	 * @param rotation
 	 */
